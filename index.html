@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Universul Observabil — 1D · 2D · 3D</title>
+<meta name="description" content="Tripticul interactiv al cosmosului — trei instrumente de explorare a Universului observabil. Date JWST 2026, cosmologie ΛCDM.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Barlow:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Barlow+Condensed:wght@300;400;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --void: #010612;
+  --deep: #050c1a;
+  --panel: rgba(5,12,28,0.90);
+  --border: rgba(80,140,255,0.10);
+  --border-h: rgba(80,160,255,0.35);
+  --accent: #3d9bff;
+  --gold: #f0c040;
+  --dim: #3a5a7a;
+  --dim2: #5a7a9a;
+  --text: #b0c8e0;
+  --text2: #7a9ab8;
+  --white: #e8f4ff;
+  --r1: #ff5577;
+  --r2: #30d090;
+  --r3: #7878ff;
+  --mono: 'JetBrains Mono', monospace;
+  --display: 'Cinzel', serif;
+  --cond: 'Barlow Condensed', sans-serif;
+  --body: 'Barlow', sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--body); background: var(--void); color: var(--text); min-height: 100vh; overflow-x: hidden; cursor: none; }
+
+/* CURSOR */
+#cur { position:fixed;z-index:9999;pointer-events:none;width:10px;height:10px;border-radius:50%;background:var(--accent);box-shadow:0 0 12px var(--accent),0 0 24px rgba(61,155,255,.5);transform:translate(-50%,-50%);transition:width .15s,height .15s,background .15s;mix-blend-mode:screen; }
+#curR { position:fixed;z-index:9998;pointer-events:none;width:36px;height:36px;border-radius:50%;border:1px solid rgba(61,155,255,.4);transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s; }
+body:has(a:hover) #cur { width:16px;height:16px;background:var(--gold);box-shadow:0 0 20px var(--gold); }
+body:has(a:hover) #curR { width:52px;height:52px;border-color:rgba(240,192,64,.5); }
+
+/* PROGRESS */
+#prog { position:fixed;top:0;left:0;z-index:200;height:2px;width:0%;background:linear-gradient(90deg,var(--r1),var(--accent),var(--r3),var(--gold));background-size:200% 100%;animation:gradShift 3s linear infinite;transition:width .1s linear; }
+
+/* CANVASES */
+#cneb,#cstr { position:fixed;inset:0;z-index:0;pointer-events:none; }
+#cneb { z-index:0;opacity:.7; }
+#cstr { z-index:1; }
+#cpar { position:fixed;inset:0;z-index:5;pointer-events:none; }
+
+/* NAV */
+nav { position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 36px;background:rgba(1,6,18,.78);backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid var(--border); }
+nav::after { content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--accent),var(--gold),var(--accent),transparent);background-size:200% 100%;opacity:.3;animation:scanNav 5s linear infinite; }
+.nav-logo { font-family:var(--display);font-size:13px;letter-spacing:2.5px;color:var(--gold);text-decoration:none;animation:glowPulse 3s ease-in-out infinite; }
+.nav-logo span { color:var(--dim2); }
+.nav-right { display:flex;align-items:center;gap:24px; }
+.nav-link { font-family:var(--cond);font-size:13px;letter-spacing:.5px;color:var(--dim2);text-decoration:none;transition:color .2s,text-shadow .2s; }
+.nav-link:hover { color:var(--white);text-shadow:0 0 10px var(--accent); }
+.lang-btn { font-family:var(--mono);font-size:11px;letter-spacing:2px;background:transparent;border:1px solid var(--border-h);color:var(--text2);padding:5px 14px;border-radius:4px;cursor:none;transition:all .25s; }
+.lang-btn:hover { background:rgba(61,155,255,.12);color:var(--accent); }
+
+/* HERO */
+.hero { position:relative;z-index:10;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;perspective:1000px; }
+.hero-inner { transform-style:preserve-3d;will-change:transform; }
+.hero-eyebrow { font-family:var(--mono);font-size:11px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;margin-bottom:32px;opacity:0;animation:fadeUp .8s .3s ease forwards;text-shadow:0 0 20px rgba(240,192,64,.5); }
+.hero-eyebrow span { color:var(--dim2); }
+.hero-title { font-family:var(--display);font-size:clamp(44px,8.5vw,108px);font-weight:900;line-height:1;letter-spacing:-2px;color:var(--white);margin-bottom:10px;opacity:0;animation:fadeUp .9s .45s ease forwards;position:relative; }
+.hero-title .dim-w { color:var(--dim);font-weight:400; }
+.hero-title::after { content:attr(data-text);position:absolute;inset:0;background:linear-gradient(135deg,var(--accent),var(--r3),var(--gold));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;opacity:0;animation:titleShine 6s 2s ease-in-out infinite; }
+.hero-dims { font-family:var(--cond);font-size:clamp(28px,5vw,56px);font-weight:300;letter-spacing:16px;margin-bottom:36px;opacity:0;animation:fadeUp .9s .6s ease forwards; }
+.d1 { color:var(--r1);text-shadow:0 0 20px var(--r1),0 0 40px rgba(255,85,119,.3); }
+.d2 { color:var(--r2);text-shadow:0 0 20px var(--r2),0 0 40px rgba(48,208,144,.3); }
+.d3 { color:var(--r3);text-shadow:0 0 20px var(--r3),0 0 40px rgba(120,120,255,.3); }
+.hero-typing { font-family:var(--mono);font-size:15px;color:var(--text2);margin-bottom:52px;min-height:24px;opacity:0;animation:fadeUp .9s .75s ease forwards; }
+.tcur { display:inline-block;width:2px;height:1em;background:var(--accent);vertical-align:text-bottom;margin-left:2px;animation:blink .7s step-end infinite; }
+.hero-stats { display:flex;gap:48px;justify-content:center;flex-wrap:wrap;margin-bottom:64px;opacity:0;animation:fadeUp .9s .9s ease forwards; }
+.hero-stat { text-align:center; }
+.hsn { font-family:var(--mono);font-size:32px;font-weight:500;color:var(--gold);display:block;line-height:1;text-shadow:0 0 20px rgba(240,192,64,.5);margin-bottom:6px; }
+.hsl { font-family:var(--cond);font-size:11px;letter-spacing:2px;color:var(--dim2);text-transform:uppercase; }
+.scroll-ind { display:flex;flex-direction:column;align-items:center;gap:10px;font-family:var(--mono);font-size:9px;letter-spacing:4px;color:var(--dim);text-decoration:none;opacity:0;animation:fadeUp .9s 1.1s ease forwards; }
+.schevs { display:flex;flex-direction:column;align-items:center;gap:3px; }
+.schev { width:12px;height:12px;border-right:1px solid var(--dim);border-bottom:1px solid var(--dim);transform:rotate(45deg);animation:chevFall 1.5s ease-in-out infinite; }
+.schev:nth-child(2){animation-delay:.2s;opacity:.6;} .schev:nth-child(3){animation-delay:.4s;opacity:.3;}
+.float-lbl { position:absolute;font-family:var(--mono);font-size:9px;letter-spacing:1.5px;color:var(--dim);pointer-events:none;animation:floatUp linear infinite;opacity:0; }
+
+/* DIVIDER */
+.cdiv { position:relative;z-index:10;height:1px;background:linear-gradient(90deg,transparent 0%,var(--r1) 20%,var(--accent) 50%,var(--r3) 80%,transparent 100%);opacity:.2; }
+.cdiv::before { content:'';position:absolute;inset:-2px;background:inherit;filter:blur(4px);opacity:.5; }
+
+/* SECTION */
+section { padding:100px 0;position:relative;z-index:10; }
+.pw { max-width:1200px;margin:0 auto;padding:0 28px; }
+.slbl { font-family:var(--mono);font-size:10px;letter-spacing:5px;color:var(--dim);text-transform:uppercase;margin-bottom:16px;display:block; }
+.stitle { font-family:var(--display);font-size:clamp(26px,4vw,42px);font-weight:700;color:var(--white);line-height:1.1;margin-bottom:18px; }
+.ssub { font-size:16px;color:var(--text2);max-width:580px;line-height:1.7; }
+
+/* CARDS GRID */
+.dims-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:28px;margin-top:64px; }
+.dim-card { position:relative;border-radius:20px;overflow:visible;transform-style:preserve-3d;transition:transform .05s linear;cursor:none; }
+
+@property --angle { syntax:'<angle>';initial-value:0deg;inherits:false; }
+.dim-card::before { content:'';position:absolute;inset:-1.5px;border-radius:21px;z-index:-1;background:conic-gradient(from var(--angle),transparent 60%,var(--cc,#3d9bff) 80%,transparent 100%);animation:rotateBorder 4s linear infinite;opacity:0;transition:opacity .4s; }
+.dim-card:hover::before { opacity:1; }
+@keyframes rotateBorder { to { --angle:360deg; } }
+.card-1{--cc:var(--r1);}.card-2{--cc:var(--r2);}.card-3{--cc:var(--r3);}
+
+.dci { background:var(--panel);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:border-color .3s,box-shadow .3s;position:relative; }
+.card-1:hover .dci { border-color:rgba(255,85,119,.3);box-shadow:0 32px 80px rgba(0,0,0,.6),0 0 60px rgba(255,85,119,.08),inset 0 1px 0 rgba(255,85,119,.1); }
+.card-2:hover .dci { border-color:rgba(48,208,144,.3);box-shadow:0 32px 80px rgba(0,0,0,.6),0 0 60px rgba(48,208,144,.07),inset 0 1px 0 rgba(48,208,144,.1); }
+.card-3:hover .dci { border-color:rgba(120,120,255,.3);box-shadow:0 32px 80px rgba(0,0,0,.6),0 0 60px rgba(120,120,255,.10),inset 0 1px 0 rgba(120,120,255,.12); }
+.dci::after { content:'';position:absolute;inset:0;border-radius:20px;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.04) 0%,transparent 60%);pointer-events:none;opacity:0;transition:opacity .3s; }
+.dim-card:hover .dci::after { opacity:1; }
+
+.dcv { height:210px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center; }
+.card-1 .dcv{background:radial-gradient(ellipse at 50% 80%,rgba(255,70,100,.10) 0%,transparent 65%);}
+.card-2 .dcv{background:radial-gradient(ellipse at 50% 80%,rgba(40,200,130,.09) 0%,transparent 65%);}
+.card-3 .dcv{background:radial-gradient(ellipse at 50% 80%,rgba(100,100,255,.11) 0%,transparent 65%);}
+.dcv::after { content:'';position:absolute;left:0;right:0;height:1px;background:var(--cc);opacity:0;animation:scanLine 4s linear infinite;transition:opacity .3s; }
+.dim-card:hover .dcv::after { opacity:.25; }
+@keyframes scanLine { 0%{top:0%;} 100%{top:100%;} }
+
+.viz { width:100%;height:100%;position:absolute; }
+.dcb { padding:28px 30px 32px; }
+.dbadge { display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;letter-spacing:2.5px;padding:5px 14px;border-radius:4px;margin-bottom:18px;text-transform:uppercase; }
+.card-1 .dbadge{background:rgba(255,85,119,.10);color:var(--r1);border:1px solid rgba(255,85,119,.22);}
+.card-2 .dbadge{background:rgba(48,208,144,.08);color:var(--r2);border:1px solid rgba(48,208,144,.22);}
+.card-3 .dbadge{background:rgba(120,120,255,.10);color:var(--r3);border:1px solid rgba(120,120,255,.25);}
+.dctitle { font-family:var(--display);font-size:23px;font-weight:700;color:var(--white);margin-bottom:6px; }
+.dcsub { font-family:var(--mono);font-size:10px;color:var(--dim2);letter-spacing:1px;margin-bottom:14px; }
+.dcdesc { font-size:14px;color:var(--text2);line-height:1.65;margin-bottom:22px; }
+.dcfeats { list-style:none;margin-bottom:26px;display:flex;flex-direction:column;gap:9px; }
+.dcfeats li { font-family:var(--cond);font-size:13px;color:var(--text2);display:flex;align-items:center;gap:10px;transition:color .2s; }
+.dcfeats li:hover { color:var(--white); }
+.dcfeats li::before { content:'';width:5px;height:5px;border-radius:50%;flex-shrink:0;animation:dotPulse 2s ease-in-out infinite; }
+.card-1 .dcfeats li::before{background:var(--r1);box-shadow:0 0 8px var(--r1);}
+.card-2 .dcfeats li::before{background:var(--r2);box-shadow:0 0 8px var(--r2);}
+.card-3 .dcfeats li::before{background:var(--r3);box-shadow:0 0 8px var(--r3);}
+.dmeta { display:flex;justify-content:space-between;align-items:flex-end;padding-top:20px;border-top:1px solid var(--border); }
+.dver { font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:1px; }
+.dmir { display:block;margin-top:5px;font-family:var(--mono);font-size:9px;letter-spacing:1px;color:var(--dim);text-decoration:none;transition:color .2s; }
+.card-1 .dmir:hover{color:var(--r1);}.card-2 .dmir:hover{color:var(--r2);}.card-3 .dmir:hover{color:var(--r3);}
+.lbtn { display:inline-flex;align-items:center;gap:9px;padding:11px 24px;border-radius:10px;font-family:var(--cond);font-size:14px;font-weight:700;letter-spacing:.5px;text-decoration:none;transition:all .25s;border:1px solid;cursor:none;position:relative;overflow:hidden; }
+.lbtn::before { content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);transform:translateX(-100%);transition:transform .4s; }
+.lbtn:hover::before { transform:translateX(100%); }
+.card-1 .lbtn{background:rgba(255,85,119,.10);color:var(--r1);border-color:rgba(255,85,119,.28);}
+.card-1 .lbtn:hover{background:rgba(255,85,119,.22);box-shadow:0 0 24px rgba(255,85,119,.25),0 8px 24px rgba(0,0,0,.3);transform:translateY(-2px);}
+.card-2 .lbtn{background:rgba(48,208,144,.08);color:var(--r2);border-color:rgba(48,208,144,.28);}
+.card-2 .lbtn:hover{background:rgba(48,208,144,.18);box-shadow:0 0 24px rgba(48,208,144,.2),0 8px 24px rgba(0,0,0,.3);transform:translateY(-2px);}
+.card-3 .lbtn{background:rgba(120,120,255,.10);color:var(--r3);border-color:rgba(120,120,255,.30);}
+.card-3 .lbtn:hover{background:rgba(120,120,255,.22);box-shadow:0 0 24px rgba(120,120,255,.25),0 8px 24px rgba(0,0,0,.3);transform:translateY(-2px);}
+
+/* TECH STRIP */
+.tstrip { border:1px solid var(--border);border-radius:20px;padding:44px 48px;background:var(--panel);margin-top:64px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:36px;position:relative;overflow:hidden; }
+.tstrip::before { content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(61,155,255,.04) 0%,transparent 60%),radial-gradient(ellipse at 80% 50%,rgba(120,120,255,.03) 0%,transparent 60%); }
+.tlbl { font-family:var(--mono);font-size:9px;letter-spacing:3px;color:var(--dim);text-transform:uppercase;margin-bottom:10px; }
+.tval { font-family:var(--cond);font-size:22px;font-weight:700;color:var(--gold);line-height:1;text-shadow:0 0 16px rgba(240,192,64,.3); }
+.tsub { font-size:12px;color:var(--text2);margin-top:5px; }
+
+/* COMPARISON */
+.cmp-tabs { display:flex;gap:4px;background:rgba(255,255,255,.03);padding:5px;border-radius:12px;width:fit-content;margin-bottom:28px;border:1px solid var(--border); }
+.cmp-tab { font-family:var(--cond);font-size:13px;font-weight:600;letter-spacing:.5px;padding:9px 22px;border-radius:8px;cursor:none;border:none;background:transparent;color:var(--dim2);transition:all .2s; }
+.cmp-tab.active { background:rgba(61,155,255,.12);color:var(--white); }
+.cmp-tab:hover:not(.active){color:var(--text);}
+.cmp-table-wrap { overflow-x:auto; }
+.ct { width:100%;border-collapse:collapse;font-size:14px; }
+.ct th { font-family:var(--cond);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--dim2);padding:13px 20px;text-align:left;border-bottom:1px solid var(--border); }
+.ct th.c1{color:var(--r1);}.ct th.c2{color:var(--r2);}.ct th.c3{color:var(--r3);}
+.ct td { padding:12px 20px;border-bottom:1px solid rgba(80,140,255,.05);color:var(--text2);vertical-align:middle;transition:background .2s; }
+.ct tr:hover td{background:rgba(61,155,255,.03);}
+.ct td:first-child{color:var(--text);font-family:var(--cond);font-size:13px;letter-spacing:.3px;}
+.ct td:not(:first-child){text-align:center;}
+.cy{color:#30d090;font-size:16px;filter:drop-shadow(0 0 6px #30d090);}
+.cn{color:var(--dim);}
+.cp2{color:#f0a040;font-size:11px;font-family:var(--mono);}
+.cmp-panel{display:none;}.cmp-panel.active{display:block;}
+
+/* QUOTE */
+.qsec { padding:80px 0;text-align:center;position:relative;z-index:10; }
+.qtxt { font-family:var(--display);font-size:clamp(17px,2.8vw,26px);font-style:italic;color:var(--white);line-height:1.65;max-width:820px;margin:0 auto 24px;opacity:.85; }
+.qattr { font-family:var(--mono);font-size:10px;letter-spacing:2px;color:var(--dim2); }
+
+/* CTA */
+.ctasec { padding:80px 0 120px;text-align:center;position:relative;z-index:10; }
+.ctagrid { display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:44px; }
+.cta-p { display:inline-flex;align-items:center;gap:10px;padding:15px 40px;border-radius:12px;background:linear-gradient(135deg,#3050c0,#6060e8,#4040d0);background-size:200% 200%;animation:gradShift 4s ease infinite;color:#fff;font-family:var(--cond);font-size:17px;font-weight:700;letter-spacing:.5px;text-decoration:none;border:1px solid rgba(120,120,255,.5);cursor:none;box-shadow:0 8px 40px rgba(60,60,220,.3);transition:transform .25s,box-shadow .25s; }
+.cta-p:hover{transform:translateY(-3px);box-shadow:0 16px 60px rgba(60,60,220,.45),0 0 30px rgba(120,120,255,.2);}
+.cta-s { display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:12px;background:transparent;color:var(--text2);font-family:var(--cond);font-size:16px;font-weight:600;letter-spacing:.5px;text-decoration:none;border:1px solid var(--border-h);cursor:none;transition:all .25s; }
+.cta-s:hover{color:var(--white);border-color:rgba(61,155,255,.5);transform:translateY(-2px);}
+.mrow { margin-top:30px;display:flex;gap:28px;justify-content:center;flex-wrap:wrap;align-items:center; }
+.mlbl { font-family:var(--mono);font-size:9px;letter-spacing:3px;color:var(--dim); }
+.mlink { font-family:var(--mono);font-size:11px;letter-spacing:.5px;text-decoration:none;padding:7px 16px;border-radius:6px;border:1px solid;cursor:none;transition:all .25s; }
+.ml1{color:var(--r1);border-color:rgba(255,85,119,.2);}.ml1:hover{border-color:rgba(255,85,119,.5);box-shadow:0 0 16px rgba(255,85,119,.15);}
+.ml2{color:var(--r2);border-color:rgba(48,208,144,.2);}.ml2:hover{border-color:rgba(48,208,144,.5);box-shadow:0 0 16px rgba(48,208,144,.12);}
+.ml3{color:var(--r3);border-color:rgba(120,120,255,.2);}.ml3:hover{border-color:rgba(120,120,255,.5);box-shadow:0 0 16px rgba(120,120,255,.15);}
+
+/* FOOTER */
+footer { border-top:1px solid var(--border);padding:36px 0;position:relative;z-index:10;background:rgba(1,6,18,.6);backdrop-filter:blur(10px); }
+.fi { display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;max-width:1200px;margin:0 auto;padding:0 28px; }
+.fbrand { font-family:var(--display);font-size:13px;color:var(--gold);letter-spacing:1.5px; }
+.fmeta { font-family:var(--mono);font-size:10px;letter-spacing:1.5px;color:var(--dim); }
+.flinks { display:flex;gap:20px;flex-wrap:wrap; }
+.flinks a { font-family:var(--cond);font-size:12px;letter-spacing:.5px;color:var(--dim2);text-decoration:none;transition:color .2s,text-shadow .2s;cursor:none; }
+.flinks a:hover{color:var(--white);text-shadow:0 0 10px var(--accent);}
+
+/* REVEAL */
+.reveal { opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease; }
+.reveal.fl { transform:translateX(-40px); }
+.reveal.fr { transform:translateX(40px); }
+.reveal.visible { opacity:1;transform:none; }
+.rd1{transition-delay:.1s;}.rd2{transition-delay:.22s;}.rd3{transition-delay:.34s;}
+
+/* KEYFRAMES */
+@keyframes fadeUp { from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:none;} }
+@keyframes blink { 0%,100%{opacity:1;}50%{opacity:0;} }
+@keyframes glowPulse { 0%,100%{text-shadow:0 0 12px rgba(240,192,64,.3);}50%{text-shadow:0 0 28px rgba(240,192,64,.7),0 0 50px rgba(240,192,64,.2);} }
+@keyframes titleShine { 0%,85%,100%{opacity:0;}90%,95%{opacity:.6;} }
+@keyframes dotPulse { 0%,100%{box-shadow:0 0 4px currentColor;}50%{box-shadow:0 0 12px currentColor;} }
+@keyframes chevFall { 0%{opacity:.8;transform:rotate(45deg) translateY(0);}50%{opacity:.4;transform:rotate(45deg) translateY(4px);}100%{opacity:.8;transform:rotate(45deg) translateY(0);} }
+@keyframes gradShift { 0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;} }
+@keyframes scanNav { 0%{background-position:0% 0%;}100%{background-position:200% 0%;} }
+@keyframes floatUp { 0%{transform:translateY(0) translateX(0);opacity:0;}10%{opacity:.5;}90%{opacity:.3;}100%{transform:translateY(-60px) translateX(15px);opacity:0;} }
+
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important;}body{cursor:auto;}#cur,#curR{display:none;}}
+@media (max-width:640px){nav{padding:12px 16px;}.hero-stats{gap:28px;}.tstrip{padding:24px;}.dims-grid{grid-template-columns:1fr;}body{cursor:auto;}#cur,#curR{display:none;}}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="curR"></div>
+<div id="prog"></div>
+<canvas id="cneb"></canvas>
+<canvas id="cstr"></canvas>
+<canvas id="cpar"></canvas>
+
+<nav>
+  <a href="https://alexio.tf" class="nav-logo">ALEXIO<span>.TF</span></a>
+  <div class="nav-right">
+    <a href="https://alexio.tf" class="nav-link" id="nhome">Acasă</a>
+    <a href="https://patreon.com/c/alexio_tf" class="nav-link" target="_blank" rel="noopener">Patreon</a>
+    <button class="lang-btn" id="langBtn">EN</button>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner" id="heroInner">
+    <div class="float-lbl" style="top:18%;left:4%;animation-duration:14s;animation-delay:2s">RA 00h 42m · Dec +41°</div>
+    <div class="float-lbl" style="top:72%;left:6%;animation-duration:18s;animation-delay:1s">z = 14.44 · MoM-z14</div>
+    <div class="float-lbl" style="top:22%;right:5%;animation-duration:16s;animation-delay:3s">H₀ = 67.4 km/s/Mpc</div>
+    <div class="float-lbl" style="top:68%;right:4%;animation-duration:12s;animation-delay:.5s">D_C = 45.6 Gly</div>
+    <div class="float-lbl" style="top:42%;left:2%;animation-duration:20s;animation-delay:4s">ΛCDM · Planck 2018</div>
+    <div class="float-lbl" style="top:38%;right:3%;animation-duration:15s;animation-delay:2.5s">Three.js r128 · WebGL</div>
+
+    <div class="hero-eyebrow"><span>alexio.tf /</span> universul-observabil</div>
+    <h1 class="hero-title" data-text="Universul Observabil">Universul<br><span class="dim-w">Observabil</span></h1>
+    <div class="hero-dims"><span class="d1">1D</span>&nbsp;·&nbsp;<span class="d2">2D</span>&nbsp;·&nbsp;<span class="d3">3D</span></div>
+    <div class="hero-typing"><span id="ttext"></span><span class="tcur"></span></div>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="hsn" id="sgal">0</span><span class="hsl" data-ro="Galaxii catalogate" data-en="Catalogued galaxies">Galaxii catalogate</span></div>
+      <div class="hero-stat"><span class="hsn">z=14,44</span><span class="hsl" data-ro="Record JWST 2026" data-en="JWST 2026 record">Record JWST 2026</span></div>
+      <div class="hero-stat"><span class="hsn">45,6 Gly</span><span class="hsl" data-ro="Orizont cosmic" data-en="Cosmic horizon">Orizont cosmic</span></div>
+      <div class="hero-stat"><span class="hsn">ΛCDM</span><span class="hsl" data-ro="Cosmologie completă" data-en="Full cosmology">Cosmologie completă</span></div>
+    </div>
+    <a href="#dims" class="scroll-ind">
+      <div class="schevs"><div class="schev"></div><div class="schev"></div><div class="schev"></div></div>
+      <span id="slbl">EXPLOREAZĂ</span>
+    </a>
+  </div>
+</div>
+
+<div class="cdiv"></div>
+
+<section id="dims">
+  <div class="pw">
+    <span class="slbl reveal fl">Instrumentele</span>
+    <h2 class="stitle reveal fl rd1" data-ro="Trei moduri de a vedea același Univers" data-en="Three ways to see the same Universe">Trei moduri de a vedea același Univers</h2>
+    <p class="ssub reveal fl rd2" data-ro="Fiecare versiune reprezintă o filozofie distinctă de vizualizare — nu o simplă iterație, ci un instrument diferit pentru același set de date." data-en="Each version is a distinct visualization philosophy — not a simple iteration, but a different instrument for the same dataset.">Fiecare versiune reprezintă o filozofie distinctă de vizualizare — nu o simplă iterație, ci un instrument diferit pentru același set de date.</p>
+
+    <div class="dims-grid">
+      <!-- 1D -->
+      <div class="dim-card card-1 reveal rd1">
+        <div class="dci">
+          <div class="dcv">
+            <svg class="viz" viewBox="0 0 400 210" xmlns="http://www.w3.org/2000/svg">
+              <defs><filter id="g1"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><linearGradient id="rg" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="rgba(255,85,119,0)"/><stop offset="40%" stop-color="rgba(255,85,119,0.8)"/><stop offset="100%" stop-color="rgba(255,85,119,0.1)"/></linearGradient></defs>
+              <line x1="80" y1="20" x2="80" y2="190" stroke="rgba(255,85,119,0.07)" stroke-width="1"/>
+              <line x1="160" y1="20" x2="160" y2="190" stroke="rgba(255,85,119,0.07)" stroke-width="1"/>
+              <line x1="240" y1="20" x2="240" y2="190" stroke="rgba(255,85,119,0.07)" stroke-width="1"/>
+              <line x1="320" y1="20" x2="320" y2="190" stroke="rgba(255,85,119,0.07)" stroke-width="1"/>
+              <line x1="40" y1="105" x2="360" y2="105" stroke="url(#rg)" stroke-width="1.5"/>
+              <line x1="40" y1="105" x2="360" y2="105" stroke="rgba(255,85,119,0.6)" stroke-width="0.5"><animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite"/></line>
+              <rect x="64" y="78" width="20" height="25" fill="rgba(255,85,119,0.14)" rx="2"><animate attributeName="height" values="25;32;25" dur="4s" repeatCount="indefinite"/><animate attributeName="y" values="78;71;78" dur="4s" repeatCount="indefinite"/></rect>
+              <rect x="144" y="62" width="20" height="41" fill="rgba(255,85,119,0.18)" rx="2"><animate attributeName="height" values="41;50;41" dur="5s" begin="0.5s" repeatCount="indefinite"/><animate attributeName="y" values="62;53;62" dur="5s" begin="0.5s" repeatCount="indefinite"/></rect>
+              <rect x="224" y="70" width="20" height="33" fill="rgba(255,85,119,0.15)" rx="2"><animate attributeName="height" values="33;40;33" dur="6s" begin="1s" repeatCount="indefinite"/><animate attributeName="y" values="70;63;70" dur="6s" begin="1s" repeatCount="indefinite"/></rect>
+              <rect x="304" y="86" width="20" height="17" fill="rgba(255,85,119,0.11)" rx="2"/>
+              <circle cx="80" cy="105" r="4.5" fill="rgba(255,85,119,1)" filter="url(#g1)"/>
+              <circle cx="120" cy="105" r="2.5" fill="rgba(255,130,145,0.85)"/>
+              <circle cx="160" cy="105" r="5.5" fill="rgba(255,55,100,1)" filter="url(#g1)"/>
+              <circle cx="185" cy="105" r="2" fill="rgba(255,130,145,0.7)"/>
+              <circle cx="210" cy="105" r="3.5" fill="rgba(255,85,119,0.9)"/>
+              <circle cx="240" cy="105" r="4.5" fill="rgba(255,40,90,1)" filter="url(#g1)"/>
+              <circle cx="265" cy="105" r="2" fill="rgba(255,130,145,0.65)"/>
+              <circle cx="295" cy="105" r="3" fill="rgba(255,85,119,0.8)"/>
+              <circle cx="330" cy="105" r="1.8" fill="rgba(255,130,145,0.55)"/>
+              <circle r="4" fill="#ff5577" filter="url(#g1)"><animateMotion path="M 30,0 L 380,0" dur="3.5s" repeatCount="indefinite" calcMode="ease-in-out"/></circle>
+              <text x="80" y="180" text-anchor="middle" fill="rgba(255,85,119,0.35)" font-family="JetBrains Mono,monospace" font-size="8">0</text>
+              <text x="160" y="180" text-anchor="middle" fill="rgba(255,85,119,0.35)" font-family="JetBrains Mono,monospace" font-size="8">10 Gly</text>
+              <text x="240" y="180" text-anchor="middle" fill="rgba(255,85,119,0.35)" font-family="JetBrains Mono,monospace" font-size="8">30 Gly</text>
+              <text x="320" y="180" text-anchor="middle" fill="rgba(255,85,119,0.35)" font-family="JetBrains Mono,monospace" font-size="8">45 Gly</text>
+              <text x="200" y="38" text-anchor="middle" fill="rgba(255,85,119,0.28)" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="3">LOOKBACK TIME</text>
+            </svg>
+          </div>
+          <div class="dcb">
+            <div class="dbadge">v1.0 · The Cosmic Ray™</div>
+            <h3 class="dctitle">Axa Radială</h3>
+            <p class="dcsub">LOOKBACK TIME · COMOVING · REDSHIFT · SCALE FACTOR</p>
+            <p class="dcdesc" data-ro="Cel mai didactic instrument. 112 galaxii pe o singură axă — elimină zgomotul vizual, face comparațiile cantitative imediate. Histogramă logaritmică a densității cosmice." data-en="The most didactic instrument. 112 galaxies on a single axis — eliminates visual noise, makes quantitative comparisons immediate. Logarithmic histogram of cosmic density.">Cel mai didactic instrument. 112 galaxii pe o singură axă — elimină zgomotul vizual, face comparațiile cantitative imediate.</p>
+            <ul class="dcfeats">
+              <li data-ro="4 moduri de axă: lookback time, comoving, redshift z, factor de scară" data-en="4 axis modes: lookback time, comoving, redshift z, scale factor">4 moduri de axă: lookback time, comoving, redshift z, factor scară</li>
+              <li data-ro="Histogramă logaritmică a densității cosmice" data-en="Logarithmic histogram of cosmic density">Histogramă logaritmică a densității cosmice</li>
+              <li data-ro="Quiz + tur ghidat, navigare tastatură" data-en="Quiz + guided tour, keyboard navigation">Quiz + tur ghidat, navigare tastatură</li>
+              <li data-ro="Suport CVD (daltonism), prefers-reduced-motion" data-en="CVD support (colour blindness), prefers-reduced-motion">Suport CVD (daltonism), prefers-reduced-motion</li>
+              <li data-ro="Bilingv RO/EN — offline complet, ~160 KB" data-en="Bilingual RO/EN — fully offline, ~160 KB">Bilingv RO/EN — offline complet, ~160 KB</li>
+            </ul>
+            <div class="dmeta">
+              <div><span class="dver">v1.0 · 112 galaxii</span><a class="dmir" href="https://chiuta.github.io/Universul-Observabil-1D/" target="_blank" rel="noopener">⎇ GitHub mirror ↗</a></div>
+              <a href="https://alexio.tf/universul-observabil-1d/" class="lbtn" target="_blank" rel="noopener">Lansează ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2D -->
+      <div class="dim-card card-2 reveal rd2">
+        <div class="dci">
+          <div class="dcv">
+            <svg class="viz" viewBox="0 0 400 210" xmlns="http://www.w3.org/2000/svg">
+              <defs><filter id="g2"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><radialGradient id="mg" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="rgba(48,208,144,0.12)"/><stop offset="100%" stop-color="rgba(48,208,144,0)"/></radialGradient></defs>
+              <ellipse cx="200" cy="105" rx="90" ry="90" fill="url(#mg)"/>
+              <circle cx="200" cy="105" r="85" fill="none" stroke="rgba(48,208,144,0.08)" stroke-width="1"/>
+              <circle cx="200" cy="105" r="65" fill="none" stroke="rgba(48,208,144,0.10)" stroke-width="1"/>
+              <circle cx="200" cy="105" r="46" fill="none" stroke="rgba(48,208,144,0.13)" stroke-width="1"/>
+              <circle cx="200" cy="105" r="28" fill="none" stroke="rgba(48,208,144,0.17)" stroke-width="1"/>
+              <line x1="200" y1="12" x2="200" y2="198" stroke="rgba(48,208,144,0.06)" stroke-width="1"/>
+              <line x1="108" y1="105" x2="292" y2="105" stroke="rgba(48,208,144,0.06)" stroke-width="1"/>
+              <circle cx="200" cy="105" r="4.5" fill="#30d090" filter="url(#g2)"/>
+              <circle cx="188" cy="102" r="2.5" fill="rgba(48,208,144,0.95)"/>
+              <circle cx="225" cy="88" r="3" fill="rgba(48,208,144,0.85)"/>
+              <circle cx="172" cy="125" r="2" fill="rgba(48,208,144,0.75)"/>
+              <circle cx="240" cy="110" r="2.5" fill="rgba(48,208,144,0.80)"/>
+              <circle cx="165" cy="82" r="2" fill="rgba(48,208,144,0.70)"/>
+              <circle cx="148" cy="115" r="3" fill="rgba(48,208,144,0.75)" filter="url(#g2)"/>
+              <circle cx="258" cy="90" r="2" fill="rgba(48,208,144,0.65)"/>
+              <circle cx="135" cy="95" r="2.5" fill="rgba(48,208,144,0.60)"/>
+              <circle cx="262" cy="130" r="1.8" fill="rgba(48,208,144,0.55)"/>
+              <circle cx="178" cy="148" r="2" fill="rgba(48,208,144,0.55)"/>
+              <circle cx="245" cy="58" r="2.5" fill="rgba(48,208,144,0.50)"/>
+              <circle cx="120" cy="75" r="1.5" fill="rgba(48,208,144,0.45)"/>
+              <circle cx="285" cy="105" r="2" fill="rgba(48,208,144,0.40)"/>
+              <path d="M130,70 Q200,105 270,140" fill="none" stroke="rgba(48,208,144,0.12)" stroke-width="1.5"><animateTransform attributeName="transform" type="rotate" from="0 200 105" to="360 200 105" dur="30s" repeatCount="indefinite"/></path>
+              <circle cx="200" cy="105" r="88" fill="none" stroke="rgba(48,208,144,0.35)" stroke-width="1.5" stroke-dasharray="5 8"><animate attributeName="stroke-dashoffset" values="0;-52" dur="5s" repeatCount="indefinite"/></circle>
+              <text x="200" y="35" text-anchor="middle" fill="rgba(48,208,144,0.28)" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="3">FLAT EARTH™</text>
+            </svg>
+          </div>
+          <div class="dcb">
+            <div class="dbadge">v5.9 · Flat Earth Edition™</div>
+            <h3 class="dctitle">Harta Plană</h3>
+            <p class="dcsub">12 ORIZONTURI · LOD ZOOM · HEATMAP · PERMALINK</p>
+            <p class="dcdesc" data-ro="Cea mai matură versiune — șlefuită prin zeci de cicluri de audit adversarial (v5.5→v5.9). Bogată în funcții, accesibilă, optimizată pentru predare și prezentare publică." data-en="The most mature version — polished through dozens of adversarial audit cycles (v5.5→v5.9). Feature-rich, accessible, optimized for teaching and public presentations.">Cea mai matură versiune — șlefuită prin zeci de cicluri de audit adversarial. Bogată în funcții, optimizată pentru predare și prezentare publică.</p>
+            <ul class="dcfeats">
+              <li data-ro="12 orizonturi cosmice + heatmap Gaussian logaritmic" data-en="12 cosmic horizons + logarithmic Gaussian heatmap">12 orizonturi cosmice + heatmap Gaussian logaritmic</li>
+              <li data-ro="LOD zoom adaptiv, filamente, grupuri gravitaționale" data-en="Adaptive LOD zoom, filaments, gravitational groups">LOD zoom adaptiv, filamente, grupuri gravitaționale</li>
+              <li data-ro="Permalink complet cu stare serializată" data-en="Full permalink with serialized state">Permalink complet cu stare serializată</li>
+              <li data-ro="Quiz cu leaderboard, coloană sonoră adaptivă" data-en="Quiz with leaderboard, adaptive soundtrack">Quiz cu leaderboard, coloană sonoră adaptivă</li>
+              <li data-ro="Service Worker, export QR poster A3, metadate Zenodo" data-en="Service Worker, QR poster A3 export, Zenodo metadata">Service Worker, export QR poster A3, metadate Zenodo</li>
+            </ul>
+            <div class="dmeta">
+              <div><span class="dver">v5.9 · 112+ galaxii</span><a class="dmir" href="https://chiuta.github.io/Universul-Observabil-2D/" target="_blank" rel="noopener">⎇ GitHub mirror ↗</a></div>
+              <a href="https://alexio.tf/universul-observabil-2d/" class="lbtn" target="_blank" rel="noopener">Lansează ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3D -->
+      <div class="dim-card card-3 reveal rd3">
+        <div class="dci">
+          <div class="dcv">
+            <svg class="viz" viewBox="0 0 400 210" xmlns="http://www.w3.org/2000/svg">
+              <defs><filter id="g3"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter><radialGradient id="sg" cx="42%" cy="38%" r="60%"><stop offset="0%" stop-color="rgba(120,120,255,0.18)"/><stop offset="100%" stop-color="rgba(60,60,200,0.02)"/></radialGradient></defs>
+              <circle cx="200" cy="105" r="88" fill="url(#sg)"/>
+              <circle cx="200" cy="105" r="88" fill="none" stroke="rgba(120,120,255,0.35)" stroke-width="1.5"/>
+              <ellipse cx="200" cy="105" rx="88" ry="30" fill="none" stroke="rgba(120,120,255,0.15)" stroke-width="1"/>
+              <ellipse cx="200" cy="105" rx="88" ry="60" fill="none" stroke="rgba(120,120,255,0.10)" stroke-width="1"/>
+              <ellipse cx="200" cy="105" rx="40" ry="88" fill="none" stroke="rgba(120,120,255,0.12)" stroke-width="1"/>
+              <ellipse cx="200" cy="105" rx="75" ry="88" fill="none" stroke="rgba(120,120,255,0.09)" stroke-width="1"/>
+              <ellipse cx="200" cy="105" rx="88" ry="22" fill="none" stroke="rgba(160,100,255,0.25)" stroke-width="1.5" stroke-dasharray="6 6"><animate attributeName="stroke-dashoffset" values="0;-48" dur="4s" repeatCount="indefinite"/><animateTransform attributeName="transform" type="rotate" from="0 200 105" to="360 200 105" dur="20s" repeatCount="indefinite"/></ellipse>
+              <circle cx="200" cy="105" r="5.5" fill="#8888ff" filter="url(#g3)"/>
+              <circle cx="225" cy="84" r="3" fill="rgba(160,160,255,0.95)"/>
+              <circle cx="174" cy="122" r="2.5" fill="rgba(160,160,255,0.85)"/>
+              <circle cx="252" cy="105" r="2" fill="rgba(160,160,255,0.75)"/>
+              <circle cx="158" cy="76" r="3.5" fill="rgba(180,120,255,0.9)" filter="url(#g3)"/>
+              <circle cx="270" cy="130" r="2" fill="rgba(160,160,255,0.65)"/>
+              <circle cx="180" cy="145" r="2.5" fill="rgba(160,160,255,0.70)"/>
+              <circle cx="148" cy="105" r="3" fill="rgba(160,160,255,0.80)"/>
+              <circle cx="240" cy="60" r="2.5" fill="rgba(200,120,255,0.65)"/>
+              <circle cx="205" cy="25" r="2.5" fill="rgba(180,140,255,0.55)"/>
+              <circle cx="118" cy="88" r="2" fill="rgba(160,160,255,0.50)"/>
+              <circle cx="290" cy="85" r="1.8" fill="rgba(160,160,255,0.45)"/>
+              <circle cx="205" cy="25" r="7" fill="none" stroke="rgba(200,120,255,0.4)" stroke-width="1"><animate attributeName="r" values="5;12;5" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.5;0;0.5" dur="2s" repeatCount="indefinite"/></circle>
+              <text x="200" y="35" text-anchor="middle" fill="rgba(120,120,255,0.28)" font-family="JetBrains Mono,monospace" font-size="9" letter-spacing="3">RA / DEC · ΛCDM</text>
+            </svg>
+          </div>
+          <div class="dcb">
+            <div class="dbadge">v1.2 · JWST 2026</div>
+            <h3 class="dctitle">Spațiu Real</h3>
+            <p class="dcsub">RA/DEC · ΛCDM · TENSIUNEA HUBBLE · WEBGL</p>
+            <p class="dcdesc" data-ro="Instrumentul de cercetare. Galaxiile au coordonate RA/Dec reale. Cosmologie ΛCDM interactivă, selector tensiunea Hubble (Planck vs. SH0ES), animație temporală cosmică." data-en="The research instrument. Galaxies have real RA/Dec coordinates. Interactive ΛCDM cosmology, Hubble tension selector (Planck vs. SH0ES), cosmic time animation.">Instrumentul de cercetare. Galaxiile au coordonate RA/Dec reale. Cosmologie ΛCDM interactivă, selector tensiunea Hubble (Planck vs. SH0ES).</p>
+            <ul class="dcfeats">
+              <li data-ro="Coordonate RA/Dec reale — nu proiecție" data-en="Real RA/Dec coordinates — no projection">Coordonate RA/Dec reale — nu proiecție</li>
+              <li data-ro="Selector H₀: Planck 67,4 vs. SH0ES 73,0 (tensiunea Hubble)" data-en="H₀ selector: Planck 67.4 vs. SH0ES 73.0 (Hubble tension)">Selector H₀: Planck 67,4 vs. SH0ES 73,0</li>
+              <li data-ro="Animație temporală cosmică (Shrinking Universe)" data-en="Cosmic time animation (Shrinking Universe)">Animație temporală cosmică (Shrinking Universe)</li>
+              <li data-ro="Export glTF, CSV, screenshot 2K, link cu stare completă" data-en="glTF, CSV export, 2K screenshot, full-state link">Export glTF, CSV, screenshot 2K, link stare</li>
+              <li data-ro="BibTeX per obiect, DOI Zenodo, bare de eroare EHZ" data-en="BibTeX per object, Zenodo DOI, EHZ error bars">BibTeX per obiect, DOI Zenodo, bare eroare EHZ</li>
+            </ul>
+            <div class="dmeta">
+              <div><span class="dver">v1.2 · 115 galaxii</span><a class="dmir" href="https://chiuta.github.io/Universul-Observabil-3D/" target="_blank" rel="noopener">⎇ GitHub mirror ↗</a></div>
+              <a href="https://alexio.tf/universul-observabil-3d/" class="lbtn" target="_blank" rel="noopener">Lansează ↗</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cdiv"></div>
+
+<section>
+  <div class="pw">
+    <div class="tstrip reveal">
+      <div><div class="tlbl" data-ro="Catalog total" data-en="Total catalog">Catalog total</div><div class="tval">115+</div><div class="tsub" data-ro="obiecte cosmice" data-en="cosmic objects">obiecte cosmice</div></div>
+      <div><div class="tlbl" data-ro="Redshift maxim" data-en="Max redshift">Redshift maxim</div><div class="tval">z = 14,44</div><div class="tsub">MoM-z14, JWST 2026</div></div>
+      <div><div class="tlbl">Cosmologie</div><div class="tval">ΛCDM</div><div class="tsub">Planck 2018 · H₀ = 67,4 / 73,0</div></div>
+      <div><div class="tlbl" data-ro="Orizonturi cosmice" data-en="Cosmic horizons">Orizonturi cosmice</div><div class="tval">12</div><div class="tsub" data-ro="incl. CMB la 45,6 Gly" data-en="incl. CMB at 45.6 Gly">incl. CMB la 45,6 Gly</div></div>
+      <div><div class="tlbl">Licență</div><div class="tval" style="font-size:16px">Trade-free</div><div class="tsub">Open source</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="cdiv"></div>
+
+<section>
+  <div class="pw">
+    <span class="slbl reveal">Comparație</span>
+    <h2 class="stitle reveal rd1" data-ro="Ce include fiecare versiune" data-en="What each version includes">Ce include fiecare versiune</h2>
+    <div class="reveal rd2">
+      <div class="cmp-tabs">
+        <button class="cmp-tab active" data-panel="pv" data-ro="Vizualizare" data-en="Visualization">Vizualizare</button>
+        <button class="cmp-tab" data-panel="pc" data-ro="Cosmologie" data-en="Cosmology">Cosmologie</button>
+        <button class="cmp-tab" data-panel="pu" data-ro="UX & Export" data-en="UX & Export">UX & Export</button>
+        <button class="cmp-tab" data-panel="pt" data-ro="Tehnic" data-en="Technical">Tehnic</button>
+      </div>
+      <div class="cmp-table-wrap">
+        <div class="cmp-panel active" id="pv"><table class="ct"><thead><tr><th data-ro="Caracteristică" data-en="Feature">Caracteristică</th><th class="c1">1D</th><th class="c2">2D</th><th class="c3">3D</th></tr></thead><tbody>
+          <tr><td data-ro="Număr galaxii" data-en="Galaxy count">Număr galaxii</td><td>112</td><td>112+</td><td><strong style="color:var(--gold)">115+</strong></td></tr>
+          <tr><td data-ro="Coordonate RA/Dec reale" data-en="Real RA/Dec coordinates">Coordonate RA/Dec reale</td><td><span class="cn">—</span></td><td><span class="cn">—</span></td><td><span class="cy">✓</span></td></tr>
+          <tr><td data-ro="Motor randare" data-en="Render engine">Motor randare</td><td>Canvas 2D</td><td>Canvas 2D</td><td><strong style="color:var(--r3)">WebGL / Three.js</strong></td></tr>
+          <tr><td data-ro="Orizonturi cosmice" data-en="Cosmic horizons">Orizonturi cosmice</td><td><span class="cn">—</span></td><td>12</td><td>12</td></tr>
+          <tr><td data-ro="Heatmap densitate" data-en="Density heatmap">Heatmap densitate</td><td><span class="cy">histogramă</span></td><td><span class="cy">Gaussian</span></td><td><span class="cn">—</span></td></tr>
+          <tr><td data-ro="Filamente cosmice" data-en="Cosmic filaments">Filamente cosmice</td><td><span class="cn">—</span></td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
+          <tr><td data-ro="Bare de eroare EHZ" data-en="EHZ error bars">Bare de eroare EHZ</td><td><span class="cn">—</span></td><td><span class="cn">—</span></td><td><span class="cy">✓</span></td></tr>
+          <tr><td data-ro="Record JWST MoM-z14" data-en="JWST MoM-z14 record">Record JWST MoM-z14</td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
+        </tbody></table></div>
+        <div class="cmp-panel" id="pc"><table class="ct"><thead><tr><th data-ro="Caracteristică" data-en="Feature">Caracteristică</th><th class="c1">1D</th><th class="c2">2D</th><th class="c3">3D</th></tr></thead><tbody>
+          <tr><td data-ro="Cosmologie ΛCDM completă" data-en="Full ΛCDM cosmology">Cosmologie ΛCDM completă</td><td><span class="cp2">parțial</span></td><td><span class="cp2">parțial</span></td><td><span class="cy">✓</span></td></tr>
+          <tr><td data-ro="Selector H₀ (tensiunea Hubble)" data-en="H₀ selector (Hubble tension)">Selector H₀ (tensiunea Hubble)</td><td><span class="cn">—</span></td><td><span class="cn">—</span></td><td><span class="cy">✓</span></td></tr>
+          <tr><td data-ro="Mod distanță Comoving / Lookback" data-en="Comoving / Lookback distance mode">Mod distanță Comoving / Lookback</td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
+          <tr><td data-ro="Animație temporală cosmică" data-en="Cosmic time animation">Animație temporală cosmică</td><td><span class="cn">—</span></td><td><span class="cn">—</span></td><td><span class="cy">✓</span></td></tr>
+          <tr><td data-ro="Sfere BAO" data-en="BAO spheres">Sfere BAO (Baryon Acoustic)</td><td><span class="cn">—</span></td><td><span class="cn">—</span></td><td><span class="cy">✓</span></td></tr>
+          <tr><td data-ro="Vectori Hubble Flow" data-en="Hubble Flow vectors">Vectori Hubble Flow</td><td><span class="cn">—</span></td><td><span class="cn">—</span></td><td><span class="cy">✓</span></td></tr>
+          <tr><td data-ro="Superclusteri (Laniakea, Vela)" data-en="Superclusters (Laniakea, Vela)">Superclusteri (Laniakea, Vela)</td><td><span class="cn">—</span></td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
+          <tr><td data-ro="Mod lungime de undă" data-en="Wavelength mode">Mod lungime de undă</td><td><span class="cn">—</span></td><td><span class="cn">—</span></td><td><span class="cy">✓</span></td></tr>
+        </tbody></table></div>
+        <div class="cmp-panel" id="pu"><table class="ct"><thead><tr><th data-ro="Caracteristică" data-en="Feature">Caracteristică</th><th class="c1">1D</th><th class="c2">2D</th><th class="c3">3D</th></tr></thead><tbody>
+          <tr><td>Bilingv RO/EN</td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
+          <tr><td data-ro="Quiz interactiv" data-en="Interactive quiz">Quiz interactiv</td><td><span class="cy">✓</span></td><td><span class="cy">+ leaderboard</span></td><td><span class="cp2">ghid</span></td></tr>
+          <tr><td data-ro="Permalink cu stare completă" data-en="Full-state permalink">Permalink cu stare completă</td><td><span class="cn">—</span></td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
+          <tr><td data-ro="Export CSV catalog" data-en="CSV catalog export">Export CSV catalog</td><td><span class="cn">—</span></td><td><span class="cn">—</span></td><td><span class="cy">✓</span></td></tr>
+          <tr><td data-ro="Export glTF 3D" data-en="glTF 3D export">Export glTF 3D</td><td><span class="cn">—</span></td><td><span class="cn">—</span></td><td><span class="cy">✓</span></td></tr>
+          <tr><td data-ro="Screenshot 2K PNG" data-en="2K PNG screenshot">Screenshot 2K PNG</td><td><span class="cn">—</span></td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
+          <tr><td data-ro="BibTeX / DOI Zenodo" data-en="BibTeX / Zenodo DOI">BibTeX / DOI Zenodo</td><td><span class="cn">—</span></td><td><span class="cy">metadata</span></td><td><span class="cy">✓ per obiect</span></td></tr>
+        </tbody></table></div>
+        <div class="cmp-panel" id="pt"><table class="ct"><thead><tr><th data-ro="Caracteristică" data-en="Feature">Caracteristică</th><th class="c1">1D</th><th class="c2">2D</th><th class="c3">3D</th></tr></thead><tbody>
+          <tr><td data-ro="Dimensiune fișier" data-en="File size">Dimensiune fișier</td><td>~160 KB</td><td>~550 KB</td><td>~1 MB</td></tr>
+          <tr><td data-ro="Cerință WebGL" data-en="WebGL required">Cerință WebGL</td><td><span class="cy">Nu</span></td><td><span class="cy">Nu</span></td><td><span class="cn">DA</span></td></tr>
+          <tr><td>Service Worker</td><td><span class="cn">—</span></td><td><span class="cy">✓</span></td><td><span class="cp2">parțial</span></td></tr>
+          <tr><td>PWA Manifest</td><td><span class="cn">—</span></td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td></tr>
+          <tr><td data-ro="Suport CVD (daltonism)" data-en="CVD support">Suport CVD (daltonism)</td><td><span class="cy">✓</span></td><td><span class="cy">✓</span></td><td><span class="cn">—</span></td></tr>
+          <tr><td data-ro="Motor 3D înglobat" data-en="Embedded 3D engine">Motor 3D înglobat</td><td><span class="cn">—</span></td><td><span class="cn">—</span></td><td>Three.js r128</td></tr>
+          <tr><td data-ro="Maturitate" data-en="Maturity">Maturitate</td><td>v1.0</td><td><strong style="color:var(--gold)">v5.9</strong></td><td>v1.2</td></tr>
+        </tbody></table></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cdiv"></div>
+
+<div class="qsec">
+  <div class="pw">
+    <p class="qtxt reveal" id="qtxt">„Saltul de la 2D la 3D nu este grafic. Este epistemologic. Când navighezi din afara Grupului Local spre Laniakea cu coordonate reale, relația cu datele se schimbă."</p>
+    <p class="qattr reveal rd1" data-ro="— Recenzie comparativă, mai 2026" data-en="— Comparative review, May 2026">— Recenzie comparativă, mai 2026</p>
+  </div>
+</div>
+
+<div class="cdiv"></div>
+
+<div class="ctasec">
+  <div class="pw">
+    <span class="slbl reveal" data-ro="Alege dimensiunea ta" data-en="Choose your dimension">Alege dimensiunea ta</span>
+    <h2 class="stitle reveal rd1" data-ro="Începe explorarea" data-en="Start exploring">Începe explorarea</h2>
+    <p class="ssub reveal rd2" style="margin:0 auto" data-ro="Fișiere HTML autonome — fără instalare, fără cont, fără server. Un singur fișier, Universul întreg." data-en="Standalone HTML files — no installation, no account, no server. One file, the entire Universe.">Fișiere HTML autonome — fără instalare, fără cont, fără server. Un singur fișier, Universul întreg.</p>
+    <div class="ctagrid reveal rd3">
+      <a href="https://alexio.tf/universul-observabil-3d/" class="cta-p" target="_blank" rel="noopener" id="ctap">🔭 Lansează 3D (recomandat)</a>
+      <a href="https://alexio.tf/universul-observabil-2d/" class="cta-s" target="_blank" rel="noopener">🌐 Versiunea 2D</a>
+      <a href="https://alexio.tf/universul-observabil-1d/" class="cta-s" target="_blank" rel="noopener">📡 Versiunea 1D</a>
+    </div>
+    <div class="mrow reveal rd3">
+      <span class="mlbl">⎇ GITHUB MIRRORS</span>
+      <a href="https://chiuta.github.io/Universul-Observabil-1D/" class="mlink ml1" target="_blank" rel="noopener">1D ↗</a>
+      <a href="https://chiuta.github.io/Universul-Observabil-2D/" class="mlink ml2" target="_blank" rel="noopener">2D ↗</a>
+      <a href="https://chiuta.github.io/Universul-Observabil-3D/" class="mlink ml3" target="_blank" rel="noopener">3D ↗</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="fi">
+    <div class="fbrand">UNIVERSUL OBSERVABIL</div>
+    <div class="fmeta" id="fmeta">Catalog actualizat: mai 2026 · MoM-z14, z=14,44 · Alexio × ASFAN-România</div>
+    <div class="flinks">
+      <a href="https://alexio.tf" target="_blank" rel="noopener">alexio.tf</a>
+      <a href="https://patreon.com/c/alexio_tf" target="_blank" rel="noopener">Patreon</a>
+      <a href="https://asfan.ro" target="_blank" rel="noopener">ASFAN</a>
+      <a href="https://ares.org.ro" target="_blank" rel="noopener">ARES</a>
+      <a href="https://centrulstring.ro/" target="_blank" rel="noopener">Centrul StrING</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+'use strict';
+
+// CURSOR
+const cur=document.getElementById('cur'),curR=document.getElementById('curR');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px';});
+(function tr(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;curR.style.left=rx+'px';curR.style.top=ry+'px';requestAnimationFrame(tr);})();
+
+// PROGRESS
+const prog=document.getElementById('prog');
+window.addEventListener('scroll',()=>{prog.style.width=(window.scrollY/(document.body.scrollHeight-window.innerHeight)*100)+'%';},{passive:true});
+
+// NEBULA
+(function(){
+  const c=document.getElementById('cneb'),ctx=c.getContext('2d');
+  let W,H,t=0;
+  function rsz(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;}
+  function draw(){
+    t+=.003;ctx.clearRect(0,0,W,H);
+    [{x:W*(.15+Math.sin(t*.4)*.05),y:H*(.3+Math.cos(t*.3)*.06),r:W*.35,c1:'rgba(40,60,180,',c2:'rgba(80,20,160,'},
+     {x:W*(.75+Math.cos(t*.35)*.06),y:H*(.65+Math.sin(t*.45)*.05),r:W*.32,c1:'rgba(20,80,140,',c2:'rgba(40,140,180,'},
+     {x:W*(.5+Math.sin(t*.25)*.08),y:H*(.15+Math.cos(t*.5)*.04),r:W*.28,c1:'rgba(100,20,120,',c2:'rgba(60,40,200,'}
+    ].forEach(cl=>{
+      const g=ctx.createRadialGradient(cl.x,cl.y,0,cl.x,cl.y,cl.r);
+      g.addColorStop(0,cl.c1+'0.07)');g.addColorStop(.5,cl.c2+'0.03)');g.addColorStop(1,'rgba(0,0,0,0)');
+      ctx.fillStyle=g;ctx.beginPath();ctx.arc(cl.x,cl.y,cl.r,0,Math.PI*2);ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize',rsz);rsz();draw();
+})();
+
+// STARFIELD with depth parallax
+(function(){
+  const c=document.getElementById('cstr'),ctx=c.getContext('2d');
+  let W,H,stars=[],mouseX=.5,mouseY=.5;
+  function rsz(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;init();}
+  function init(){
+    stars=[];const n=Math.floor(W*H/1600);
+    for(let i=0;i<n;i++){
+      const d=Math.random();
+      stars.push({x:Math.random()*W,y:Math.random()*H,ox:0,oy:0,r:d*1.4+.2,a:d*.7+.2,depth:d,tw:Math.random()*Math.PI*2,ts:Math.random()*.02+.005,hue:Math.random()<.15?(Math.random()<.5?220:40):210});
+      stars[i].ox=stars[i].x;stars[i].oy=stars[i].y;
+    }
+  }
+  document.addEventListener('mousemove',e=>{mouseX=e.clientX/window.innerWidth;mouseY=e.clientY/window.innerHeight;});
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(const s of stars){
+      s.tw+=s.ts;
+      const alpha=s.a*(.6+.4*Math.sin(s.tw));
+      const px=(mouseX-.5)*s.depth*35,py=(mouseY-.5)*s.depth*25;
+      const sx=((s.ox+px)%W+W)%W,sy=((s.oy+py)%H+H)%H;
+      ctx.beginPath();ctx.arc(sx,sy,s.r,0,Math.PI*2);
+      if(s.r>1){const g=ctx.createRadialGradient(sx,sy,0,sx,sy,s.r*2.5);g.addColorStop(0,`hsla(${s.hue},70%,90%,${alpha})`);g.addColorStop(1,`hsla(${s.hue},70%,90%,0)`);ctx.fillStyle=g;}
+      else ctx.fillStyle=`hsla(${s.hue},60%,85%,${alpha})`;
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  window.addEventListener('resize',rsz);rsz();draw();
+})();
+
+// PARTICLE BURST on click
+(function(){
+  const c=document.getElementById('cpar'),ctx=c.getContext('2d');
+  let W,H;const P=[];
+  function rsz(){W=c.width=window.innerWidth;H=c.height=window.innerHeight;}
+  window.addEventListener('resize',rsz);rsz();
+  const cols=['#ff5577','#30d090','#7878ff','#f0c040','#3d9bff','#ff9944'];
+  document.addEventListener('click',e=>{
+    for(let i=0;i<28;i++){
+      const a=(Math.PI*2*i)/28+Math.random()*.3,sp=Math.random()*5+1.5;
+      P.push({x:e.clientX,y:e.clientY,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,r:Math.random()*3.5+.8,life:1,color:cols[Math.floor(Math.random()*cols.length)]});
+    }
+  });
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    for(let i=P.length-1;i>=0;i--){
+      const p=P[i];p.x+=p.vx;p.y+=p.vy;p.vy+=.09;p.life-=.022;
+      if(p.life<=0){P.splice(i,1);continue;}
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r*p.life,0,Math.PI*2);
+      ctx.fillStyle=p.color;ctx.globalAlpha=p.life;ctx.fill();
+    }
+    ctx.globalAlpha=1;requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+// HERO PARALLAX
+const heroI=document.getElementById('heroInner');
+document.addEventListener('mousemove',e=>{
+  if(!heroI)return;
+  const rx=(e.clientX/window.innerWidth-.5)*10,ry=(e.clientY/window.innerHeight-.5)*8;
+  heroI.style.transform=`rotateY(${rx}deg) rotateX(${-ry}deg)`;
+});
+
+// CARD TILT
+document.querySelectorAll('.dim-card').forEach(card=>{
+  const inner=card.querySelector('.dci');
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    const cx=(e.clientX-r.left)/r.width-.5,cy=(e.clientY-r.top)/r.height-.5;
+    card.style.transform=`perspective(800px) rotateX(${-cy*14}deg) rotateY(${cx*16}deg) scale(1.04)`;
+    if(inner){inner.style.setProperty('--mx',`${(e.clientX-r.left)/r.width*100}%`);inner.style.setProperty('--my',`${(e.clientY-r.top)/r.height*100}%`);}
+  });
+  card.addEventListener('mouseleave',()=>{card.style.transform='';});
+});
+
+// TYPING
+(function(){
+  const el=document.getElementById('ttext');
+  const phrases=['115 galaxii · 12 orizonturi cosmice','De la Calea Lactee până la z=14,44','Cosmologie ΛCDM interactivă','Un fișier HTML. Universul întreg.','JWST 2026 · MoM-z14 · Planck vs. SH0ES','Offline. Fără cont. Fără server.','RA/Dec reale · Three.js r128 · WebGL'];
+  let pi=0,ci=0,del=false,wait=0;
+  function tick(){
+    if(wait>0){wait--;setTimeout(tick,50);return;}
+    const ph=phrases[pi];
+    if(!del){el.textContent=ph.slice(0,++ci);if(ci===ph.length){del=true;wait=60;}}
+    else{el.textContent=ph.slice(0,--ci);if(ci===0){del=false;pi=(pi+1)%phrases.length;wait=8;}}
+    setTimeout(tick,del?28:55);
+  }
+  setTimeout(tick,1400);
+})();
+
+// COUNTER
+(function(){
+  const el=document.getElementById('sgal');if(!el)return;
+  let done=false;
+  new IntersectionObserver(entries=>{if(entries[0].isIntersecting&&!done){done=true;let n=80;const s=()=>{n=Math.min(n+3,115);el.textContent=n;if(n<115)requestAnimationFrame(s);};s();}}).observe(el);
+})();
+
+// REVEAL
+const rObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');rObs.unobserve(e.target);}});},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>rObs.observe(el));
+
+// COMPARISON TABS
+document.querySelectorAll('.cmp-tab').forEach(tab=>{
+  tab.addEventListener('click',()=>{
+    document.querySelectorAll('.cmp-tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.cmp-panel').forEach(p=>p.classList.remove('active'));
+    tab.classList.add('active');document.getElementById(tab.dataset.panel).classList.add('active');
+  });
+});
+
+// LANGUAGE
+let lang=localStorage.getItem('uo_lang')||'ro';
+const lb=document.getElementById('langBtn');
+function applyLang(){
+  lb.textContent=lang==='ro'?'EN':'RO';
+  document.documentElement.lang=lang;
+  document.querySelectorAll('[data-ro]').forEach(el=>{if(el.dataset.ro)el.textContent=lang==='ro'?el.dataset.ro:el.dataset.en;});
+  document.querySelectorAll('.cmp-tab').forEach(t=>{if(t.dataset.ro)t.textContent=lang==='ro'?t.dataset.ro:t.dataset.en;});
+  const qt=document.getElementById('qtxt');
+  qt.textContent=lang==='ro'?'„Saltul de la 2D la 3D nu este grafic. Este epistemologic. Când navighezi din afara Grupului Local spre Laniakea cu coordonate reale, relația cu datele se schimbă."':'"The leap from 2D to 3D is not graphical. It is epistemological. When you navigate from outside the Local Group towards Laniakea with real coordinates, your relationship with the data changes."';
+  document.getElementById('fmeta').textContent=lang==='ro'?'Catalog actualizat: mai 2026 · MoM-z14, z=14,44 · Alexio × ASFAN-România':'Catalog updated: May 2026 · MoM-z14, z=14.44 · Alexio × ASFAN-Romania';
+  const nh=document.getElementById('nhome');if(nh)nh.textContent=lang==='ro'?'Acasă':'Home';
+  const sl=document.getElementById('slbl');if(sl)sl.textContent=lang==='ro'?'EXPLOREAZĂ':'EXPLORE';
+  const cp=document.getElementById('ctap');if(cp)cp.textContent=lang==='ro'?'🔭 Lansează 3D (recomandat)':'🔭 Launch 3D (recommended)';
+  document.querySelectorAll('.lbtn').forEach(b=>b.textContent=lang==='ro'?'Lansează ↗':'Launch ↗');
+}
+lb.addEventListener('click',()=>{lang=lang==='ro'?'en':'ro';localStorage.setItem('uo_lang',lang);applyLang();});
+if(lang==='en')applyLang();
+</script>
+</body>
+</html>
