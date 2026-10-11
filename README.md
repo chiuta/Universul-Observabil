@@ -8,7 +8,7 @@ Pagină de intrare care prezintă și compară cele trei versiuni (1D, 2D, 3D) a
 
 ## Ce este
 
-Acest fișier HTML este pagina-hub a seriei „Observable Universe": nu conține vizualizările în sine, ci le prezintă, le compară și trimite către ele. Cele trei versiuni, după descrierea din pagină:
+Acest fișier HTML este pagina-hub a seriei „Observable Universe": nu conține vizualizările în sine (are doar un mic calculator cosmologic offline), ci le prezintă, le compară și trimite către ele. Cele trei versiuni, după descrierea din pagină:
 
 - 1D (v1.0, „Axa Radială"): 112 galaxii pe o singură axă, cu patru moduri de axă (lookback time, comoving, redshift z, factor de scară); aprox. 160 KB.
 - 2D (v5.9, „Harta Plană"): 12 orizonturi cosmice, zoom adaptiv, permalink cu stare, quiz cu leaderboard; aprox. 550 KB.
@@ -18,6 +18,7 @@ Pagina indică un catalog actualizat în mai 2026 și MoM-z14 (z = 14,44, confir
 
 ## Funcții
 
+- „Cât de departe, cât de demult?”: calculator cosmologic offline (z între 0 și 20, H₀ = 67,4 Planck sau 73,0 SH0ES) care dă timpul de privire înapoi, distanța comobilă și vârsta Universului la emisie; model ΛCDM plat cu Ωm = 0,315, radiația neglijată (valori orientative; verificat față de o integrare independentă, de ex. z = 1 → 7,95 Gyr și 3,40 Gpc la H₀ = 67,4).
 - Prezentare a celor trei versiuni, cu butoane „Lansează" și linkuri către copiile de pe GitHub („GitHub mirror").
 - Tabel comparativ pe categorii (vizualizare, cosmologie, UX și export, tehnic) 1D / 2D / 3D.
 - Comutator de limbă RO / EN (butonul din colțul paginii).
@@ -44,6 +45,7 @@ Descarcă `index.html` și deschide-l în browser: pagina se afișează fără i
 
 Ultima actualizare: 11 octombrie 2026.
 
+- Adăugat calculatorul cosmologic offline; eliminat depășirea orizontală de 2 px (linia separatoare); etichetele plutitoare decorative din antet sunt acum conținut generat (nu mai produc fluctuații de contrast în axe-core); CSP: `script-src` pe hash SHA-256, fără `'unsafe-inline'`.
 - Numărul de galaxii este acum consecvent: 1D și 2D = 112, 3D și catalogul total = 118 (înainte, tabelul spunea „115+”, iar antetul 118).
 - Adăugată o notă vizibilă că pagina e doar de prezentare și lansarea versiunilor cere internet.
 - Conținutul principal este în `<main>`, elementele decorative sunt ascunse cititoarelor de ecran, tabelul comparativ și filele nu mai depășesc ecranul la 360 px, iar contrastul etichetelor estompate a fost crescut; axe-core: 0 violări la 1280 și 360 px.
@@ -63,4 +65,4 @@ Alexio — Alexandru-Ionuț Chiuță, contact: alexio@trom.tf. Subsolul paginii 
 
 ## English summary
 
-A single-file landing page for the "Observable Universe" series, presenting and comparing its 1D, 2D and 3D versions (radial axis, flat map, real-space WebGL view) with launch links and GitHub mirrors, in Romanian and English. It stores only the language choice locally and makes no automatic network requests; launch and mirror links open external pages.
+A single-file landing page for the "Observable Universe" series, presenting and comparing its 1D, 2D and 3D versions (radial axis, flat map, real-space WebGL view) with launch links and GitHub mirrors, in Romanian and English, plus a small offline cosmology calculator (redshift to lookback time and comoving distance). It stores only the language choice locally and makes no automatic network requests; launch and mirror links open external pages.
