@@ -14,7 +14,7 @@ Acest fișier HTML este pagina-hub a seriei „Observable Universe": nu conține
 - 2D (v5.9, „Harta Plană"): 12 orizonturi cosmice, zoom adaptiv, permalink cu stare, quiz cu leaderboard; aprox. 550 KB.
 - 3D (v1.2, „Spațiu Real"): coordonate RA/Dec reale, cosmologie ΛCDM, selector H₀ (Planck 67,4 vs. SH0ES 73,0), WebGL cu Three.js r128; aprox. 1 MB.
 
-Pagina indică un catalog actualizat în mai 2026 și recordul JWST MoM-z14 (z = 14,44). Cifrele de mai sus sunt cele declarate de pagină, nu verificate aici.
+Pagina indică un catalog actualizat în mai 2026 și MoM-z14 (z = 14,44, confirmat spectroscopic cu JWST; Naidu et al. 2025) drept recordul de distanță **la data catalogului (mai 2026)**; nu garantăm că rămâne record ulterior. Cifrele de mai sus sunt cele declarate de pagină, nu verificate aici.
 
 ## Funcții
 
@@ -43,6 +43,10 @@ Descarcă `index.html` și deschide-l în browser: pagina se afișează fără i
 ## Licență
 
 CC0 1.0 Universal (domeniu public) — vezi fișierul LICENSE
+
+## Audit
+
+Audit: 2026-10-10; runda 3: 2026-10-11 — afirmațiile perisabile („Record JWST 2026") reformulate „la data catalogului (mai 2026)" cu sursa; eliminată trimiterea la „DOI Zenodo" din descrierea 3D (aplicația 3D nu are DOI).
 
 ## Autor
 
