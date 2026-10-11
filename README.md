@@ -18,7 +18,7 @@ Pagina indică un catalog actualizat în mai 2026 și MoM-z14 (z = 14,44, confir
 
 ## Funcții
 
-- „Cât de departe, cât de demult?”: calculator cosmologic offline (z între 0 și 20, H₀ = 67,4 Planck sau 73,0 SH0ES) care dă timpul de privire înapoi, distanța comobilă și vârsta Universului la emisie; model ΛCDM plat cu Ωm = 0,315, radiația neglijată (valori orientative; verificat față de o integrare independentă, de ex. z = 1 → 7,95 Gyr și 3,40 Gpc la H₀ = 67,4).
+- „Cât de departe, cât de demult?”: calculator cosmologic offline (z între 0 și 20, H₀ = 67,4 Planck sau 73,0 SH0ES) care dă timpul de privire înapoi, distanța comobilă, vârsta Universului la emisie, factorul de scară a = 1/(1+z), distanța de luminozitate D_L = (1+z)·D_C și distanța de diametru unghiular D_A = D_C/(1+z) (D_L și D_A urmează din definiții; la z = 1: D_L = 22,19 Gly, D_A = 5,55 Gly); model ΛCDM plat cu Ωm = 0,315, radiația neglijată (valori orientative; verificat față de o integrare independentă, de ex. z = 1 → 7,95 Gyr și 3,40 Gpc la H₀ = 67,4).
 - Prezentare a celor trei versiuni, cu butoane „Lansează" și linkuri către copiile de pe GitHub („GitHub mirror").
 - Tabel comparativ pe categorii (vizualizare, cosmologie, UX și export, tehnic) 1D / 2D / 3D.
 - Comutator de limbă RO / EN (butonul din colțul paginii).
@@ -45,6 +45,7 @@ Descarcă `index.html` și deschide-l în browser: pagina se afișează fără i
 
 Ultima actualizare: 11 octombrie 2026.
 
+- Runda 7: calculatorul cosmologic oferă acum și factorul de scară, distanța de luminozitate și distanța de diametru unghiular (RO/EN); dimensiunea fișierului redusă de la ~616 KB la ~461 KB prin eliminarea a 8 declarații @font-face nefolosite (Barlow 300/500/300 italic și JetBrains Mono 300), verificat prin comparație de capturi și enumerarea fonturilor calculate; fără pierdere de conținut.
 - Adăugat calculatorul cosmologic offline; eliminat depășirea orizontală de 2 px (linia separatoare); etichetele plutitoare decorative din antet sunt acum conținut generat (nu mai produc fluctuații de contrast în axe-core); CSP: `script-src` pe hash SHA-256, fără `'unsafe-inline'`.
 - Numărul de galaxii este acum consecvent: 1D și 2D = 112, 3D și catalogul total = 118 (înainte, tabelul spunea „115+”, iar antetul 118).
 - Adăugată o notă vizibilă că pagina e doar de prezentare și lansarea versiunilor cere internet.
