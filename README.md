@@ -40,6 +40,15 @@ Pagina indică un catalog actualizat în mai 2026 și MoM-z14 (z = 14,44, confir
 
 Descarcă `index.html` și deschide-l în browser: pagina se afișează fără internet, dar butoanele de lansare și mirror-urile cer conexiune, pentru că trimit către pagini găzduite online.
 
+## Istoric / Changelog
+
+Ultima actualizare: 11 octombrie 2026.
+
+- Numărul de galaxii este acum consecvent: 1D și 2D = 112, 3D și catalogul total = 118 (înainte, tabelul spunea „115+”, iar antetul 118).
+- Adăugată o notă vizibilă că pagina e doar de prezentare și lansarea versiunilor cere internet.
+- Conținutul principal este în `<main>`, elementele decorative sunt ascunse cititoarelor de ecran, tabelul comparativ și filele nu mai depășesc ecranul la 360 px, iar contrastul etichetelor estompate a fost crescut; axe-core: 0 violări la 1280 și 360 px.
+- Recordul MoM-z14 (z = 14,44) rămâne formulat „la data catalogului (mai 2026)”; nu am găsit în căutarea din 11.10.2026 o confirmare spectroscopică ulterioară care să-l depășească, dar formularea cu dată a fost păstrată intenționat. Surse verificate la 11.10.2026: arXiv 2505.11263 (Naidu et al.).
+
 ## Licență
 
 CC0 1.0 Universal (domeniu public) — vezi fișierul LICENSE

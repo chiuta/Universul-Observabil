@@ -76,8 +76,8 @@
   --border-h: rgba(80,160,255,0.35);
   --accent: #3d9bff;
   --gold: #f0c040;
-  --dim: #3a5a7a;
-  --dim2: #5a7a9a;
+  --dim: #6a8aaa;
+  --dim2: #7898b8;
   --text: #b0c8e0;
   --text2: #7a9ab8;
   --white: #e8f4ff;
@@ -281,7 +281,7 @@ footer { border-top:1px solid var(--border);padding:36px 0;position:relative;z-i
 @keyframes floatUp { 0%{transform:translateY(0) translateX(0);opacity:0;}10%{opacity:.5;}90%{opacity:.3;}100%{transform:translateY(-60px) translateX(15px);opacity:0;} }
 
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important;}body{cursor:auto;}#cur,#curR{display:none;}}
-@media (max-width:640px){nav{padding:12px 16px;}.hero-stats{gap:28px;}.tstrip{padding:24px;}.dims-grid{grid-template-columns:1fr;}body{cursor:auto;}#cur,#curR{display:none;}}
+@media (max-width:640px){.cmp-tabs{flex-wrap:wrap;width:100%;box-sizing:border-box}.cmp-tab{flex:1 1 auto;padding:9px 12px}nav{padding:12px 16px;}.hero-stats{gap:28px;}.tstrip{padding:24px;}.dims-grid{grid-template-columns:1fr;}body{cursor:auto;}#cur,#curR{display:none;}}
 </style>
 </head>
 <body>
@@ -289,9 +289,9 @@ footer { border-top:1px solid var(--border);padding:36px 0;position:relative;z-i
 <div id="cur"></div>
 <div id="curR"></div>
 <div id="prog"></div>
-<canvas id="cneb"></canvas>
-<canvas id="cstr"></canvas>
-<canvas id="cpar"></canvas>
+<canvas id="cneb" aria-hidden="true"></canvas>
+<canvas id="cstr" aria-hidden="true"></canvas>
+<canvas id="cpar" aria-hidden="true"></canvas>
 
 <nav>
   <a href="https://alexio.tf" class="nav-logo">ALEXIO<span>.TF</span></a>
@@ -301,6 +301,7 @@ footer { border-top:1px solid var(--border);padding:36px 0;position:relative;z-i
     <button class="lang-btn" id="langBtn">EN</button>
   </div>
 </nav>
+<main id="main">
 
 <div class="hero">
   <div class="hero-inner" id="heroInner">
@@ -335,6 +336,8 @@ footer { border-top:1px solid var(--border);padding:36px 0;position:relative;z-i
     <span class="slbl reveal fl">Instrumentele</span>
     <h2 class="stitle reveal fl rd1" data-ro="Trei moduri de a vedea același Univers" data-en="Three ways to see the same Universe">Trei moduri de a vedea același Univers</h2>
     <p class="ssub reveal fl rd2" data-ro="Fiecare versiune reprezintă o filosofie distinctă de vizualizare — nu o simplă iterație, ci un instrument diferit pentru același set de date." data-en="Each version is a distinct visualization philosophy — not a simple iteration, but a different instrument for the same dataset.">Fiecare versiune reprezintă o filosofie distinctă de vizualizare — nu o simplă iterație, ci un instrument diferit pentru același set de date.</p>
+
+    <p class="ssub reveal fl rd2" data-ro="Notă: aceasta este o pagină de prezentare — cele trei vizualizări rulează pe alexio.tf sau pe mirror-urile GitHub, deci lansarea lor necesită conexiune la internet." data-en="Note: this is a landing page — the three visualizations run on alexio.tf or the GitHub mirrors, so launching them requires an internet connection.">Notă: aceasta este o pagină de prezentare — cele trei vizualizări rulează pe alexio.tf sau pe mirror-urile GitHub, deci lansarea lor necesită conexiune la internet.</p>
 
     <div class="dims-grid">
       <!-- 1D -->
@@ -499,7 +502,7 @@ footer { border-top:1px solid var(--border);padding:36px 0;position:relative;z-i
 <section>
   <div class="pw">
     <div class="tstrip reveal">
-      <div><div class="tlbl" data-ro="Catalog total" data-en="Total catalog">Catalog total</div><div class="tval">115+</div><div class="tsub" data-ro="obiecte cosmice" data-en="cosmic objects">obiecte cosmice</div></div>
+      <div><div class="tlbl" data-ro="Catalog total" data-en="Total catalog">Catalog total</div><div class="tval">118</div><div class="tsub" data-ro="obiecte cosmice" data-en="cosmic objects">obiecte cosmice</div></div>
       <div><div class="tlbl" data-ro="Redshift maxim" data-en="Max redshift">Redshift maxim</div><div class="tval">z = 14,44</div><div class="tsub" data-ro="MoM-z14 (JWST), la data catalogului: mai 2026" data-en="MoM-z14 (JWST), as of the catalog date: May 2026">MoM-z14 (JWST), la data catalogului: mai 2026</div></div>
       <div><div class="tlbl">Cosmologie</div><div class="tval">ΛCDM</div><div class="tsub">Planck 2018 · H₀ = 67,4 / 73,0</div></div>
       <div><div class="tlbl" data-ro="Orizonturi cosmice" data-en="Cosmic horizons">Orizonturi cosmice</div><div class="tval">12</div><div class="tsub" data-ro="incl. CMB la 45,6 Gly" data-en="incl. CMB at 45.6 Gly">incl. CMB la 45,6 Gly</div></div>
@@ -523,7 +526,7 @@ footer { border-top:1px solid var(--border);padding:36px 0;position:relative;z-i
       </div>
       <div class="cmp-table-wrap" tabindex="0" role="region" aria-label="Tabel comparativ 1D / 2D / 3D">
         <div class="cmp-panel active" id="pv"><table class="ct"><thead><tr><th data-ro="Caracteristică" data-en="Feature">Caracteristică</th><th class="c1">1D</th><th class="c2">2D</th><th class="c3">3D</th></tr></thead><tbody>
-          <tr><td data-ro="Număr galaxii" data-en="Galaxy count">Număr galaxii</td><td>112</td><td>112</td><td><strong style="color:var(--gold)">115+</strong></td></tr>
+          <tr><td data-ro="Număr galaxii" data-en="Galaxy count">Număr galaxii</td><td>112</td><td>112</td><td><strong style="color:var(--gold)">118</strong></td></tr>
           <tr><td data-ro="Coordonate RA/Dec reale" data-en="Real RA/Dec coordinates">Coordonate RA/Dec reale</td><td><span class="cp2" data-ro="doar în fișă" data-en="details panel only">doar în fișă</span></td><td><span class="cp2" data-ro="proiectate" data-en="projected">proiectate</span></td><td><span class="cy">✓</span></td></tr>
           <tr><td data-ro="Motor randare" data-en="Render engine">Motor randare</td><td>Canvas 2D</td><td>Canvas 2D</td><td><strong style="color:var(--r3)">WebGL / Three.js</strong></td></tr>
           <tr><td data-ro="Orizonturi cosmice" data-en="Cosmic horizons">Orizonturi cosmice</td><td><span class="cn">—</span></td><td>12</td><td>12</td></tr>
@@ -595,6 +598,7 @@ footer { border-top:1px solid var(--border);padding:36px 0;position:relative;z-i
   </div>
 </div>
 
+</main>
 <footer>
   <div class="fi">
     <div class="fbrand">OBSERVABLE UNIVERSE</div>
@@ -774,7 +778,7 @@ lb.addEventListener('click',()=>{lang=lang==='ro'?'en':'ro';try{localStorage.set
 if(lang==='en')applyLang();
 </script>
 <!-- tf-donate: sprijin voluntar (Patreon + Buy Me a Coffee) — self-contained, fără resurse externe, fără JS -->
-<div id="tf-donate" aria-label="Sprijină autorul">
+<div id="tf-donate" role="complementary" aria-label="Sprijină autorul">
 <style>
 #tf-donate{position:fixed;right:14px;bottom:14px;z-index:2147483600;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1}
 #tf-donate *{box-sizing:border-box}
