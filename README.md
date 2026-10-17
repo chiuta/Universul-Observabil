@@ -24,7 +24,7 @@ Pagina indică un catalog actualizat în mai 2026 și MoM-z14 (z = 14,44, confir
 - Prezentare a celor trei versiuni, cu butoane „Lansează" și linkuri către copiile de pe GitHub („GitHub mirror").
 - Tabel comparativ pe categorii (vizualizare, cosmologie, UX și export, tehnic) 1D / 2D / 3D.
 - Comutator de limbă RO / EN (butonul din colțul paginii).
-- Linkuri Patreon și Buy Me a Coffee.
+- Linkuri Buy Me a Coffee.
 
 ## Manual de utilizare
 
@@ -36,7 +36,7 @@ Pagina indică un catalog actualizat în mai 2026 și MoM-z14 (z = 14,44, confir
 ## Confidențialitate și rețea
 
 - În `localStorage` se reține doar limba aleasă (`uo_lang`).
-- Pagina nu face cereri automate de rețea (fără `fetch`, scripturi sau stiluri externe). Linkurile duc, la click, către alexio.tf, chiuta.github.io, Patreon, Buy Me a Coffee și site-urile partenere afișate în subsol (printre care centrulstring.ro).
+- Pagina nu face cereri automate de rețea (fără `fetch`, scripturi sau stiluri externe). Linkurile duc, la click, către alexio.tf, chiuta.github.io, Buy Me a Coffee și site-urile partenere afișate în subsol (printre care centrulstring.ro).
 - Versiunile lansate sunt aplicații separate, cu propria politică; ele nu sunt analizate aici.
 
 ## Rulare locală / offline
