@@ -13,8 +13,8 @@
   "storageKeys": [
     "uo_lang"
   ],
-  "sizeBytes": 561806,
-  "sha256": "c804c4396325e41a7f4df1f478fb48a5c82614593fede1593eac5b073eeaf596",
+  "sizeBytes": 561785,
+  "sha256": "c3d73d0f2522e1272c0087bd1d0769ba34b6635e00b1e783daee8ea8abdc24d2",
   "csp": {
     "present": true,
     "directives": {
