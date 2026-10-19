@@ -71,6 +71,6 @@ Audit: 2026-10-10; runda 3: 2026-10-11 — afirmațiile perisabile („Record JW
 
 Alexio — Alexandru-Ionuț Chiuță, contact: alexio@trom.tf. Subsolul paginii face trimitere și la Centrul StrING.
 
-## English summary
+## Rezumat
 
-A single-file landing page for the "Observable Universe" series, presenting and comparing its 1D, 2D and 3D versions (radial axis, flat map, real-space WebGL view) with launch links and GitHub mirrors, in 8 languages, plus a small offline cosmology calculator (redshift to lookback time and comoving distance). It stores only the language choice locally and makes no automatic network requests; launch and mirror links open external pages.
+O pagină de întâmpinare într-un singur fișier pentru seria „Universul Observabil”, care prezintă și compară versiunile sale 1D, 2D și 3D (axă radială, hartă plană, vedere WebGL în spațiu real), cu linkuri de lansare și oglinzi GitHub, în 8 limbi, plus un mic calculator cosmologic offline (deplasare spre roșu în timp de privire înapoi și distanță comobilă). Stochează local doar limba aleasă și nu face cereri de rețea automate; linkurile de lansare și de oglindă deschid pagini externe.
