@@ -1,72 +1,74 @@
 # Observable Universe — 1D · 2D · 3D
 
-**Versiune:** 1.1.0 · **Ultima actualizare:** 14 octombrie 2026
+**English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-Pagină de intrare care prezintă și compară cele trei versiuni (1D, 2D, 3D) ale vizualizării Universului observabil.
+**Version:** 1.1.0 · **Last updated:** 2026-10-14
+
+Landing page that presents and compares the three versions (1D, 2D, 3D) of the observable Universe visualisation.
 
 **Live:** https://chiuta.github.io/Universul-Observabil/
 
-![Captura de ecran](screenshot.png)
+![Screenshot](screenshot.png)
 
-## Ce este
+## What it is
 
-Acest fișier HTML este pagina-hub a seriei „Observable Universe": nu conține vizualizările în sine (are doar un mic calculator cosmologic offline), ci le prezintă, le compară și trimite către ele. Cele trei versiuni, după descrierea din pagină:
+This HTML file is the hub page of the "Observable Universe" series: it does not contain the visualisations themselves (it only has a small offline cosmology calculator), but presents them, compares them and links to them. The three versions, as described on the page:
 
-- 1D (v1.0, „Axa Radială"): 112 galaxii pe o singură axă, cu patru moduri de axă (lookback time, comoving, redshift z, factor de scară); aprox. 160 KB.
-- 2D (v5.9, „Harta Plană"): 12 orizonturi cosmice, zoom adaptiv, permalink cu stare, quiz cu leaderboard; aprox. 550 KB.
-- 3D (v1.2, „Spațiu Real"): coordonate RA/Dec reale, cosmologie ΛCDM, selector H₀ (Planck 67,4 vs. SH0ES 73,0), WebGL cu Three.js r128; aprox. 1 MB.
+- 1D (v1.0, "Radial Axis"): 112 galaxies on a single axis, with four axis modes (lookback time, comoving, redshift z, scale factor); approx. 160 KB.
+- 2D (v5.9, "Flat Map"): 12 cosmic horizons, adaptive zoom, permalink with state, quiz with leaderboard; approx. 550 KB.
+- 3D (v1.2, "Real Space"): real RA/Dec coordinates, ΛCDM cosmology, H₀ selector (Planck 67.4 vs. SH0ES 73.0), WebGL with Three.js r128; approx. 1 MB.
 
-Pagina indică un catalog actualizat în mai 2026 și MoM-z14 (z = 14,44, confirmat spectroscopic cu JWST; Naidu et al. 2025) drept recordul de distanță **la data catalogului (mai 2026)**; nu garantăm că rămâne record ulterior. Cifrele de mai sus sunt cele declarate de pagină, nu verificate aici.
+The page cites a catalogue updated in May 2026 and MoM-z14 (z = 14.44, spectroscopically confirmed with JWST; Naidu et al. 2025) as the distance record **as of the catalogue date (May 2026)**; we do not guarantee that it remains the record afterwards. The figures above are those declared by the page, not verified here.
 
-## Funcții
+## Features
 
-- „Cât de departe, cât de demult?”: calculator cosmologic offline (z între 0 și 20, H₀ = 67,4 Planck sau 73,0 SH0ES) care dă timpul de privire înapoi, distanța comobilă, vârsta Universului la emisie, factorul de scară a = 1/(1+z), distanța de luminozitate D_L = (1+z)·D_C și distanța de diametru unghiular D_A = D_C/(1+z) (D_L și D_A urmează din definiții; la z = 1: D_L = 22,19 Gly, D_A = 5,55 Gly); model ΛCDM plat cu Ωm = 0,315, radiația neglijată (valori orientative; verificat față de o integrare independentă, de ex. z = 1 → 7,95 Gyr și 3,40 Gpc la H₀ = 67,4).
-- Prezentare a celor trei versiuni, cu butoane „Lansează" și linkuri către copiile de pe GitHub („GitHub mirror").
-- Tabel comparativ pe categorii (vizualizare, cosmologie, UX și export, tehnic) 1D / 2D / 3D.
-- Comutator de limbă RO / EN (butonul din colțul paginii).
-- Linkuri Buy Me a Coffee.
+- "How far, how long ago?": an offline cosmology calculator (z between 0 and 20, H₀ = 67.4 Planck or 73.0 SH0ES) that gives the lookback time, comoving distance, age of the Universe at emission, scale factor a = 1/(1+z), luminosity distance D_L = (1+z)·D_C and angular diameter distance D_A = D_C/(1+z) (D_L and D_A follow from the definitions; at z = 1: D_L = 22.19 Gly, D_A = 5.55 Gly); flat ΛCDM model with Ωm = 0.315, radiation neglected (indicative values; checked against an independent integration, e.g. z = 1 → 7.95 Gyr and 3.40 Gpc at H₀ = 67.4).
+- Presentation of the three versions, with "Launch" buttons and links to the GitHub copies ("GitHub mirror").
+- Comparison table by category (visualisation, cosmology, UX and export, technical) for 1D / 2D / 3D.
+- RO / EN language switch (button in the corner of the page).
+- Buy Me a Coffee links.
 
-## Manual de utilizare
+## User guide
 
-1. Citește prezentarea și tabelul comparativ pentru a alege versiunea.
-2. Apasă „🔭 Lansează 3D (recomandat)", „🌐 Versiunea 2D" sau „📡 Versiunea 1D"; fiecare se deschide într-o filă nouă pe alexio.tf.
-3. Alternativ, folosește linkurile „GITHUB MIRRORS" 1D / 2D / 3D către copiile de pe chiuta.github.io.
-4. Schimbă limba cu butonul EN / RO.
+1. Read the presentation and the comparison table to choose a version.
+2. Press "🔭 Launch 3D (recommended)", "🌐 2D version" or "📡 1D version"; each one opens in a new tab on alexio.tf.
+3. Alternatively, use the "GITHUB MIRRORS" 1D / 2D / 3D links to the copies on chiuta.github.io.
+4. Change the language with the EN / RO button.
 
-## Confidențialitate și rețea
+## Privacy and network
 
-- În `localStorage` se reține doar limba aleasă (`uo_lang`).
-- Pagina nu face cereri automate de rețea (fără `fetch`, scripturi sau stiluri externe). Linkurile duc, la click, către alexio.tf, chiuta.github.io, Buy Me a Coffee și site-urile partenere afișate în subsol (printre care centrulstring.ro).
-- Versiunile lansate sunt aplicații separate, cu propria politică; ele nu sunt analizate aici.
+- Only the chosen language (`uo_lang`) is stored in `localStorage`.
+- The page makes no automatic network requests (no `fetch`, no external scripts or styles). Links lead, on click, to alexio.tf, chiuta.github.io, Buy Me a Coffee and the partner sites shown in the footer (including centrulstring.ro).
+- The launched versions are separate applications with their own policies; they are not analysed here.
 
-## Rulare locală / offline
+## Running locally / offline
 
-Descarcă `index.html` și deschide-l în browser: pagina se afișează fără internet, dar butoanele de lansare și mirror-urile cer conexiune, pentru că trimit către pagini găzduite online.
+Download `index.html` and open it in a browser: the page displays without internet, but the launch buttons and mirrors require a connection, because they point to pages hosted online.
 
-## Istoric / Changelog
+## History / Changelog
 
-- 1.1.0 — 2026-10-14: Copie de rezervă și etichetare date (fff-kit).
+- 1.1.0 — 2026-10-14: Backup and data labelling (fff-kit).
 
-- 1.0.0 — 2026-10-12: versiunea și data ultimei actualizări sunt afișate în aplicație
-- Runda 7: calculatorul cosmologic oferă acum și factorul de scară, distanța de luminozitate și distanța de diametru unghiular (RO/EN); dimensiunea fișierului redusă de la ~616 KB la ~461 KB prin eliminarea a 8 declarații @font-face nefolosite (Barlow 300/500/300 italic și JetBrains Mono 300), verificat prin comparație de capturi și enumerarea fonturilor calculate; fără pierdere de conținut.
-- Adăugat calculatorul cosmologic offline; eliminat depășirea orizontală de 2 px (linia separatoare); etichetele plutitoare decorative din antet sunt acum conținut generat (nu mai produc fluctuații de contrast în axe-core); CSP: `script-src` pe hash SHA-256, fără `'unsafe-inline'`.
-- Numărul de galaxii este acum consecvent: 1D și 2D = 112, 3D și catalogul total = 118 (înainte, tabelul spunea „115+”, iar antetul 118).
-- Adăugată o notă vizibilă că pagina e doar de prezentare și lansarea versiunilor cere internet.
-- Conținutul principal este în `<main>`, elementele decorative sunt ascunse cititoarelor de ecran, tabelul comparativ și filele nu mai depășesc ecranul la 360 px, iar contrastul etichetelor estompate a fost crescut; axe-core: 0 violări la 1280 și 360 px.
-- Recordul MoM-z14 (z = 14,44) rămâne formulat „la data catalogului (mai 2026)”; nu am găsit în căutarea din 11.10.2026 o confirmare spectroscopică ulterioară care să-l depășească, dar formularea cu dată a fost păstrată intenționat. Surse verificate la 11.10.2026: arXiv 2505.11263 (Naidu et al.).
+- 1.0.0 — 2026-10-12: the version and the date of the last update are shown in the app
+- Round 7: the cosmology calculator now also provides the scale factor, the luminosity distance and the angular diameter distance (RO/EN); file size reduced from ~616 KB to ~461 KB by removing 8 unused @font-face declarations (Barlow 300/500/300 italic and JetBrains Mono 300), verified by screenshot comparison and enumeration of the computed fonts; no loss of content.
+- Added the offline cosmology calculator; removed the 2 px horizontal overflow (the separator line); the decorative floating labels in the header are now generated content (they no longer cause contrast fluctuations in axe-core); CSP: `script-src` based on a SHA-256 hash, without `'unsafe-inline'`.
+- The number of galaxies is now consistent: 1D and 2D = 112, 3D and the total catalogue = 118 (previously the table said "115+" and the header said 118).
+- Added a visible note that the page is for presentation only and that launching the versions requires internet.
+- The main content is in `<main>`, decorative elements are hidden from screen readers, the comparison table and the tabs no longer overflow the screen at 360 px, and the contrast of the dimmed labels was increased; axe-core: 0 violations at 1280 and 360 px.
+- The MoM-z14 record (z = 14.44) remains worded "as of the catalogue date (May 2026)"; in the search of 11.10.2026 we found no later spectroscopic confirmation that surpasses it, but the dated wording was kept intentionally. Sources checked on 11.10.2026: arXiv 2505.11263 (Naidu et al.).
 
-## Licență
+## License
 
-MIT — vezi fișierul LICENSE
+MIT — see the LICENSE file
 
 ## Audit
 
-Audit: 2026-10-10; runda 3: 2026-10-11 — afirmațiile perisabile („Record JWST 2026") reformulate „la data catalogului (mai 2026)" cu sursa; eliminată trimiterea la „DOI Zenodo" din descrierea 3D (aplicația 3D nu are DOI).
+Audit: 2026-10-10; round 3: 2026-10-11 — perishable claims ("JWST record 2026") reworded "as of the catalogue date (May 2026)" with the source; removed the reference to "Zenodo DOI" from the 3D description (the 3D app has no DOI).
 
-## Autor
+## Author
 
-Alexio — Alexandru-Ionuț Chiuță, contact: alexio@trom.tf. Subsolul paginii face trimitere și la Centrul StrING.
+Alexio — Alexandru-Ionuț Chiuță, contact: alexio@trom.tf. The page footer also links to Centrul StrING.
 
-## English summary
+## Summary
 
 A single-file landing page for the "Observable Universe" series, presenting and comparing its 1D, 2D and 3D versions (radial axis, flat map, real-space WebGL view) with launch links and GitHub mirrors, in Romanian and English, plus a small offline cosmology calculator (redshift to lookback time and comoving distance). It stores only the language choice locally and makes no automatic network requests; launch and mirror links open external pages.
