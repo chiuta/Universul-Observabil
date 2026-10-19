@@ -10,7 +10,7 @@ Pagina d'ingresso che presenta e confronta le tre versioni (1D, 2D, 3D) della vi
 
 **Online:** https://chiuta.github.io/Universul-Observabil/
 
-![Schermata](screenshot.png)
+![Schermata](screenshot.it.png)
 
 ## Che cos'è
 

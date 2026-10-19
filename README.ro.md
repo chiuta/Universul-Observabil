@@ -10,7 +10,7 @@ Pagină de intrare care prezintă și compară cele trei versiuni (1D, 2D, 3D) a
 
 **Live:** https://chiuta.github.io/Universul-Observabil/
 
-![Captura de ecran](screenshot.png)
+![Captura de ecran](screenshot.ro.png)
 
 ## Ce este
 

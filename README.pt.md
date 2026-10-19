@@ -10,7 +10,7 @@ Página de entrada que apresenta e compara as três versões (1D, 2D, 3D) da vis
 
 **Online:** https://chiuta.github.io/Universul-Observabil/
 
-![Captura de ecrã](screenshot.png)
+![Captura de ecrã](screenshot.pt.png)
 
 ## O que é
 

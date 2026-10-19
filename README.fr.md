@@ -10,7 +10,7 @@ Page d'accueil qui présente et compare les trois versions (1D, 2D, 3D) de la vi
 
 **En ligne :** https://chiuta.github.io/Universul-Observabil/
 
-![Capture d'écran](screenshot.png)
+![Capture d'écran](screenshot.fr.png)
 
 ## De quoi s'agit-il
 

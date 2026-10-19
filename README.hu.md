@@ -10,7 +10,7 @@ Nyitóoldal, amely bemutatja és összehasonlítja a megfigyelhető Világegyete
 
 **Élő változat:** https://chiuta.github.io/Universul-Observabil/
 
-![Képernyőkép](screenshot.png)
+![Képernyőkép](screenshot.hu.png)
 
 ## Mi ez
 

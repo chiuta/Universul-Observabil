@@ -10,7 +10,7 @@ Landing page that presents and compares the three versions (1D, 2D, 3D) of the o
 
 **Live:** https://chiuta.github.io/Universul-Observabil/
 
-![Screenshot](screenshot.png)
+![Screenshot](screenshot.en.png)
 
 ## What it is
 

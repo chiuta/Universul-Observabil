@@ -10,7 +10,7 @@ Einstiegsseite, die die drei Versionen (1D, 2D, 3D) der Visualisierung des beoba
 
 **Online:** https://chiuta.github.io/Universul-Observabil/
 
-![Screenshot](screenshot.png)
+![Screenshot](screenshot.de.png)
 
 ## Was es ist
 

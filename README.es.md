@@ -10,7 +10,7 @@ Página de entrada que presenta y compara las tres versiones (1D, 2D, 3D) de la 
 
 **En línea:** https://chiuta.github.io/Universul-Observabil/
 
-![Captura de pantalla](screenshot.png)
+![Captura de pantalla](screenshot.es.png)
 
 ## Qué es
 
