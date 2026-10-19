@@ -2,7 +2,9 @@
 
 [English](README.md) · [Română](README.ro.md) · **Français** · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version :** 1.1.0 · **Dernière mise à jour :** 2026-10-14
+**Version :** 1.2.0 · **Dernière mise à jour :** 2026-10-19
+
+Langues de l'interface : **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
 Page d'accueil qui présente et compare les trois versions (1D, 2D, 3D) de la visualisation de l'Univers observable.
 
@@ -25,7 +27,7 @@ La page indique un catalogue mis à jour en mai 2026 et MoM-z14 (z = 14,44, conf
 - « À quelle distance, il y a combien de temps ? » : calculateur cosmologique hors ligne (z entre 0 et 20, H₀ = 67,4 Planck ou 73,0 SH0ES) qui donne le temps de regard en arrière, la distance comobile, l'âge de l'Univers à l'émission, le facteur d'échelle a = 1/(1+z), la distance de luminosité D_L = (1+z)·D_C et la distance de diamètre angulaire D_A = D_C/(1+z) (D_L et D_A découlent des définitions ; pour z = 1 : D_L = 22,19 Gal, D_A = 5,55 Gal) ; modèle ΛCDM plat avec Ωm = 0,315, rayonnement négligé (valeurs indicatives ; vérifié par rapport à une intégration indépendante, p. ex. z = 1 → 7,95 Ga et 3,40 Gpc pour H₀ = 67,4).
 - Présentation des trois versions, avec des boutons « Lancer » et des liens vers les copies sur GitHub (« GitHub mirror »).
 - Tableau comparatif par catégories (visualisation, cosmologie, UX et export, technique) pour 1D / 2D / 3D.
-- Sélecteur de langue RO / EN (bouton dans le coin de la page).
+- Sélecteur de langue (RO, EN, FR, IT, ES, PT, DE, HU) dans le coin de la page.
 - Liens Buy Me a Coffee.
 
 ## Mode d'emploi
@@ -71,4 +73,4 @@ Alexio — Alexandru-Ionuț Chiuță, contact : alexio@trom.tf. Le pied de page 
 
 ## Résumé
 
-Page d'accueil en un seul fichier pour la série « Observable Universe », qui présente et compare ses versions 1D, 2D et 3D (axe radial, carte plane, vue WebGL en espace réel) avec des liens de lancement et des miroirs GitHub, en roumain et en anglais, ainsi qu'un petit calculateur cosmologique hors ligne (décalage vers le rouge, temps de regard en arrière et distance comobile). Elle ne conserve localement que le choix de la langue et n'effectue aucune requête réseau automatique ; les liens de lancement et de miroir ouvrent des pages externes.
+Page d'accueil en un seul fichier pour la série « Observable Universe », qui présente et compare ses versions 1D, 2D et 3D (axe radial, carte plane, vue WebGL en espace réel) avec des liens de lancement et des miroirs GitHub, en 8 langues, ainsi qu'un petit calculateur cosmologique hors ligne (décalage vers le rouge, temps de regard en arrière et distance comobile). Elle ne conserve localement que le choix de la langue et n'effectue aucune requête réseau automatique ; les liens de lancement et de miroir ouvrent des pages externes.

@@ -2,7 +2,9 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · **Português** · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versão:** 1.1.0 · **Última atualização:** 2026-10-14
+**Versão:** 1.2.0 · **Última atualização:** 2026-10-19
+
+Idiomas da interface: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
 Página de entrada que apresenta e compara as três versões (1D, 2D, 3D) da visualização do Universo observável.
 
@@ -25,7 +27,7 @@ A página indica um catálogo atualizado em maio de 2026 e o MoM-z14 (z = 14,44,
 - «A que distância, há quanto tempo?»: calculadora cosmológica offline (z entre 0 e 20, H₀ = 67,4 Planck ou 73,0 SH0ES) que indica o tempo de retrospeção, a distância comóvel, a idade do Universo na emissão, o fator de escala a = 1/(1+z), a distância de luminosidade D_L = (1+z)·D_C e a distância de diâmetro angular D_A = D_C/(1+z) (D_L e D_A decorrem das definições; para z = 1: D_L = 22,19 Gal, D_A = 5,55 Gal); modelo ΛCDM plano com Ωm = 0,315, radiação desprezada (valores indicativos; verificado face a uma integração independente, p. ex. z = 1 → 7,95 Ga e 3,40 Gpc com H₀ = 67,4).
 - Apresentação das três versões, com botões «Lançar» e ligações para as cópias no GitHub («GitHub mirror»).
 - Tabela comparativa por categorias (visualização, cosmologia, UX e exportação, técnica) para 1D / 2D / 3D.
-- Comutador de idioma RO / EN (botão no canto da página).
+- Seletor de idioma (RO, EN, FR, IT, ES, PT, DE, HU) no canto da página.
 - Ligações Buy Me a Coffee.
 
 ## Manual de utilização
@@ -71,4 +73,4 @@ Alexio — Alexandru-Ionuț Chiuță, contacto: alexio@trom.tf. O rodapé da pá
 
 ## Resumo
 
-Página de entrada de ficheiro único para a série «Observable Universe», que apresenta e compara as suas versões 1D, 2D e 3D (eixo radial, mapa plano, vista WebGL em espaço real) com ligações de lançamento e espelhos do GitHub, em romeno e inglês, além de uma pequena calculadora cosmológica offline (desvio para o vermelho, tempo de retrospeção e distância comóvel). Guarda localmente apenas a escolha do idioma e não faz pedidos de rede automáticos; as ligações de lançamento e de espelho abrem páginas externas.
+Página de entrada de ficheiro único para a série «Observable Universe», que apresenta e compara as suas versões 1D, 2D e 3D (eixo radial, mapa plano, vista WebGL em espaço real) com ligações de lançamento e espelhos do GitHub, em 8 idiomas, além de uma pequena calculadora cosmológica offline (desvio para o vermelho, tempo de retrospeção e distância comóvel). Guarda localmente apenas a escolha do idioma e não faz pedidos de rede automáticos; as ligações de lançamento e de espelho abrem páginas externas.

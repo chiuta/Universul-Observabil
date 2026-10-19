@@ -2,7 +2,9 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 1.1.0 · **Utolsó frissítés:** 2026-10-14
+**Verzió:** 1.2.0 · **Utolsó frissítés:** 2026-10-19
+
+A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
 Nyitóoldal, amely bemutatja és összehasonlítja a megfigyelhető Világegyetem vizualizációjának három változatát (1D, 2D, 3D).
 
@@ -25,7 +27,7 @@ Az oldal egy 2026 májusában frissített katalógust, valamint a MoM-z14-et (z 
 - „Milyen messze, mennyi ideje?": offline kozmológiai számológép (z 0 és 20 között, H₀ = 67,4 Planck vagy 73,0 SH0ES), amely megadja a visszatekintési időt, az együttmozgó távolságot, a Világegyetem korát a kibocsátás pillanatában, az a = 1/(1+z) skálatényezőt, a D_L = (1+z)·D_C fényességi távolságot és a D_A = D_C/(1+z) szögátmérő-távolságot (D_L és D_A a definíciókból következik; z = 1-nél: D_L = 22,19 Gly, D_A = 5,55 Gly); lapos ΛCDM-modell Ωm = 0,315-tel, a sugárzás elhanyagolva (tájékoztató értékek; független integrálással ellenőrizve, pl. z = 1 → 7,95 Gyr és 3,40 Gpc H₀ = 67,4 mellett).
 - A három változat bemutatása „Indítás" gombokkal és a GitHubon található másolatokra mutató hivatkozásokkal („GitHub mirror").
 - Összehasonlító táblázat kategóriánként (vizualizáció, kozmológia, UX és exportálás, technikai) az 1D / 2D / 3D változatokhoz.
-- RO / EN nyelvváltó (gomb az oldal sarkában).
+- Nyelvválasztó (RO, EN, FR, IT, ES, PT, DE, HU) az oldal sarkában.
 - Buy Me a Coffee hivatkozások.
 
 ## Használati útmutató
@@ -71,4 +73,4 @@ Alexio — Alexandru-Ionuț Chiuță, elérhetőség: alexio@trom.tf. Az oldal l
 
 ## Összefoglaló
 
-Egyfájlos nyitóoldal az „Observable Universe" sorozathoz, amely bemutatja és összehasonlítja az 1D, 2D és 3D változatait (radiális tengely, síktérkép, WebGL nézet valódi térben) indító hivatkozásokkal és GitHub-tükrökkel, románul és angolul, valamint egy kis offline kozmológiai számológép (vöröseltolódás, visszatekintési idő és együttmozgó távolság). Helyben csak a nyelvválasztást tárolja, és nem indít automatikus hálózati kéréseket; az indító és tükörhivatkozások külső oldalakat nyitnak meg.
+Egyfájlos nyitóoldal az „Observable Universe" sorozathoz, amely bemutatja és összehasonlítja az 1D, 2D és 3D változatait (radiális tengely, síktérkép, WebGL nézet valódi térben) indító hivatkozásokkal és GitHub-tükrökkel, 8 nyelven, valamint egy kis offline kozmológiai számológép (vöröseltolódás, visszatekintési idő és együttmozgó távolság). Helyben csak a nyelvválasztást tárolja, és nem indít automatikus hálózati kéréseket; az indító és tükörhivatkozások külső oldalakat nyitnak meg.

@@ -2,7 +2,9 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 1.1.0 · **Last updated:** 2026-10-14
+**Version:** 1.2.0 · **Last updated:** 2026-10-19
+
+Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
 Landing page that presents and compares the three versions (1D, 2D, 3D) of the observable Universe visualisation.
 
@@ -25,7 +27,7 @@ The page cites a catalogue updated in May 2026 and MoM-z14 (z = 14.44, spectrosc
 - "How far, how long ago?": an offline cosmology calculator (z between 0 and 20, H₀ = 67.4 Planck or 73.0 SH0ES) that gives the lookback time, comoving distance, age of the Universe at emission, scale factor a = 1/(1+z), luminosity distance D_L = (1+z)·D_C and angular diameter distance D_A = D_C/(1+z) (D_L and D_A follow from the definitions; at z = 1: D_L = 22.19 Gly, D_A = 5.55 Gly); flat ΛCDM model with Ωm = 0.315, radiation neglected (indicative values; checked against an independent integration, e.g. z = 1 → 7.95 Gyr and 3.40 Gpc at H₀ = 67.4).
 - Presentation of the three versions, with "Launch" buttons and links to the GitHub copies ("GitHub mirror").
 - Comparison table by category (visualisation, cosmology, UX and export, technical) for 1D / 2D / 3D.
-- RO / EN language switch (button in the corner of the page).
+- Language selector (RO, EN, FR, IT, ES, PT, DE, HU) in the corner of the page.
 - Buy Me a Coffee links.
 
 ## User guide
@@ -71,4 +73,4 @@ Alexio — Alexandru-Ionuț Chiuță, contact: alexio@trom.tf. The page footer a
 
 ## Summary
 
-A single-file landing page for the "Observable Universe" series, presenting and comparing its 1D, 2D and 3D versions (radial axis, flat map, real-space WebGL view) with launch links and GitHub mirrors, in Romanian and English, plus a small offline cosmology calculator (redshift to lookback time and comoving distance). It stores only the language choice locally and makes no automatic network requests; launch and mirror links open external pages.
+A single-file landing page for the "Observable Universe" series, presenting and comparing its 1D, 2D and 3D versions (radial axis, flat map, real-space WebGL view) with launch links and GitHub mirrors, in 8 languages, plus a small offline cosmology calculator (redshift to lookback time and comoving distance). It stores only the language choice locally and makes no automatic network requests; launch and mirror links open external pages.

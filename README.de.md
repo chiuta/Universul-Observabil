@@ -2,7 +2,9 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · **Deutsch** · [Magyar](README.hu.md)
 
-**Version:** 1.1.0 · **Zuletzt aktualisiert:** 2026-10-14
+**Version:** 1.2.0 · **Zuletzt aktualisiert:** 2026-10-19
+
+Oberflächensprachen: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
 Einstiegsseite, die die drei Versionen (1D, 2D, 3D) der Visualisierung des beobachtbaren Universums vorstellt und vergleicht.
 
@@ -25,7 +27,7 @@ Die Seite nennt einen im Mai 2026 aktualisierten Katalog und MoM-z14 (z = 14,44,
 - „Wie weit, wie lange her?": Offline-Kosmologie-Rechner (z zwischen 0 und 20, H₀ = 67,4 Planck oder 73,0 SH0ES), der die Rückblickzeit, die mitbewegte Entfernung, das Alter des Universums zum Zeitpunkt der Emission, den Skalenfaktor a = 1/(1+z), die Leuchtkraftentfernung D_L = (1+z)·D_C und die Winkeldurchmesserentfernung D_A = D_C/(1+z) liefert (D_L und D_A folgen aus den Definitionen; bei z = 1: D_L = 22,19 Mrd. Lj, D_A = 5,55 Mrd. Lj); flaches ΛCDM-Modell mit Ωm = 0,315, Strahlung vernachlässigt (Richtwerte; geprüft gegen eine unabhängige Integration, z. B. z = 1 → 7,95 Mrd. Jahre und 3,40 Gpc bei H₀ = 67,4).
 - Vorstellung der drei Versionen, mit „Starten"-Schaltflächen und Links zu den Kopien auf GitHub („GitHub mirror").
 - Vergleichstabelle nach Kategorien (Visualisierung, Kosmologie, UX und Export, Technik) für 1D / 2D / 3D.
-- Sprachumschalter RO / EN (Schaltfläche in der Ecke der Seite).
+- Sprachwähler (RO, EN, FR, IT, ES, PT, DE, HU) in der Ecke der Seite.
 - Buy-Me-a-Coffee-Links.
 
 ## Bedienungsanleitung
@@ -71,4 +73,4 @@ Alexio — Alexandru-Ionuț Chiuță, Kontakt: alexio@trom.tf. Der Seitenfuß ve
 
 ## Zusammenfassung
 
-Eine Einstiegsseite in einer einzigen Datei für die Serie „Observable Universe", die ihre 1D-, 2D- und 3D-Versionen (Radialachse, flache Karte, WebGL-Ansicht im realen Raum) mit Startlinks und GitHub-Mirrors vorstellt und vergleicht, auf Rumänisch und Englisch, plus ein kleiner Offline-Kosmologie-Rechner (Rotverschiebung, Rückblickzeit und mitbewegte Entfernung). Sie speichert lokal nur die Sprachwahl und stellt keine automatischen Netzwerkanfragen; Start- und Mirror-Links öffnen externe Seiten.
+Eine Einstiegsseite in einer einzigen Datei für die Serie „Observable Universe", die ihre 1D-, 2D- und 3D-Versionen (Radialachse, flache Karte, WebGL-Ansicht im realen Raum) mit Startlinks und GitHub-Mirrors vorstellt und vergleicht, in 8 Sprachen, plus ein kleiner Offline-Kosmologie-Rechner (Rotverschiebung, Rückblickzeit und mitbewegte Entfernung). Sie speichert lokal nur die Sprachwahl und stellt keine automatischen Netzwerkanfragen; Start- und Mirror-Links öffnen externe Seiten.
