@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · **Italiano** · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versione:** 1.2.0 · **Ultimo aggiornamento:** 2026-10-19
+**Versione:** 1.2.1 · **Ultimo aggiornamento:** 2026-10-22
 
 Lingue dell'interfaccia: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -48,6 +48,8 @@ La pagina indica un catalogo aggiornato a maggio 2026 e MoM-z14 (z = 14,44, conf
 Scarica `index.html` e aprilo nel browser: la pagina si visualizza senza internet, ma i pulsanti di avvio e i mirror richiedono una connessione, perché rimandano a pagine ospitate online.
 
 ## Cronologia / Changelog
+
+- 1.2.1 — 2026-10-22: il titolo della pagina segue ora la lingua dell'interfaccia (<title> aggiornato al cambio di lingua).
 
 - 1.1.0 — 2026-10-14: copia di sicurezza ed etichettatura dei dati (fff-kit).
 

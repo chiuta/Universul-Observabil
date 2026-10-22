@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 1.2.0 · **Last updated:** 2026-10-19
+**Version:** 1.2.1 · **Last updated:** 2026-10-22
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -48,6 +48,8 @@ The page cites a catalogue updated in May 2026 and MoM-z14 (z = 14.44, spectrosc
 Download `index.html` and open it in a browser: the page displays without internet, but the launch buttons and mirrors require a connection, because they point to pages hosted online.
 
 ## History / Changelog
+
+- 1.2.1 — 2026-10-22: the page title now follows the interface language (<title> updated on language change).
 
 - 1.1.0 — 2026-10-14: Backup and data labelling (fff-kit).
 
