@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 1.2.6 · **Utolsó frissítés:** 2026-10-23
+**Verzió:** 1.2.7 · **Utolsó frissítés:** 2026-10-23
 
 A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -39,7 +39,7 @@ Az oldal egy 2026 májusában frissített katalógust, valamint a MoM-z14-et (z 
 
 ## Adatvédelem és hálózat
 
-- A `localStorage` csak a kiválasztott nyelvet (`uo_lang`) őrzi meg.
+- A `localStorage` csak a kiválasztott nyelvet (`universul-observabil.lang`) őrzi meg.
 - Az oldal nem indít automatikus hálózati kéréseket (nincs `fetch`, nincsenek külső szkriptek vagy stílusok). A hivatkozások kattintásra az alexio.tf, a chiuta.github.io, a Buy Me a Coffee és a láblécben megjelenő partneroldalak (köztük a centrulstring.ro) felé vezetnek.
 - Az elindított változatok önálló alkalmazások, saját szabályzattal; itt nem elemezzük őket.
 
@@ -48,6 +48,9 @@ Az oldal egy 2026 májusában frissített katalógust, valamint a MoM-z14-et (z 
 Töltsd le az `index.html` fájlt, és nyisd meg böngészőben: az oldal internet nélkül is megjelenik, de az indító gombok és a tükörlinkek kapcsolatot igényelnek, mert online tárolt oldalakra mutatnak.
 
 ## Előzmények / Changelog
+
+### 1.2.7 — 2026-10-23
+- fff-kit 1.2.0: a nyelv mostantól a `universul-observabil.lang` kulcs alatt tárolódik; a régi `uo_lang` kulcsot az alkalmazás induláskor automatikusan átköltözteti (régi .fff.json mentés importálása után is). A lábléc verziószövege mostantól minden nyelven a tényleges verziót mutatja.
 
 ### 1.2.5 — 2026-10-22
 - fff-kit 1.1.4: érintési célpontok és minimális szövegméret; érintési célpontok/szöveg javítva

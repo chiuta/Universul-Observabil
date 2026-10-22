@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 1.2.6 · **Last updated:** 2026-10-23
+**Version:** 1.2.7 · **Last updated:** 2026-10-23
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -39,7 +39,7 @@ The page cites a catalogue updated in May 2026 and MoM-z14 (z = 14.44, spectrosc
 
 ## Privacy and network
 
-- Only the chosen language (`uo_lang`) is stored in `localStorage`.
+- Only the chosen language (`universul-observabil.lang`) is stored in `localStorage`.
 - The page makes no automatic network requests (no `fetch`, no external scripts or styles). Links lead, on click, to alexio.tf, chiuta.github.io, Buy Me a Coffee and the partner sites shown in the footer (including centrulstring.ro).
 - The launched versions are separate applications with their own policies; they are not analysed here.
 
@@ -48,6 +48,9 @@ The page cites a catalogue updated in May 2026 and MoM-z14 (z = 14.44, spectrosc
 Download `index.html` and open it in a browser: the page displays without internet, but the launch buttons and mirrors require a connection, because they point to pages hosted online.
 
 ## History / Changelog
+
+### 1.2.7 — 2026-10-23
+- fff-kit 1.2.0: the language is now stored under `universul-observabil.lang`; the old `uo_lang` key is migrated automatically at start-up (also after importing an old .fff.json backup). The footer version text now follows the version in every language.
 
 ### 1.2.5 — 2026-10-22
 - fff-kit 1.1.4: touch targets and minimum text size; touch targets/text fixed

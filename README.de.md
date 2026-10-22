@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · **Deutsch** · [Magyar](README.hu.md)
 
-**Version:** 1.2.6 · **Zuletzt aktualisiert:** 2026-10-23
+**Version:** 1.2.7 · **Zuletzt aktualisiert:** 2026-10-23
 
 Oberflächensprachen: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -39,7 +39,7 @@ Die Seite nennt einen im Mai 2026 aktualisierten Katalog und MoM-z14 (z = 14,44,
 
 ## Datenschutz und Netzwerk
 
-- In `localStorage` wird nur die gewählte Sprache (`uo_lang`) gespeichert.
+- In `localStorage` wird nur die gewählte Sprache (`universul-observabil.lang`) gespeichert.
 - Die Seite stellt keine automatischen Netzwerkanfragen (kein `fetch`, keine externen Skripte oder Stile). Die Links führen beim Anklicken zu alexio.tf, chiuta.github.io, Buy Me a Coffee und den im Fußbereich angezeigten Partnerseiten (darunter centrulstring.ro).
 - Die gestarteten Versionen sind eigenständige Anwendungen mit eigener Richtlinie; sie werden hier nicht analysiert.
 
@@ -48,6 +48,9 @@ Die Seite nennt einen im Mai 2026 aktualisierten Katalog und MoM-z14 (z = 14,44,
 Lade `index.html` herunter und öffne sie im Browser: Die Seite wird ohne Internet angezeigt, aber die Start-Schaltflächen und die Mirrors benötigen eine Verbindung, da sie auf online gehostete Seiten verweisen.
 
 ## Verlauf / Changelog
+
+### 1.2.7 — 2026-10-23
+- fff-kit 1.2.0: Die Sprache wird jetzt unter dem Schlüssel `universul-observabil.lang` gespeichert; der alte Schlüssel `uo_lang` wird beim Start automatisch migriert (auch nach dem Import einer alten .fff.json-Sicherung). Der Versionstext in der Fußzeile folgt jetzt in allen Sprachen der tatsächlichen Version.
 
 ### 1.2.5 — 2026-10-22
 - fff-kit 1.1.4: Touch-Ziele und Mindestschriftgröße; Touch-Ziele/Text korrigiert
