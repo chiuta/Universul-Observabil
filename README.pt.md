@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · **Português** · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versão:** 1.2.4 · **Última atualização:** 2026-10-22
+**Versão:** 1.2.5 · **Última atualização:** 2026-10-22
 
 Idiomas da interface: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -48,6 +48,9 @@ A página indica um catálogo atualizado em maio de 2026 e o MoM-z14 (z = 14,44,
 Descarregue `index.html` e abra-o no navegador: a página é apresentada sem internet, mas os botões de lançamento e os espelhos requerem ligação, porque remetem para páginas alojadas online.
 
 ## Histórico / Changelog
+
+### 1.2.5 — 2026-10-22
+- fff-kit 1.1.4: alvos táteis e texto mínimo; alvos táteis/texto corrigidos
 
 ### 1.2.4 — 2026-10-22
 - fff-kit 1.1.2: PBKDF2 com 600.000 iterações, proteção anti-clickjacking.
