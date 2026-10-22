@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · **Português** · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versão:** 1.2.1 · **Última atualização:** 2026-10-22
+**Versão:** 1.2.2 · **Última atualização:** 2026-10-22
 
 Idiomas da interface: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -49,6 +49,7 @@ Descarregue `index.html` e abra-o no navegador: a página é apresentada sem int
 
 ## Histórico / Changelog
 
+- 1.2.2 — 2026-10-22: Correção de tradução: a descrição (e o nome) do painel de transparência seguem agora o idioma da interface.
 - 1.2.1 — 2026-10-22: o título da página acompanha agora o idioma da interface (<title> atualizado ao mudar de idioma).
 
 - 1.1.0 — 2026-10-14: cópia de segurança e etiquetagem de dados (fff-kit).

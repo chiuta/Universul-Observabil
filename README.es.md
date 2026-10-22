@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · **Español** · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versión:** 1.2.1 · **Última actualización:** 2026-10-22
+**Versión:** 1.2.2 · **Última actualización:** 2026-10-22
 
 Idiomas de la interfaz: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -49,6 +49,7 @@ Descarga `index.html` y ábrelo en el navegador: la página se muestra sin inter
 
 ## Historial / Changelog
 
+- 1.2.2 — 2026-10-22: Corrección de traducción: la descripción (y el nombre) del panel de transparencia siguen ahora el idioma de la interfaz.
 - 1.2.1 — 2026-10-22: el título de la página sigue ahora el idioma de la interfaz (<title> se actualiza al cambiar de idioma).
 
 - 1.1.0 — 2026-10-14: copia de seguridad y etiquetado de datos (fff-kit).
