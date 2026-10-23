@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · **Português** · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versão:** 1.2.7 · **Última atualização:** 2026-10-23
+**Versão:** 1.2.8 · **Última atualização:** 2026-10-23
 
 Idiomas da interface: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -48,6 +48,11 @@ A página indica um catálogo atualizado em maio de 2026 e o MoM-z14 (z = 14,44,
 Descarregue `index.html` e abra-o no navegador: a página é apresentada sem internet, mas os botões de lançamento e os espelhos requerem ligação, porque remetem para páginas alojadas online.
 
 ## Histórico / Changelog
+
+### 1.2.8 — 2026-10-23
+- `prefers-reduced-motion` é agora respeitado também pelas animações JavaScript (nebulosa, cintilação das estrelas, partículas ao clicar, efeito de digitação, inclinação dos cartões, seguimento do cursor, contador); antes só as animações CSS eram reduzidas.
+- Calculadora cósmica: só se aceitam decimais simples (`0x10`, `1e1`, `0b11` já não são lidos como números).
+- Em ecrãs táteis (`pointer: coarse`) as ligações, o seletor de idioma, os chips e os separadores têm uma área tátil de 44 px.
 
 ### 1.2.7 — 2026-10-23
 - fff-kit 1.2.0: o idioma é agora guardado com a chave `universul-observabil.lang`; a antiga chave `uo_lang` é migrada automaticamente no arranque (também após a importação de uma cópia .fff.json antiga). O texto da versão no rodapé segue agora a versão real em todos os idiomas.

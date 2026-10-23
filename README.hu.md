@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 1.2.7 · **Utolsó frissítés:** 2026-10-23
+**Verzió:** 1.2.8 · **Utolsó frissítés:** 2026-10-23
 
 A felület nyelvei: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -48,6 +48,11 @@ Az oldal egy 2026 májusában frissített katalógust, valamint a MoM-z14-et (z 
 Töltsd le az `index.html` fájlt, és nyisd meg böngészőben: az oldal internet nélkül is megjelenik, de az indító gombok és a tükörlinkek kapcsolatot igényelnek, mert online tárolt oldalakra mutatnak.
 
 ## Előzmények / Changelog
+
+### 1.2.8 — 2026-10-23
+- A `prefers-reduced-motion` beállítást most a JavaScript-animációk is tiszteletben tartják (köd, csillagok csillogása, kattintási részecskék, gépelési effekt, kártyák dőlése, kurzorkövetés, számláló); korábban csak a CSS-animációk csökkentek.
+- Kozmikus számológép: csak egyszerű tizedes számokat fogad el (a `0x10`, `1e1`, `0b11` már nem számként értelmeződik).
+- Érintőképernyőn (`pointer: coarse`) a hivatkozások, a nyelvválasztó, a chipek és a fülek 44 px-es érintési célpontot kapnak.
 
 ### 1.2.7 — 2026-10-23
 - fff-kit 1.2.0: a nyelv mostantól a `universul-observabil.lang` kulcs alatt tárolódik; a régi `uo_lang` kulcsot az alkalmazás induláskor automatikusan átköltözteti (régi .fff.json mentés importálása után is). A lábléc verziószövege mostantól minden nyelven a tényleges verziót mutatja.

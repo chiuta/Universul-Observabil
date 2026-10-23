@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 1.2.7 · **Last updated:** 2026-10-23
+**Version:** 1.2.8 · **Last updated:** 2026-10-23
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -48,6 +48,11 @@ The page cites a catalogue updated in May 2026 and MoM-z14 (z = 14.44, spectrosc
 Download `index.html` and open it in a browser: the page displays without internet, but the launch buttons and mirrors require a connection, because they point to pages hosted online.
 
 ## History / Changelog
+
+### 1.2.8 — 2026-10-23
+- `prefers-reduced-motion` is now honoured by the JavaScript animations too (nebula, starfield twinkle, click particles, typing effect, card tilt, cursor follow, counter); before, only the CSS animations were reduced.
+- Cosmic calculator: only plain decimals are accepted (`0x10`, `1e1`, `0b11` are no longer read as numbers).
+- On touch screens (`pointer: coarse`) links, language selector, chips and tabs have a 44 px touch target.
 
 ### 1.2.7 — 2026-10-23
 - fff-kit 1.2.0: the language is now stored under `universul-observabil.lang`; the old `uo_lang` key is migrated automatically at start-up (also after importing an old .fff.json backup). The footer version text now follows the version in every language.
