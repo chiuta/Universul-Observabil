@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 1.2.7 · **Ultima actualizare:** 2026-10-23
+**Versiune:** 1.2.8 · **Ultima actualizare:** 2026-10-23
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -48,6 +48,11 @@ Pagina indică un catalog actualizat în mai 2026 și MoM-z14 (z = 14,44, confir
 Descarcă `index.html` și deschide-l în browser: pagina se afișează fără internet, dar butoanele de lansare și mirror-urile cer conexiune, pentru că trimit către pagini găzduite online.
 
 ## Istoric / Changelog
+
+### 1.2.8 — 2026-10-23
+- `prefers-reduced-motion` este acum respectat și de animațiile din JavaScript (nebuloasă, sclipirea stelelor, particulele la clic, efectul de tastare, înclinarea cardurilor, urmărirea cursorului, contorul); înainte erau reduse doar animațiile CSS.
+- Calculatorul cosmic: se acceptă doar zecimale simple (`0x10`, `1e1`, `0b11` nu mai sunt citite ca numere).
+- Pe ecrane tactile (`pointer: coarse`) legăturile, selectorul de limbă, chip-urile și taburile au o țintă tactilă de 44 px.
 
 ### 1.2.7 — 2026-10-23
 - fff-kit 1.2.0: limba se păstrează acum sub cheia `universul-observabil.lang`; vechea cheie `uo_lang` este migrată automat la pornire (și după importul unei copii .fff.json vechi). Textul versiunii din subsol urmează acum versiunea reală în toate limbile.

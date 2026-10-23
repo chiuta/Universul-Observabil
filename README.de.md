@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · **Deutsch** · [Magyar](README.hu.md)
 
-**Version:** 1.2.7 · **Zuletzt aktualisiert:** 2026-10-23
+**Version:** 1.2.8 · **Zuletzt aktualisiert:** 2026-10-23
 
 Oberflächensprachen: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -48,6 +48,11 @@ Die Seite nennt einen im Mai 2026 aktualisierten Katalog und MoM-z14 (z = 14,44,
 Lade `index.html` herunter und öffne sie im Browser: Die Seite wird ohne Internet angezeigt, aber die Start-Schaltflächen und die Mirrors benötigen eine Verbindung, da sie auf online gehostete Seiten verweisen.
 
 ## Verlauf / Changelog
+
+### 1.2.8 — 2026-10-23
+- `prefers-reduced-motion` wird jetzt auch von den JavaScript-Animationen beachtet (Nebel, Sternfunkeln, Klick-Partikel, Tippeffekt, Karten-Neigung, Cursor-Folgen, Zähler); zuvor wurden nur die CSS-Animationen reduziert.
+- Kosmischer Rechner: Nur einfache Dezimalzahlen werden akzeptiert (`0x10`, `1e1`, `0b11` werden nicht mehr als Zahlen gelesen).
+- Auf Touchscreens (`pointer: coarse`) haben Links, Sprachauswahl, Chips und Tabs ein Touch-Ziel von 44 px.
 
 ### 1.2.7 — 2026-10-23
 - fff-kit 1.2.0: Die Sprache wird jetzt unter dem Schlüssel `universul-observabil.lang` gespeichert; der alte Schlüssel `uo_lang` wird beim Start automatisch migriert (auch nach dem Import einer alten .fff.json-Sicherung). Der Versionstext in der Fußzeile folgt jetzt in allen Sprachen der tatsächlichen Version.
