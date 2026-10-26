@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 1.2.9 · **Ultima actualizare:** 2026-10-26
+**Versiune:** 2.0.0 · **Ultima actualizare:** 2026-10-26
 
 Limbile interfeței: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -30,6 +30,8 @@ Pagina indică un catalog actualizat în mai 2026 și MoM-z14 (z = 14,44, confir
 - Selector de limbă (RO, EN, FR, IT, ES, PT, DE, HU) în colțul paginii.
 - Linkuri Buy Me a Coffee.
 
+- **Explorator unificat 1D · 2D · 3D** (v2.0): catalogul celor 112 de obiecte din aplicația 1D este înglobat în pagină; alegi o galaxie în oricare dintre cele trei vederi (axa lookback, harta după RA/distanță, nor 3D rotativ cu RA/Dec reale) sau din listă și o vezi evidențiată în celelalte două, cu același calculator cosmologic ca în secțiunea Calculator. Cardul compară două modele (Planck 2018, H₀ = 67,4 față de SH0ES, H₀ = 73,0) și arată diferențele; calculatorul are un mod de comparare cu același tabel. Legături spre 1D și 2D cu galaxia aleasă; 3D se deschide fără selecție (aplicația 3D nu are încă legătură pentru o galaxie). Permalink `#x=<număr>`.
+
 ## Manual de utilizare
 
 1. Citește prezentarea și tabelul comparativ pentru a alege versiunea.
@@ -48,6 +50,9 @@ Pagina indică un catalog actualizat în mai 2026 și MoM-z14 (z = 14,44, confir
 Descarcă `index.html` și deschide-l în browser: pagina se afișează fără internet, dar butoanele de lansare și mirror-urile cer conexiune, pentru că trimit către pagini găzduite online.
 
 ## Istoric / Changelog
+
+### 2.0.0 — 2026-10-26
+- Explorator unificat 1D·2D·3D cu selecție sincronă și compararea a două modele cosmologice (Planck ↔ SH0ES), și în calculator.
 
 ### 1.2.8 — 2026-10-23
 - `prefers-reduced-motion` este acum respectat și de animațiile din JavaScript (nebuloasă, sclipirea stelelor, particulele la clic, efectul de tastare, înclinarea cardurilor, urmărirea cursorului, contorul); înainte erau reduse doar animațiile CSS.

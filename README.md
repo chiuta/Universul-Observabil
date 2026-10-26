@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 1.2.9 · **Last updated:** 2026-10-26
+**Version:** 2.0.0 · **Last updated:** 2026-10-26
 
 Interface languages: **Română, English, Français, Italiano, Español, Português (PT), Deutsch, Magyar**
 
@@ -30,6 +30,8 @@ The page cites a catalogue updated in May 2026 and MoM-z14 (z = 14.44, spectrosc
 - Language selector (RO, EN, FR, IT, ES, PT, DE, HU) in the corner of the page.
 - Buy Me a Coffee links.
 
+- **Unified 1D · 2D · 3D explorer** (v2.0): the catalogue of 112 objects from the 1D app is built into the page; pick a galaxy in any of the three views (lookback axis, RA/distance map, rotating 3D cloud with real RA/Dec) or from the list and it is highlighted in the other two, with the same cosmological calculator as the Calculator section. The card compares two models (Planck 2018, H₀ = 67.4 vs SH0ES, H₀ = 73.0) and shows the differences; the calculator has a comparison mode with the same table. Links to 1D and 2D carry the chosen galaxy; 3D opens without a selection (the 3D app has no galaxy link yet). Permalink `#x=<number>`.
+
 ## User guide
 
 1. Read the presentation and the comparison table to choose a version.
@@ -48,6 +50,9 @@ The page cites a catalogue updated in May 2026 and MoM-z14 (z = 14.44, spectrosc
 Download `index.html` and open it in a browser: the page displays without internet, but the launch buttons and mirrors require a connection, because they point to pages hosted online.
 
 ## History / Changelog
+
+### 2.0.0 — 2026-10-26
+- Unified 1D·2D·3D explorer with synchronous selection and a two-model comparison (Planck ↔ SH0ES), also in the calculator.
 
 ### 1.2.8 — 2026-10-23
 - `prefers-reduced-motion` is now honoured by the JavaScript animations too (nebula, starfield twinkle, click particles, typing effect, card tilt, cursor follow, counter); before, only the CSS animations were reduced.
