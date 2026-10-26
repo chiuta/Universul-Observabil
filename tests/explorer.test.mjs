@@ -10,7 +10,7 @@ async function open(hash = '', opts = {}) {
   await ctx.route(/^https?:/, r => r.abort());
   const p = await ctx.newPage(); const errs = []; p.on('pageerror', e => errs.push(e.message)); p.on('console', m => { if (m.type() === 'error' || /Content Security Policy/.test(m.text())) errs.push(m.text()); });
   await p.goto(FILE + hash); await p.waitForTimeout(900);
-  await p.evaluate(() => document.getElementById('xsec').scrollIntoView()); await p.waitForTimeout(500);
+  await p.evaluate(() => document.getElementById('xsec').scrollIntoView()); /* html{scroll-behavior:smooth}: așteptăm pe condiție ca derularea să ajungă la secțiune (sub încărcare durează) */ await p.waitForFunction(() => Math.abs(document.getElementById('xsec').getBoundingClientRect().top) < 2, null, {timeout: 30000, polling: 100}); await p.waitForTimeout(500);
   return {ctx, p, errs};
 }
 console.log('--- explorator: date și selecție sincronă');
@@ -18,13 +18,15 @@ console.log('--- explorator: date și selecție sincronă');
   const {ctx, p, errs} = await open();
   t('112 obiecte în listă, pornire la Andromeda', await p.evaluate(() => document.querySelectorAll('#xSel option').length === 112 && /Andromeda/.test(XG[X.sel].n)));
   const ring = async () => p.evaluate(() => [0, 1, 2].map(ci => { const c = document.getElementById(['x1', 'x2', 'x3'][ci]), q = X.pts[ci][X.sel], d = c.getContext('2d').getImageData(Math.round((q[0] + 9) * (devicePixelRatio || 1)), Math.round(q[1] * (devicePixelRatio || 1)), 1, 1).data; return d[0] > 180 && d[1] > 130 && d[2] < 140; }));
-  t('inelul auriu al selecției apare în toate cele trei vederi', (await ring()).every(Boolean), await ring());
+  /* inelul se vede după următorul cadru desenat: așteptăm pe condiție (nu pauză fixă), 3D se rotește continuu */
+  const ringOk = async () => { let r = await ring(); for (let k = 0; k < 60 && !r.every(Boolean); k++) { await p.waitForTimeout(100); r = await ring(); } return r; };
+  t('inelul auriu al selecției apare în toate cele trei vederi', (await ringOk()).every(Boolean), await ring());
   // clic în 1D pe alt obiect
-  const isolated = ci => p.evaluate(ci => { const pts = X.pts[ci]; let best = null, bd = -1; for (const q of pts) { if (q[2] === X.sel) continue; let m = 1e9; for (const o of pts) if (o[2] !== q[2]) m = Math.min(m, Math.hypot(o[0] - q[0], o[1] - q[1])); if (m > bd) { bd = m; best = q; } } const cv = document.getElementById(['x1', 'x2', 'x3'][ci]); let r = cv.getBoundingClientRect(); window.scrollBy({top: r.top + best[1] - innerHeight / 2, behavior: 'instant'}); r = cv.getBoundingClientRect(); /* punctul ales ajunge la mijlocul ferestrei: aranjarea paginii diferă între mașini */ return {i: best[2], x: r.left + best[0], y: r.top + best[1], gap: bd}; }, ci);
+  const isolated = ci => p.evaluate(ci => { const pts = X.pts[ci]; let best = null, bd = -1; for (const q of pts) { if (q[2] === X.sel) continue; let m = 1e9; for (const o of pts) if (o[2] !== q[2]) m = Math.min(m, Math.hypot(o[0] - q[0], o[1] - q[1])); if (m > bd) { bd = m; best = q; } } const r = document.getElementById(['x1', 'x2', 'x3'][ci]).getBoundingClientRect(); return {i: best[2], x: r.left + best[0], y: r.top + best[1], gap: bd}; }, ci);
   const target = await isolated(0);
   await p.mouse.click(target.x, target.y); await p.waitForTimeout(150);
   t('clic în 1D: obiectul e ales și în 2D/3D (X.sel, listă, card)', await p.evaluate(i => X.sel === i && +document.getElementById('xSel').value === i && document.querySelector('#xCard .x-name').textContent === XG[i].n, target.i), target);
-  t('selecția e evidențiată în toate cele trei vederi', (await ring()).every(Boolean), await ring());
+  t('selecția e evidențiată în toate cele trei vederi', (await ringOk()).every(Boolean), await ring());
   // clic în 2D
   const t2 = await isolated(1);
   await p.mouse.click(t2.x, t2.y); await p.waitForTimeout(150);
