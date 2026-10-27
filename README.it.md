@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · **Italiano** · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versione:** 2.0.1 · **Ultimo aggiornamento:** 2026-10-27
+**Versione:** 2.1.0 · **Ultimo aggiornamento:** 2026-10-27
 
 **Stato:** stabile · **Offline:** completo (un solo file; le tre app si avviano dai link)
 
@@ -18,9 +18,9 @@ Pagina d'ingresso che presenta e confronta le tre versioni (1D, 2D, 3D) della vi
 
 Questo file HTML è la pagina-hub della serie «Observable Universe»: non contiene le visualizzazioni vere e proprie (ha solo un piccolo calcolatore cosmologico offline), ma le presenta, le confronta e rimanda ad esse. Le tre versioni, secondo la descrizione della pagina:
 
-- 1D (v2.0.0, «Asse radiale»): 112 galassie su un unico asse, con quattro modalità di asse (tempo di sguardo all'indietro, distanza comovente, redshift z, fattore di scala); circa 160 KB.
-- 2D (v6.0.0, «Mappa piana»): 12 orizzonti cosmici, zoom adattivo, permalink con stato, quiz con classifica; circa 550 KB.
-- 3D (v2.0.0, «Spazio reale»): coordinate AR/Dec reali, cosmologia ΛCDM, selettore di H₀ (Planck 67,4 contro SH0ES 73,0), WebGL con Three.js r128; circa 1 MB.
+- 1D (v2.1.0, «Asse radiale»): 112 galassie su un unico asse, con quattro modalità di asse (tempo di sguardo all'indietro, distanza comovente, redshift z, fattore di scala); circa 160 KB.
+- 2D (v6.2.0, «Mappa piana»): 12 orizzonti cosmici, zoom adattivo, permalink con stato, quiz con classifica; circa 550 KB.
+- 3D (v2.1.0, «Spazio reale»): coordinate AR/Dec reali, cosmologia ΛCDM, selettore di H₀ (Planck 67,4 contro SH0ES 73,0), WebGL con Three.js r128; circa 1 MB.
 
 La pagina indica un catalogo aggiornato a maggio 2026 e MoM-z14 (z = 14,44, confermato spettroscopicamente con il JWST; Naidu et al. 2025) come record di distanza **alla data del catalogo (maggio 2026)**; non garantiamo che resti un record in seguito. Le cifre sopra riportate sono quelle dichiarate dalla pagina, non verificate qui.
 
@@ -55,7 +55,20 @@ Scarica `index.html` e aprilo nel browser: la pagina si visualizza senza interne
 - **Non unificati.** La 3D ha un catalogo proprio, con struttura diversa (AR in ore, altri nomi e grafie), quindi i suoi nomi coincidono solo in parte con 1D/2D. L'unione in un unico file comune non è stata fatta: ogni app è un singolo file offline senza passaggio di build comune, e unire cambierebbe i dati in tre app senza modo di validarli qui. Segnalato all'autore.
 - **Conflitto noto 1D ↔ 2D (non corretto, da verificare con fonti).** I due cataloghi hanno gli stessi 112 nomi, ma 8 voci hanno una distanza diversa (d = tempo di sguardo all'indietro, in Mal, 1D→2D): NGC 1132 330→1020, Perseus (BCG IC 310) 270→780, 3C 48 4150→5200, Abell 370 4200→5900, CL 0024+1654 4400→5500, SDSS J1004+4112 10050→7000, IC 4296 180→130, Abell 1689 2330→7200; e il segno del redshift di Andromeda (M31) è −0,001 in 1D e +0,001 in 2D.
 
+## Real versions and discrepancies (2.1.0)
+
+_(English only; not yet translated into this language. Machine translation intentionally not added to avoid errors in technical statements.)_
+
+- **Card labels** ("v2.1.0 · 112", "v6.2.0 · 112", "v2.1.0 · 118") are no longer stale translation keys: the numbers come from one constant (`UO_APPS`), checked by `tests/versions.test.mjs` against `application-version` in the 1D/2D/3D repositories and against the real entry counts.
+- **Catalogue copy** in the hub is compared with 1D (fields `n, ra, dec, d, t, z, lb`): identical.
+- **1D ↔ 2D discrepancies** (8 distances and the sign of Andromeda's z) are now in a generated table, `docs/DISCREPANTE.md` (`node tools/compare-catalogs.mjs <1D> <2D> --md docs/DISCREPANTE.md`). **No value was chosen:** NED/SIMBAD were not reachable in the session. The table also shows an internal arithmetic check (the 1D values match the lookback computed from the catalogue's own z; the 2D ones do not), which is **not a source**.
+- **Merging the catalogues into one shared file: not done**; it would have required picking one of the conflicting values.
+
 ## Cronologia / Changelog
+
+### 2.1.0 — 2026-10-27
+- Labels with the real version, version test, `docs/DISCREPANTE.md`.
+
 
 ### 1.2.8 — 2026-10-23
 - `prefers-reduced-motion` è ora rispettato anche dalle animazioni JavaScript (nebulosa, scintillio delle stelle, particelle al clic, effetto di digitazione, inclinazione delle carte, inseguimento del cursore, contatore); prima erano ridotte solo le animazioni CSS.
