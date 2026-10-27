@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 2.0.1 · **Ultima actualizare:** 2026-10-27
+**Versiune:** 2.1.0 · **Ultima actualizare:** 2026-10-27
 
 **Stare:** stabil · **Offline:** complet (un singur fișier; cele trei aplicații se lansează din linkuri)
 
@@ -18,9 +18,9 @@ Pagină de intrare care prezintă și compară cele trei versiuni (1D, 2D, 3D) a
 
 Acest fișier HTML este pagina-hub a seriei „Observable Universe": nu conține vizualizările în sine (are doar un mic calculator cosmologic offline), ci le prezintă, le compară și trimite către ele. Cele trei versiuni, după descrierea din pagină:
 
-- 1D (v2.0.0, „Axa Radială"): 112 galaxii pe o singură axă, cu patru moduri de axă (lookback time, comoving, redshift z, factor de scară); aprox. 160 KB.
-- 2D (v6.0.0, „Harta Plană"): 12 orizonturi cosmice, zoom adaptiv, permalink cu stare, quiz cu leaderboard; aprox. 550 KB.
-- 3D (v2.0.0, „Spațiu Real"): coordonate RA/Dec reale, cosmologie ΛCDM, selector H₀ (Planck 67,4 vs. SH0ES 73,0), WebGL cu Three.js r128; aprox. 1 MB.
+- 1D (v2.1.0, „Axa Radială"): 112 galaxii pe o singură axă, cu patru moduri de axă (lookback time, comoving, redshift z, factor de scară); aprox. 160 KB.
+- 2D (v6.2.0, „Harta Plană"): 12 orizonturi cosmice, zoom adaptiv, permalink cu stare, quiz cu leaderboard; aprox. 550 KB.
+- 3D (v2.1.0, „Spațiu Real"): coordonate RA/Dec reale, cosmologie ΛCDM, selector H₀ (Planck 67,4 vs. SH0ES 73,0), WebGL cu Three.js r128; aprox. 1 MB.
 
 Pagina indică un catalog actualizat în mai 2026 și MoM-z14 (z = 14,44, confirmat spectroscopic cu JWST; Naidu et al. 2025) drept recordul de distanță **la data catalogului (mai 2026)**; nu garantăm că rămâne record ulterior. Cifrele de mai sus sunt cele declarate de pagină, nu verificate aici.
 
@@ -57,7 +57,18 @@ Descarcă `index.html` și deschide-l în browser: pagina se afișează fără i
 - **Neunificate.** 3D are catalogul propriu, într-o structură diferită (RA în ore, alte nume și grafii), așa că numele se potrivesc doar parțial cu 1D/2D. Unificarea într-un singur fișier comun nu s-a făcut: fiecare aplicație este un singur fișier offline, fără pas de build comun, iar îmbinarea ar schimba datele în trei aplicații fără cum să fie validată aici. Semnalat autorului.
 - **Conflict cunoscut 1D ↔ 2D (necorectat, de verificat cu surse).** Cele două cataloage au aceleași 112 nume, dar 8 intrări au altă distanță (d = lookback, în Mly, 1D→2D): NGC 1132 330→1020, Perseus (BCG IC 310) 270→780, 3C 48 4150→5200, Abell 370 4200→5900, CL 0024+1654 4400→5500, SDSS J1004+4112 10050→7000, IC 4296 180→130, Abell 1689 2330→7200; iar semnul redshift-ului Andromedei (M31) este −0,001 în 1D și +0,001 în 2D.
 
+## Versiuni reale și discrepanțe (2.1.0)
+
+- **Etichetele cardurilor** („v2.1.0 · 112”, „v6.2.0 · 112”, „v2.1.0 · 118”) nu mai sunt chei de traducere învechite: numerele vin dintr-o singură constantă (`UO_APPS`), verificată de `tests/versions.test.mjs` față de `application-version` din depozitele 1D/2D/3D și față de numărul real de intrări.
+- **Copia catalogului** din hub este comparată cu 1D (câmpurile `n, ra, dec, d, t, z, lb`): identică.
+- **Discrepanțele 1D ↔ 2D** (8 distanțe și semnul z al Andromedei) sunt acum într-un tabel generat, `docs/DISCREPANTE.md` (`node tools/compare-catalogs.mjs <1D> <2D> --md docs/DISCREPANTE.md`). **Nicio valoare nu a fost aleasă:** NED/SIMBAD nu erau accesibile în sesiune. Tabelul arată și o verificare aritmetică internă (valorile 1D coincid cu lookback-ul calculat din z-ul din catalog; cele 2D nu), care **nu este o sursă**.
+- **Unificarea cataloagelor într-un fișier comun: nu s-a făcut**; ar fi presupus alegerea uneia dintre valorile în conflict.
+
 ## Istoric / Changelog
+
+### 2.1.0 — 2026-10-27
+- Etichete cu versiunea reală, test de versiuni, `docs/DISCREPANTE.md`.
+
 
 ### 2.0.0 — 2026-10-26
 - Explorator unificat 1D·2D·3D cu selecție sincronă și compararea a două modele cosmologice (Planck ↔ SH0ES), și în calculator.

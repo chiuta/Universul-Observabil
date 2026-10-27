@@ -2,6 +2,19 @@
 
 Format: SemVer (MAJOR.MINOR.PATCH). Intrările mai vechi sunt copiate din README (secțiunea „History / Changelog”), neschimbate.
 
+## 2.1.0 — 2026-10-27 (anterior: 2.0.1)
+
+Stare: stabil
+Offline: complet (un singur fișier; cele trei aplicații se lansează din linkuri)
+
+Tura 2 a recenziei (cod + date, fără biblioteci externe):
+- Etichetele „v1.0 · 112 / v5.9 · 112 / v1.2 · 118” de pe carduri citesc acum versiunile reale (1D 2.1.0, 2D 6.2.0, 3D 2.1.0) dintr-o constantă `UO_APPS`, nu din chei i18n învechite. `tests/versions.test.mjs`: compară cu `application-version` al depozitelor vecine (sărit explicit dacă lipsesc), numărul de intrări, copia catalogului hub = 1D, `docs/DISCREPANTE.md` la zi, etichetele afișate în ro/en/de/hu.
+- `tools/compare-catalogs.mjs` + `docs/DISCREPANTE.md`: cele 8 distanțe diferite 1D↔2D și semnul z al Andromedei, cu verificare aritmetică internă (nu sursă). Nicio valoare nu a fost aleasă (NED/SIMBAD inaccesibile în sesiune).
+- NU s-a făcut: unificarea cataloagelor într-un fișier comun (ar presupune alegerea între valori în conflict).
+- Versiune în `index.html`, `sw.js`, `app.json`.
+
+---
+
 ## 2.0.1 — 2026-10-27 (anterior: 2.0.0)
 
 Stare: stabil
