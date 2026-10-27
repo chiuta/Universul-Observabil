@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · **Español** · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versión:** 2.1.0 · **Última actualización:** 2026-10-27
+**Versión:** 2.1.1 · **Última actualización:** 2026-10-28
 
 **Estado:** estable · **Sin conexión:** completo (un solo archivo; las tres aplicaciones se abren desde los enlaces)
 
@@ -18,9 +18,9 @@ Página de entrada que presenta y compara las tres versiones (1D, 2D, 3D) de la 
 
 Este archivo HTML es la página principal de la serie «Observable Universe»: no contiene las visualizaciones en sí (solo tiene una pequeña calculadora cosmológica sin conexión), sino que las presenta, las compara y enlaza a ellas. Las tres versiones, según la descripción de la página:
 
-- 1D (v2.1.0, «Eje radial»): 112 galaxias en un solo eje, con cuatro modos de eje (tiempo de retrospección, distancia comóvil, corrimiento al rojo z, factor de escala); aprox. 160 KB.
-- 2D (v6.2.0, «Mapa plano»): 12 horizontes cósmicos, zoom adaptativo, enlace permanente con estado, cuestionario con clasificación; aprox. 550 KB.
-- 3D (v2.1.0, «Espacio real»): coordenadas AR/Dec reales, cosmología ΛCDM, selector de H₀ (Planck 67,4 frente a SH0ES 73,0), WebGL con Three.js r128; aprox. 1 MB.
+- 1D (v2.1.1, «Eje radial»): 112 galaxias en un solo eje, con cuatro modos de eje (tiempo de retrospección, distancia comóvil, corrimiento al rojo z, factor de escala); aprox. 160 KB.
+- 2D (v6.2.1, «Mapa plano»): 12 horizontes cósmicos, zoom adaptativo, enlace permanente con estado, cuestionario con clasificación; aprox. 550 KB.
+- 3D (v2.1.1, «Espacio real»): coordenadas AR/Dec reales, cosmología ΛCDM, selector de H₀ (Planck 67,4 frente a SH0ES 73,0), WebGL con Three.js r128; aprox. 1 MB.
 
 La página indica un catálogo actualizado en mayo de 2026 y MoM-z14 (z = 14,44, confirmado espectroscópicamente con el JWST; Naidu et al. 2025) como récord de distancia **a la fecha del catálogo (mayo de 2026)**; no garantizamos que siga siendo récord después. Las cifras anteriores son las que declara la página, no verificadas aquí.
 
@@ -53,7 +53,7 @@ Descarga `index.html` y ábrelo en el navegador: la página se muestra sin inter
 
 - **Cifras.** Hub: 112 entradas (copia idéntica del catálogo 1D). 1D: 112. 2D: 112 (111 galaxias + el horizonte del CMB; algunos textos dicen 111). 3D: 118 («más de 115» en las descripciones). Las cifras difieren porque los catálogos son independientes, no por un error de recuento.
 - **No unificados.** La 3D tiene su propio catálogo, con otra estructura (AR en horas, otros nombres y grafías), por lo que sus nombres solo coinciden en parte con 1D/2D. No se fusionaron en un único archivo común: cada aplicación es un archivo único sin conexión y sin paso de compilación común, y fusionar cambiaría los datos de tres aplicaciones sin forma de validarlos aquí. Señalado al autor.
-- **Conflicto conocido 1D ↔ 2D (sin corregir, por verificar con fuentes).** Los dos catálogos tienen los mismos 112 nombres, pero 8 entradas tienen otra distancia (d = tiempo de retrospección, en Mal, 1D→2D): NGC 1132 330→1020, Perseus (BCG IC 310) 270→780, 3C 48 4150→5200, Abell 370 4200→5900, CL 0024+1654 4400→5500, SDSS J1004+4112 10050→7000, IC 4296 180→130, Abell 1689 2330→7200; y el signo del corrimiento al rojo de Andrómeda (M31) es −0,001 en 1D y +0,001 en 2D.
+- **Conflicto 1D ↔ 2D (resuelto el 2026-10-28; fuentes y fórmulas en `docs/DISCREPANTE.md` del hub).** Las 8 distancias (NGC 1132, IC 310, 3C 48, Abell 370, CL 0024+1654, SDSS J1004+4112, IC 4296, Abell 1689) siguen ahora una única convención en ambas aplicaciones: d = lb = lookback(z), en Mal, ΛCDM plano Planck 2018 (H₀ = 67,4, Ωm = 0,315), con z confirmado por al menos 2 fuentes; la 2D adoptó los valores de la 1D (330, 270, 4150, 4200, 4400, 10050, 180, 2330). El corrimiento al rojo de Andrómeda (M31) es −0,001 en ambas (M31 está desplazada hacia el azul, −301 km/s). La etiqueta «Perseus (BCG IC 310)» pasó a ser «IC 310 (Perseus)»: IC 310 no es la galaxia más brillante del cúmulo (esa es NGC 1275, entrada aparte).
 
 ## Real versions and discrepancies (2.1.0)
 
@@ -65,6 +65,10 @@ _(English only; not yet translated into this language. Machine translation inten
 - **Merging the catalogues into one shared file: not done**; it would have required picking one of the conflicting values.
 
 ## Historial / Changelog
+
+### 2.1.1 — 2026-10-28
+- Correcciones del catálogo: la copia del hub sigue a la 1D (etiqueta «IC 310 (Perseus)»); las 8 distancias y el signo del z de Andrómeda se resuelven con fuentes en `docs/DISCREPANTE.md` (generador `tools/compare-catalogs.mjs`); nuevo test `tests/catalog-consistency.test.mjs`; las tarjetas muestran 1D 2.1.1 / 2D 6.2.1 / 3D 2.1.1.
+
 
 ### 2.1.0 — 2026-10-27
 - Labels with the real version, version test, `docs/DISCREPANTE.md`.

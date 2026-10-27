@@ -2,6 +2,21 @@
 
 Format: SemVer (MAJOR.MINOR.PATCH). Intrările mai vechi sunt copiate din README (secțiunea „History / Changelog”), neschimbate.
 
+## 2.1.1 — 2026-10-28 (anterior: 2.1.0)
+
+Stare: stabil
+Offline: complet (un singur fișier; cele trei aplicații se lansează din linkuri)
+
+Tura 3 a recenziei (revizor astrofizician): discrepanțele 1D ↔ 2D rezolvate cu surse citabile.
+- `docs/DISCREPANTE.md` (generat de `tools/compare-catalogs.mjs`): toate cele 8 distanțe și semnul z al Andromedei sunt rezolvate; fiecare cu ≥ 2 surse pentru z (Wikipedia, ESA/Hubble, arXiv, Chandra) și derivare scrisă: d = lb = lookback(z), ΛCDM plat Planck 2018 (H0 = 67,4; Ωm = 0,315). Valoarea păstrată este cea din 1D; 2D a fost aliniat. IC 4296: distanța din z este cu ~8–10 % peste distanțele SBF independente (documentat). Un audit z ↔ lookback listează, ca observații NEverificate și necorectate, alte intrări cu abatere > 3 %.
+- Identificare: „Perseus (BCG IC 310)” → „IC 310 (Perseus)” în copia din hub (IC 310 nu este BCG; aceea este NGC 1275, intrare separată). Un eventual favorit salvat sub numele vechi nu se mai potrivește.
+- Semnul z al Andromedei: −0,001 (M31 spre albastru, −301 km/s), verificat în 1D și 2D.
+- Test nou `tests/catalog-consistency.test.mjs` (valorile corectate, coerența 1D ↔ 2D ↔ hub, documentul la zi, ≥ 2 surse pe rând; sărit explicit dacă lipsesc depozitele vecine). `tests/versions.test.mjs` trece (etichete 1D 2.1.1 · 2D 6.2.1 · 3D 2.1.1).
+- NU s-a făcut: unificarea cataloagelor într-un fișier comun (acum posibilă fără a alege între valori, dar nu e în această tură).
+- Versiune 2.1.1 în `index.html`, `sw.js`, `app.json`, `UO_APPS`; README (8 limbi); CSP rehash (`fixcsp`), `info`, `check --lax`.
+
+---
+
 ## 2.1.0 — 2026-10-27 (anterior: 2.0.1)
 
 Stare: stabil

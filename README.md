@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 2.1.0 · **Last updated:** 2026-10-27
+**Version:** 2.1.1 · **Last updated:** 2026-10-28
 
 **Status:** stable · **Offline:** complete (a single file; the three apps are launched from the links)
 
@@ -18,9 +18,9 @@ Landing page that presents and compares the three versions (1D, 2D, 3D) of the o
 
 This HTML file is the hub page of the "Observable Universe" series: it does not contain the visualisations themselves (it only has a small offline cosmology calculator), but presents them, compares them and links to them. The three versions, as described on the page:
 
-- 1D (v2.1.0, "Radial Axis"): 112 galaxies on a single axis, with four axis modes (lookback time, comoving, redshift z, scale factor); approx. 160 KB.
-- 2D (v6.2.0, "Flat Map"): 12 cosmic horizons, adaptive zoom, permalink with state, quiz with leaderboard; approx. 550 KB.
-- 3D (v2.1.0, "Real Space"): real RA/Dec coordinates, ΛCDM cosmology, H₀ selector (Planck 67.4 vs. SH0ES 73.0), WebGL with Three.js r128; approx. 1 MB.
+- 1D (v2.1.1, "Radial Axis"): 112 galaxies on a single axis, with four axis modes (lookback time, comoving, redshift z, scale factor); approx. 160 KB.
+- 2D (v6.2.1, "Flat Map"): 12 cosmic horizons, adaptive zoom, permalink with state, quiz with leaderboard; approx. 550 KB.
+- 3D (v2.1.1, "Real Space"): real RA/Dec coordinates, ΛCDM cosmology, H₀ selector (Planck 67.4 vs. SH0ES 73.0), WebGL with Three.js r128; approx. 1 MB.
 
 The page cites a catalogue updated in May 2026 and MoM-z14 (z = 14.44, spectroscopically confirmed with JWST; Naidu et al. 2025) as the distance record **as of the catalogue date (May 2026)**; we do not guarantee that it remains the record afterwards. The figures above are those declared by the page, not verified here.
 
@@ -55,7 +55,7 @@ Download `index.html` and open it in a browser: the page displays without intern
 
 - **Counts.** Hub: 112 entries (a copy of the 1D catalogue, identical). 1D: 112. 2D: 112 (111 galaxies + the CMB horizon; some texts say 111). 3D: 118 ("over 115" in the descriptions). The numbers differ because the catalogues are separate, not because of a counting error.
 - **Not unified.** 3D has its own catalogue in a different structure (RA in hours, other names and spellings), so its names only partly match 1D/2D. Merging into one shared file was not done: each app is a single offline file with no shared build step, and merging would change data in three apps without a way to validate it here. Flagged for the author.
-- **Known 1D ↔ 2D conflict (not corrected, to verify with sources).** The two catalogues have the same 112 names, but 8 entries have a different distance (d = lookback, in Mly, 1D→2D): NGC 1132 330→1020, Perseus (BCG IC 310) 270→780, 3C 48 4150→5200, Abell 370 4200→5900, CL 0024+1654 4400→5500, SDSS J1004+4112 10050→7000, IC 4296 180→130, Abell 1689 2330→7200; and the sign of the redshift of Andromeda (M31) is −0.001 in 1D and +0.001 in 2D.
+- **1D ↔ 2D conflict (resolved on 2026-10-28; sources and formulas in `docs/DISCREPANTE.md` of the hub).** The 8 distances (NGC 1132, IC 310, 3C 48, Abell 370, CL 0024+1654, SDSS J1004+4112, IC 4296, Abell 1689) now follow one convention in both apps: d = lb = lookback(z), in Mly, flat ΛCDM Planck 2018 (H₀ = 67.4, Ωm = 0.315), with z confirmed by at least 2 sources; 2D adopted the 1D values (330, 270, 4150, 4200, 4400, 10050, 180, 2330). The redshift of Andromeda (M31) is −0.001 in both (M31 is blueshifted, −301 km/s). The label "Perseus (BCG IC 310)" became "IC 310 (Perseus)": IC 310 is not the brightest cluster galaxy (that is NGC 1275, a separate entry).
 
 ## Real versions and discrepancies (2.1.0)
 
@@ -65,6 +65,10 @@ Download `index.html` and open it in a browser: the page displays without intern
 - **Merging the catalogues into one shared file: not done**; it would have required picking one of the conflicting values.
 
 ## History / Changelog
+
+### 2.1.1 — 2026-10-28
+- Catalogue corrections: the hub copy follows 1D (label "IC 310 (Perseus)"); the 8 distances and the sign of Andromeda's z are resolved with sources in `docs/DISCREPANTE.md` (generator `tools/compare-catalogs.mjs`); new test `tests/catalog-consistency.test.mjs`; cards show 1D 2.1.1 / 2D 6.2.1 / 3D 2.1.1.
+
 
 ### 2.1.0 — 2026-10-27
 - Labels with the real version, version test, `docs/DISCREPANTE.md`.
