@@ -2,6 +2,19 @@
 
 Format: SemVer (MAJOR.MINOR.PATCH). Intrările mai vechi sunt copiate din README (secțiunea „History / Changelog”), neschimbate.
 
+## 2.1.2 — 2026-10-28 (anterior: 2.1.1)
+
+Stare: stabil
+Offline: complet (un singur fișier; cele trei aplicații se lansează din linkuri)
+
+Tura 4 a recenziei (revizor astrofizician): copia din hub urmează catalogul 1D corectat.
+- Aceleași valori ca în 1D și 2D: 3C 273 2050, Mrk 421 430, 3C 279 5470, PKS 2155-304 1550, TON 618 10840, MACS J0025 5810, NGC 1277 240 (z 0,0169), „RXCJ0232 (Pandora)” → „Abell 2744 (Pandora)” (RA 3,59°, Dec −30,4°, z 0,308, 3620 Mly). Surse, derivări și intrările neschimbate sau nerezolvate (NGC 4874, Stephan's Quintet, Arp 220; NGC 1275 nerezolvat): `docs/DISCREPANTE.md` (generat de `tools/compare-catalogs.mjs`, auditul acoperă acum z > 0,01).
+- `tests/catalog-consistency.test.mjs` extins (≥ 2 surse https, intrări neschimbate, auditul conține doar intrări explicate, Pandora/Abell 2744); `tests/versions.test.mjs` trece (etichete 1D 2.1.2 · 2D 6.2.2 · 3D 2.1.1).
+- NU s-a făcut: verificarea catalogului 3D (118 intrări, depozit neîntrebat în această tură) și unificarea cataloagelor într-un fișier comun.
+- Versiune 2.1.2 în `index.html`, `sw.js`, `app.json`, `UO_APPS`; README (8 limbi); CSP rehash (`fixcsp`), `info`, `check --lax`.
+
+---
+
 ## 2.1.1 — 2026-10-28 (anterior: 2.1.0)
 
 Stare: stabil

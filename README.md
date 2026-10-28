@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 2.1.1 · **Last updated:** 2026-10-28
+**Version:** 2.1.2 · **Last updated:** 2026-10-28
 
 **Status:** stable · **Offline:** complete (a single file; the three apps are launched from the links)
 
@@ -18,8 +18,8 @@ Landing page that presents and compares the three versions (1D, 2D, 3D) of the o
 
 This HTML file is the hub page of the "Observable Universe" series: it does not contain the visualisations themselves (it only has a small offline cosmology calculator), but presents them, compares them and links to them. The three versions, as described on the page:
 
-- 1D (v2.1.1, "Radial Axis"): 112 galaxies on a single axis, with four axis modes (lookback time, comoving, redshift z, scale factor); approx. 160 KB.
-- 2D (v6.2.1, "Flat Map"): 12 cosmic horizons, adaptive zoom, permalink with state, quiz with leaderboard; approx. 550 KB.
+- 1D (v2.1.2, "Radial Axis"): 112 galaxies on a single axis, with four axis modes (lookback time, comoving, redshift z, scale factor); approx. 160 KB.
+- 2D (v6.2.2, "Flat Map"): 12 cosmic horizons, adaptive zoom, permalink with state, quiz with leaderboard; approx. 550 KB.
 - 3D (v2.1.1, "Real Space"): real RA/Dec coordinates, ΛCDM cosmology, H₀ selector (Planck 67.4 vs. SH0ES 73.0), WebGL with Three.js r128; approx. 1 MB.
 
 The page cites a catalogue updated in May 2026 and MoM-z14 (z = 14.44, spectroscopically confirmed with JWST; Naidu et al. 2025) as the distance record **as of the catalogue date (May 2026)**; we do not guarantee that it remains the record afterwards. The figures above are those declared by the page, not verified here.
@@ -65,6 +65,10 @@ Download `index.html` and open it in a browser: the page displays without intern
 - **Merging the catalogues into one shared file: not done**; it would have required picking one of the conflicting values.
 
 ## History / Changelog
+
+### 2.1.2 — 2026-10-28
+- Hub copy follows 1D (7 distances, NGC 1277, "Abell 2744 (Pandora)"); `docs/DISCREPANTE.md` regenerated; `tests/catalog-consistency.test.mjs` extended (sources, unchanged entries, audit z > 0.01); cards show 1D 2.1.2 / 2D 6.2.2 / 3D 2.1.1.
+
 
 ### 2.1.1 — 2026-10-28
 - Catalogue corrections: the hub copy follows 1D (label "IC 310 (Perseus)"); the 8 distances and the sign of Andromeda's z are resolved with sources in `docs/DISCREPANTE.md` (generator `tools/compare-catalogs.mjs`); new test `tests/catalog-consistency.test.mjs`; cards show 1D 2.1.1 / 2D 6.2.1 / 3D 2.1.1.
