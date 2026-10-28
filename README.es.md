@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · **Español** · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versión:** 2.1.1 · **Última actualización:** 2026-10-28
+**Versión:** 2.1.2 · **Última actualización:** 2026-10-28
 
 **Estado:** estable · **Sin conexión:** completo (un solo archivo; las tres aplicaciones se abren desde los enlaces)
 
@@ -18,8 +18,8 @@ Página de entrada que presenta y compara las tres versiones (1D, 2D, 3D) de la 
 
 Este archivo HTML es la página principal de la serie «Observable Universe»: no contiene las visualizaciones en sí (solo tiene una pequeña calculadora cosmológica sin conexión), sino que las presenta, las compara y enlaza a ellas. Las tres versiones, según la descripción de la página:
 
-- 1D (v2.1.1, «Eje radial»): 112 galaxias en un solo eje, con cuatro modos de eje (tiempo de retrospección, distancia comóvil, corrimiento al rojo z, factor de escala); aprox. 160 KB.
-- 2D (v6.2.1, «Mapa plano»): 12 horizontes cósmicos, zoom adaptativo, enlace permanente con estado, cuestionario con clasificación; aprox. 550 KB.
+- 1D (v2.1.2, «Eje radial»): 112 galaxias en un solo eje, con cuatro modos de eje (tiempo de retrospección, distancia comóvil, corrimiento al rojo z, factor de escala); aprox. 160 KB.
+- 2D (v6.2.2, «Mapa plano»): 12 horizontes cósmicos, zoom adaptativo, enlace permanente con estado, cuestionario con clasificación; aprox. 550 KB.
 - 3D (v2.1.1, «Espacio real»): coordenadas AR/Dec reales, cosmología ΛCDM, selector de H₀ (Planck 67,4 frente a SH0ES 73,0), WebGL con Three.js r128; aprox. 1 MB.
 
 La página indica un catálogo actualizado en mayo de 2026 y MoM-z14 (z = 14,44, confirmado espectroscópicamente con el JWST; Naidu et al. 2025) como récord de distancia **a la fecha del catálogo (mayo de 2026)**; no garantizamos que siga siendo récord después. Las cifras anteriores son las que declara la página, no verificadas aquí.
@@ -65,6 +65,10 @@ _(English only; not yet translated into this language. Machine translation inten
 - **Merging the catalogues into one shared file: not done**; it would have required picking one of the conflicting values.
 
 ## Historial / Changelog
+
+### 2.1.2 — 2026-10-28
+- La copia del hub sigue a la 1D (7 distancias, NGC 1277, «Abell 2744 (Pandora)»); `docs/DISCREPANTE.md` regenerado; `tests/catalog-consistency.test.mjs` ampliado (fuentes, entradas sin cambios, auditoría z > 0,01); las tarjetas muestran 1D 2.1.2 / 2D 6.2.2 / 3D 2.1.1.
+
 
 ### 2.1.1 — 2026-10-28
 - Correcciones del catálogo: la copia del hub sigue a la 1D (etiqueta «IC 310 (Perseus)»); las 8 distancias y el signo del z de Andrómeda se resuelven con fuentes en `docs/DISCREPANTE.md` (generador `tools/compare-catalogs.mjs`); nuevo test `tests/catalog-consistency.test.mjs`; las tarjetas muestran 1D 2.1.1 / 2D 6.2.1 / 3D 2.1.1.

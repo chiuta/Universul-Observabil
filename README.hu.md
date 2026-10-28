@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 2.1.1 · **Utolsó frissítés:** 2026-10-28
+**Verzió:** 2.1.2 · **Utolsó frissítés:** 2026-10-28
 
 **Állapot:** stabil · **Offline:** teljes (egyetlen fájl; a három alkalmazás a hivatkozásokról indul)
 
@@ -18,8 +18,8 @@ Nyitóoldal, amely bemutatja és összehasonlítja a megfigyelhető Világegyete
 
 Ez a HTML-fájl az „Observable Universe" sorozat központi oldala: magukat a vizualizációkat nem tartalmazza (csak egy kis offline kozmológiai számológépet), hanem bemutatja, összehasonlítja és hivatkozza őket. A három változat az oldal leírása szerint:
 
-- 1D (v2.1.1, „Radiális tengely"): 112 galaxis egyetlen tengelyen, négy tengelymóddal (visszatekintési idő, együttmozgó távolság, z vöröseltolódás, skálatényező); kb. 160 KB.
-- 2D (v6.2.1, „Síktérkép"): 12 kozmikus horizont, adaptív nagyítás, állapotot tároló állandó hivatkozás, kvíz ranglistával; kb. 550 KB.
+- 1D (v2.1.2, „Radiális tengely"): 112 galaxis egyetlen tengelyen, négy tengelymóddal (visszatekintési idő, együttmozgó távolság, z vöröseltolódás, skálatényező); kb. 160 KB.
+- 2D (v6.2.2, „Síktérkép"): 12 kozmikus horizont, adaptív nagyítás, állapotot tároló állandó hivatkozás, kvíz ranglistával; kb. 550 KB.
 - 3D (v2.1.1, „Valódi tér"): valódi rektaszcenzió/deklináció koordináták, ΛCDM kozmológia, H₀-választó (Planck 67,4 és SH0ES 73,0), WebGL Three.js r128-cal; kb. 1 MB.
 
 Az oldal egy 2026 májusában frissített katalógust, valamint a MoM-z14-et (z = 14,44, a JWST-vel spektroszkópiailag megerősítve; Naidu és mtsai, 2025) jelöli meg távolsági rekordként **a katalógus időpontjában (2026. május)**; nem garantáljuk, hogy ezután is rekord marad. A fenti számok az oldal által megadott értékek, itt nem ellenőriztük őket.
@@ -65,6 +65,10 @@ _(English only; not yet translated into this language. Machine translation inten
 - **Merging the catalogues into one shared file: not done**; it would have required picking one of the conflicting values.
 
 ## Előzmények / Changelog
+
+### 2.1.2 — 2026-10-28
+- A hub másolata az 1D-t követi (7 távolság, NGC 1277, „Abell 2744 (Pandora)”); a `docs/DISCREPANTE.md` újragenerálva; a `tests/catalog-consistency.test.mjs` bővítve (források, változatlan bejegyzések, audit z > 0,01); a kártyák: 1D 2.1.2 / 2D 6.2.2 / 3D 2.1.1.
+
 
 ### 2.1.1 — 2026-10-28
 - Katalóguskorrekciók: a hub másolata az 1D-t követi („IC 310 (Perseus)” címke); a 8 távolság és az Androméda z előjele forrásokkal megoldva a `docs/DISCREPANTE.md` fájlban (generátor: `tools/compare-catalogs.mjs`); új teszt: `tests/catalog-consistency.test.mjs`; a kártyák 1D 2.1.1 / 2D 6.2.1 / 3D 2.1.1 értéket mutatnak.

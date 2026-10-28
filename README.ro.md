@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 2.1.1 · **Ultima actualizare:** 2026-10-28
+**Versiune:** 2.1.2 · **Ultima actualizare:** 2026-10-28
 
 **Stare:** stabil · **Offline:** complet (un singur fișier; cele trei aplicații se lansează din linkuri)
 
@@ -18,8 +18,8 @@ Pagină de intrare care prezintă și compară cele trei versiuni (1D, 2D, 3D) a
 
 Acest fișier HTML este pagina-hub a seriei „Observable Universe": nu conține vizualizările în sine (are doar un mic calculator cosmologic offline), ci le prezintă, le compară și trimite către ele. Cele trei versiuni, după descrierea din pagină:
 
-- 1D (v2.1.1, „Axa Radială"): 112 galaxii pe o singură axă, cu patru moduri de axă (lookback time, comoving, redshift z, factor de scară); aprox. 160 KB.
-- 2D (v6.2.1, „Harta Plană"): 12 orizonturi cosmice, zoom adaptiv, permalink cu stare, quiz cu leaderboard; aprox. 550 KB.
+- 1D (v2.1.2, „Axa Radială"): 112 galaxii pe o singură axă, cu patru moduri de axă (lookback time, comoving, redshift z, factor de scară); aprox. 160 KB.
+- 2D (v6.2.2, „Harta Plană"): 12 orizonturi cosmice, zoom adaptiv, permalink cu stare, quiz cu leaderboard; aprox. 550 KB.
 - 3D (v2.1.1, „Spațiu Real"): coordonate RA/Dec reale, cosmologie ΛCDM, selector H₀ (Planck 67,4 vs. SH0ES 73,0), WebGL cu Three.js r128; aprox. 1 MB.
 
 Pagina indică un catalog actualizat în mai 2026 și MoM-z14 (z = 14,44, confirmat spectroscopic cu JWST; Naidu et al. 2025) drept recordul de distanță **la data catalogului (mai 2026)**; nu garantăm că rămâne record ulterior. Cifrele de mai sus sunt cele declarate de pagină, nu verificate aici.
@@ -65,6 +65,10 @@ Descarcă `index.html` și deschide-l în browser: pagina se afișează fără i
 - **Unificarea cataloagelor într-un fișier comun: nu s-a făcut**; ar fi presupus alegerea uneia dintre valorile în conflict.
 
 ## Istoric / Changelog
+
+### 2.1.2 — 2026-10-28
+- Copia din hub urmează 1D (7 distanțe, NGC 1277, „Abell 2744 (Pandora)”); `docs/DISCREPANTE.md` regenerat; `tests/catalog-consistency.test.mjs` extins (surse, intrări neschimbate, audit z > 0,01); cardurile arată 1D 2.1.2 / 2D 6.2.2 / 3D 2.1.1.
+
 
 ### 2.1.1 — 2026-10-28
 - Corecții de catalog: copia din hub urmează 1D (eticheta „IC 310 (Perseus)”); cele 8 distanțe și semnul z al Andromedei sunt rezolvate cu surse în `docs/DISCREPANTE.md` (generator `tools/compare-catalogs.mjs`); test nou `tests/catalog-consistency.test.mjs`; cardurile arată 1D 2.1.1 / 2D 6.2.1 / 3D 2.1.1.
