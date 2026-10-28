@@ -2,7 +2,7 @@
 
 [English](README.md) · **Română** · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versiune:** 2.1.0 · **Ultima actualizare:** 2026-10-27
+**Versiune:** 2.1.1 · **Ultima actualizare:** 2026-10-28
 
 **Stare:** stabil · **Offline:** complet (un singur fișier; cele trei aplicații se lansează din linkuri)
 
@@ -18,9 +18,9 @@ Pagină de intrare care prezintă și compară cele trei versiuni (1D, 2D, 3D) a
 
 Acest fișier HTML este pagina-hub a seriei „Observable Universe": nu conține vizualizările în sine (are doar un mic calculator cosmologic offline), ci le prezintă, le compară și trimite către ele. Cele trei versiuni, după descrierea din pagină:
 
-- 1D (v2.1.0, „Axa Radială"): 112 galaxii pe o singură axă, cu patru moduri de axă (lookback time, comoving, redshift z, factor de scară); aprox. 160 KB.
-- 2D (v6.2.0, „Harta Plană"): 12 orizonturi cosmice, zoom adaptiv, permalink cu stare, quiz cu leaderboard; aprox. 550 KB.
-- 3D (v2.1.0, „Spațiu Real"): coordonate RA/Dec reale, cosmologie ΛCDM, selector H₀ (Planck 67,4 vs. SH0ES 73,0), WebGL cu Three.js r128; aprox. 1 MB.
+- 1D (v2.1.1, „Axa Radială"): 112 galaxii pe o singură axă, cu patru moduri de axă (lookback time, comoving, redshift z, factor de scară); aprox. 160 KB.
+- 2D (v6.2.1, „Harta Plană"): 12 orizonturi cosmice, zoom adaptiv, permalink cu stare, quiz cu leaderboard; aprox. 550 KB.
+- 3D (v2.1.1, „Spațiu Real"): coordonate RA/Dec reale, cosmologie ΛCDM, selector H₀ (Planck 67,4 vs. SH0ES 73,0), WebGL cu Three.js r128; aprox. 1 MB.
 
 Pagina indică un catalog actualizat în mai 2026 și MoM-z14 (z = 14,44, confirmat spectroscopic cu JWST; Naidu et al. 2025) drept recordul de distanță **la data catalogului (mai 2026)**; nu garantăm că rămâne record ulterior. Cifrele de mai sus sunt cele declarate de pagină, nu verificate aici.
 
@@ -55,7 +55,7 @@ Descarcă `index.html` și deschide-l în browser: pagina se afișează fără i
 
 - **Numere.** Hub: 112 intrări (copie identică a catalogului 1D). 1D: 112. 2D: 112 (111 galaxii + orizontul CMB; unele texte spun 111). 3D: 118 („peste 115” în descrieri). Cifrele diferă pentru că cataloagele sunt separate, nu dintr-o eroare de numărare.
 - **Neunificate.** 3D are catalogul propriu, într-o structură diferită (RA în ore, alte nume și grafii), așa că numele se potrivesc doar parțial cu 1D/2D. Unificarea într-un singur fișier comun nu s-a făcut: fiecare aplicație este un singur fișier offline, fără pas de build comun, iar îmbinarea ar schimba datele în trei aplicații fără cum să fie validată aici. Semnalat autorului.
-- **Conflict cunoscut 1D ↔ 2D (necorectat, de verificat cu surse).** Cele două cataloage au aceleași 112 nume, dar 8 intrări au altă distanță (d = lookback, în Mly, 1D→2D): NGC 1132 330→1020, Perseus (BCG IC 310) 270→780, 3C 48 4150→5200, Abell 370 4200→5900, CL 0024+1654 4400→5500, SDSS J1004+4112 10050→7000, IC 4296 180→130, Abell 1689 2330→7200; iar semnul redshift-ului Andromedei (M31) este −0,001 în 1D și +0,001 în 2D.
+- **Conflict 1D ↔ 2D (rezolvat la 2026-10-28; surse și formule în `docs/DISCREPANTE.md` din hub).** Cele 8 distanțe (NGC 1132, IC 310, 3C 48, Abell 370, CL 0024+1654, SDSS J1004+4112, IC 4296, Abell 1689) urmează acum aceeași convenție în ambele aplicații: d = lb = lookback(z), în Mly, ΛCDM plat Planck 2018 (H₀ = 67,4, Ωm = 0,315), cu z confirmat de cel puțin 2 surse; 2D a preluat valorile din 1D (330, 270, 4150, 4200, 4400, 10050, 180, 2330). Redshift-ul Andromedei (M31) este −0,001 în ambele (M31 este spre albastru, −301 km/s). Eticheta „Perseus (BCG IC 310)” a devenit „IC 310 (Perseus)”: IC 310 nu este cea mai strălucitoare galaxie a roiului (aceea este NGC 1275, intrare separată).
 
 ## Versiuni reale și discrepanțe (2.1.0)
 
@@ -65,6 +65,10 @@ Descarcă `index.html` și deschide-l în browser: pagina se afișează fără i
 - **Unificarea cataloagelor într-un fișier comun: nu s-a făcut**; ar fi presupus alegerea uneia dintre valorile în conflict.
 
 ## Istoric / Changelog
+
+### 2.1.1 — 2026-10-28
+- Corecții de catalog: copia din hub urmează 1D (eticheta „IC 310 (Perseus)”); cele 8 distanțe și semnul z al Andromedei sunt rezolvate cu surse în `docs/DISCREPANTE.md` (generator `tools/compare-catalogs.mjs`); test nou `tests/catalog-consistency.test.mjs`; cardurile arată 1D 2.1.1 / 2D 6.2.1 / 3D 2.1.1.
+
 
 ### 2.1.0 — 2026-10-27
 - Etichete cu versiunea reală, test de versiuni, `docs/DISCREPANTE.md`.
