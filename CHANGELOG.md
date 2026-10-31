@@ -2,6 +2,10 @@
 
 Format: SemVer (MAJOR.MINOR.PATCH). Intrările mai vechi sunt copiate din README (secțiunea „History / Changelog”), neschimbate.
 
+## 2.1.3 — 2026-10-31
+
+Doar interfață (accesibilitate pe telefon, 360×740): caseta „calcCmp” 13 → 24 px; versiunea afișată aliniată la 2.1.3. Fără alte schimbări de comportament.
+
 ## 2.1.2 — 2026-10-28 (anterior: 2.1.1)
 
 Stare: stabil
