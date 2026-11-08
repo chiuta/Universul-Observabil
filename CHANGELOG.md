@@ -2,6 +2,10 @@
 
 Format: SemVer (MAJOR.MINOR.PATCH). Intrările mai vechi sunt copiate din README (secțiunea „History / Changelog”), neschimbate.
 
+## 2.1.7 — 2026-11-08
+
+Tabelul comparativ are două rânduri noi (8 limbi): «Ce păstrează / ce deformează» (50a) și «Catalog: origine și dată» (50b); etichetele versiunilor urmează 1D 2.1.5 / 3D 2.2.5 (UO_APPS și README-uri).
+
 ## 2.1.4 — 2026-11-03
 
 Etapa 7: eticheta variantei 3D din panou arată versiunea reală (2.2.2, nu 2.1.1).
