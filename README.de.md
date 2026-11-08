@@ -18,8 +18,8 @@ Einstiegsseite, die die drei Versionen (1D, 2D, 3D) der Visualisierung des beoba
 
 Diese HTML-Datei ist die Hub-Seite der Serie „Observable Universe": Sie enthält die Visualisierungen nicht selbst (sie hat nur einen kleinen Offline-Kosmologie-Rechner), sondern stellt sie vor, vergleicht sie und verweist auf sie. Die drei Versionen laut Beschreibung auf der Seite:
 
-- 1D (v2.1.2, „Radialachse"): 112 Galaxien auf einer einzigen Achse, mit vier Achsenmodi (Rückblickzeit, mitbewegte Entfernung, Rotverschiebung z, Skalenfaktor); ca. 160 KB.
-- 2D (v6.2.2, „Flache Karte"): 12 kosmische Horizonte, adaptives Zoomen, Permalink mit Zustand, Quiz mit Bestenliste; ca. 550 KB.
+- 1D (v2.1.3, „Radialachse"): 112 Galaxien auf einer einzigen Achse, mit vier Achsenmodi (Rückblickzeit, mitbewegte Entfernung, Rotverschiebung z, Skalenfaktor); ca. 160 KB.
+- 2D (v6.2.3, „Flache Karte"): 12 kosmische Horizonte, adaptives Zoomen, Permalink mit Zustand, Quiz mit Bestenliste; ca. 550 KB.
 - 3D (v2.1.1, „Realer Raum"): echte RA/Dek-Koordinaten, ΛCDM-Kosmologie, H₀-Auswahl (Planck 67,4 vs. SH0ES 73,0), WebGL mit Three.js r128; ca. 1 MB.
 
 Die Seite nennt einen im Mai 2026 aktualisierten Katalog und MoM-z14 (z = 14,44, spektroskopisch mit dem JWST bestätigt; Naidu et al. 2025) als Entfernungsrekord **zum Katalogdatum (Mai 2026)**; wir garantieren nicht, dass er danach Rekord bleibt. Die obigen Angaben sind die von der Seite deklarierten und wurden hier nicht überprüft.
