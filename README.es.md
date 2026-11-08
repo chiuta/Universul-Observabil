@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · **Español** · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versión:** 2.1.5 · **Última actualización:** 2026-11-07
+**Versión:** 2.1.6 · **Última actualización:** 2026-11-08
 
 **Estado:** estable · **Sin conexión:** completo (un solo archivo; las tres aplicaciones se abren desde los enlaces)
 
@@ -18,9 +18,9 @@ Página de entrada que presenta y compara las tres versiones (1D, 2D, 3D) de la 
 
 Este archivo HTML es la página principal de la serie «Observable Universe»: no contiene las visualizaciones en sí (solo tiene una pequeña calculadora cosmológica sin conexión), sino que las presenta, las compara y enlaza a ellas. Las tres versiones, según la descripción de la página:
 
-- 1D (v2.1.3, «Eje radial»): 112 galaxias en un solo eje, con cuatro modos de eje (tiempo de retrospección, distancia comóvil, corrimiento al rojo z, factor de escala); aprox. 160 KB.
-- 2D (v6.2.3, «Mapa plano»): 12 horizontes cósmicos, zoom adaptativo, enlace permanente con estado, cuestionario con clasificación; aprox. 550 KB.
-- 3D (v2.1.1, «Espacio real»): coordenadas AR/Dec reales, cosmología ΛCDM, selector de H₀ (Planck 67,4 frente a SH0ES 73,0), WebGL con Three.js r128; aprox. 1 MB.
+- 1D (v2.1.4, «Eje radial»): 112 galaxias en un solo eje, con cuatro modos de eje (tiempo de retrospección, distancia comóvil, corrimiento al rojo z, factor de escala); aprox. 160 KB.
+- 2D (v6.2.4, «Mapa plano»): 12 horizontes cósmicos, zoom adaptativo, enlace permanente con estado, cuestionario con clasificación; aprox. 550 KB.
+- 3D (v2.2.4, «Espacio real»): coordenadas AR/Dec reales, cosmología ΛCDM, selector de H₀ (Planck 67,4 frente a SH0ES 73,0), WebGL con Three.js r128; aprox. 1 MB.
 
 La página indica un catálogo actualizado en mayo de 2026 y MoM-z14 (z = 14,44, confirmado espectroscópicamente con el JWST; Naidu et al. 2025) como récord de distancia **a la fecha del catálogo (mayo de 2026)**; no garantizamos que siga siendo récord después. Las cifras anteriores son las que declara la página, no verificadas aquí.
 
