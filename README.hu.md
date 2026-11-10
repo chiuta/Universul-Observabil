@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · **Magyar**
 
-**Verzió:** 2.1.7 · **Utolsó frissítés:** 2026-11-08
+**Verzió:** 2.1.8 · **Utolsó frissítés:** 2026-11-10
 
 **Állapot:** stabil · **Offline:** teljes (egyetlen fájl; a három alkalmazás a hivatkozásokról indul)
 
@@ -18,9 +18,9 @@ Nyitóoldal, amely bemutatja és összehasonlítja a megfigyelhető Világegyete
 
 Ez a HTML-fájl az „Observable Universe" sorozat központi oldala: magukat a vizualizációkat nem tartalmazza (csak egy kis offline kozmológiai számológépet), hanem bemutatja, összehasonlítja és hivatkozza őket. A három változat az oldal leírása szerint:
 
-- 1D (v2.1.5, „Radiális tengely"): 112 galaxis egyetlen tengelyen, négy tengelymóddal (visszatekintési idő, együttmozgó távolság, z vöröseltolódás, skálatényező); kb. 160 KB.
-- 2D (v6.2.4, „Síktérkép"): 12 kozmikus horizont, adaptív nagyítás, állapotot tároló állandó hivatkozás, kvíz ranglistával; kb. 550 KB.
-- 3D (v2.2.5, „Valódi tér"): valódi rektaszcenzió/deklináció koordináták, ΛCDM kozmológia, H₀-választó (Planck 67,4 és SH0ES 73,0), WebGL Three.js r128-cal; kb. 1 MB.
+- 1D (v2.1.6, „Radiális tengely"): 112 galaxis egyetlen tengelyen, négy tengelymóddal (visszatekintési idő, együttmozgó távolság, z vöröseltolódás, skálatényező); kb. 160 KB.
+- 2D (v6.2.5, „Síktérkép"): 12 kozmikus horizont, adaptív nagyítás, állapotot tároló állandó hivatkozás, kvíz ranglistával; kb. 550 KB.
+- 3D (v2.2.6, „Valódi tér"): valódi rektaszcenzió/deklináció koordináták, ΛCDM kozmológia, H₀-választó (Planck 67,4 és SH0ES 73,0), WebGL Three.js r128-cal; kb. 1 MB.
 
 Az oldal egy 2026 májusában frissített katalógust, valamint a MoM-z14-et (z = 14,44, a JWST-vel spektroszkópiailag megerősítve; Naidu és mtsai, 2025) jelöli meg távolsági rekordként **a katalógus időpontjában (2026. május)**; nem garantáljuk, hogy ezután is rekord marad. A fenti számok az oldal által megadott értékek, itt nem ellenőriztük őket.
 

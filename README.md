@@ -2,7 +2,7 @@
 
 **English** · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version:** 2.1.7 · **Last updated:** 2026-11-08
+**Version:** 2.1.8 · **Last updated:** 2026-11-10
 
 **Status:** stable · **Offline:** complete (a single file; the three apps are launched from the links)
 
@@ -18,9 +18,9 @@ Landing page that presents and compares the three versions (1D, 2D, 3D) of the o
 
 This HTML file is the hub page of the "Observable Universe" series: it does not contain the visualisations themselves (it only has a small offline cosmology calculator), but presents them, compares them and links to them. The three versions, as described on the page:
 
-- 1D (v2.1.5, "Radial Axis"): 112 galaxies on a single axis, with four axis modes (lookback time, comoving, redshift z, scale factor); approx. 160 KB.
-- 2D (v6.2.4, "Flat Map"): 12 cosmic horizons, adaptive zoom, permalink with state, quiz with leaderboard; approx. 550 KB.
-- 3D (v2.2.5, "Real Space"): real RA/Dec coordinates, ΛCDM cosmology, H₀ selector (Planck 67.4 vs. SH0ES 73.0), WebGL with Three.js r128; approx. 1 MB.
+- 1D (v2.1.6, "Radial Axis"): 112 galaxies on a single axis, with four axis modes (lookback time, comoving, redshift z, scale factor); approx. 160 KB.
+- 2D (v6.2.5, "Flat Map"): 12 cosmic horizons, adaptive zoom, permalink with state, quiz with leaderboard; approx. 550 KB.
+- 3D (v2.2.6, "Real Space"): real RA/Dec coordinates, ΛCDM cosmology, H₀ selector (Planck 67.4 vs. SH0ES 73.0), WebGL with Three.js r128; approx. 1 MB.
 
 The page cites a catalogue updated in May 2026 and MoM-z14 (z = 14.44, spectroscopically confirmed with JWST; Naidu et al. 2025) as the distance record **as of the catalogue date (May 2026)**; we do not guarantee that it remains the record afterwards. The figures above are those declared by the page, not verified here.
 

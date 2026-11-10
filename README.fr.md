@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · **Français** · [Italiano](README.it.md) · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Version :** 2.1.7 · **Dernière mise à jour :** 2026-11-08
+**Version :** 2.1.8 · **Dernière mise à jour :** 2026-11-10
 
 **État :** stable · **Hors ligne :** complet (un seul fichier ; les trois applications se lancent depuis les liens)
 
@@ -18,9 +18,9 @@ Page d'accueil qui présente et compare les trois versions (1D, 2D, 3D) de la vi
 
 Ce fichier HTML est la page-hub de la série « Observable Universe » : il ne contient pas les visualisations elles-mêmes (il n'a qu'un petit calculateur cosmologique hors ligne), mais les présente, les compare et renvoie vers elles. Les trois versions, d'après la description de la page :
 
-- 1D (v2.1.5, « Axe radial ») : 112 galaxies sur un seul axe, avec quatre modes d'axe (temps de regard en arrière, distance comobile, décalage vers le rouge z, facteur d'échelle) ; env. 160 Ko.
-- 2D (v6.2.4, « Carte plane ») : 12 horizons cosmiques, zoom adaptatif, permalien avec état, quiz avec classement ; env. 550 Ko.
-- 3D (v2.2.5, « Espace réel ») : coordonnées AD/Déc réelles, cosmologie ΛCDM, sélecteur de H₀ (Planck 67,4 contre SH0ES 73,0), WebGL avec Three.js r128 ; env. 1 Mo.
+- 1D (v2.1.6, « Axe radial ») : 112 galaxies sur un seul axe, avec quatre modes d'axe (temps de regard en arrière, distance comobile, décalage vers le rouge z, facteur d'échelle) ; env. 160 Ko.
+- 2D (v6.2.5, « Carte plane ») : 12 horizons cosmiques, zoom adaptatif, permalien avec état, quiz avec classement ; env. 550 Ko.
+- 3D (v2.2.6, « Espace réel ») : coordonnées AD/Déc réelles, cosmologie ΛCDM, sélecteur de H₀ (Planck 67,4 contre SH0ES 73,0), WebGL avec Three.js r128 ; env. 1 Mo.
 
 La page indique un catalogue mis à jour en mai 2026 et MoM-z14 (z = 14,44, confirmé spectroscopiquement par le JWST ; Naidu et al. 2025) comme record de distance **à la date du catalogue (mai 2026)** ; nous ne garantissons pas qu'il reste un record par la suite. Les chiffres ci-dessus sont ceux que déclare la page, non vérifiés ici.
 
