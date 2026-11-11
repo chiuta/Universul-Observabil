@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · **Italiano** · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versione:** 2.1.8 · **Ultimo aggiornamento:** 2026-11-10
+**Versione:** 2.1.9 · **Ultimo aggiornamento:** 2026-11-10
 
 **Stato:** stabile · **Offline:** completo (un solo file; le tre app si avviano dai link)
 
@@ -18,9 +18,9 @@ Pagina d'ingresso che presenta e confronta le tre versioni (1D, 2D, 3D) della vi
 
 Questo file HTML è la pagina-hub della serie «Observable Universe»: non contiene le visualizzazioni vere e proprie (ha solo un piccolo calcolatore cosmologico offline), ma le presenta, le confronta e rimanda ad esse. Le tre versioni, secondo la descrizione della pagina:
 
-- 1D (v2.1.6, «Asse radiale»): 112 galassie su un unico asse, con quattro modalità di asse (tempo di sguardo all'indietro, distanza comovente, redshift z, fattore di scala); circa 160 KB.
-- 2D (v6.2.5, «Mappa piana»): 12 orizzonti cosmici, zoom adattivo, permalink con stato, quiz con classifica; circa 550 KB.
-- 3D (v2.2.6, «Spazio reale»): coordinate AR/Dec reali, cosmologia ΛCDM, selettore di H₀ (Planck 67,4 contro SH0ES 73,0), WebGL con Three.js r128; circa 1 MB.
+- 1D (v2.1.7, «Asse radiale»): 112 galassie su un unico asse, con quattro modalità di asse (tempo di sguardo all'indietro, distanza comovente, redshift z, fattore di scala); circa 160 KB.
+- 2D (v6.2.6, «Mappa piana»): 12 orizzonti cosmici, zoom adattivo, permalink con stato, quiz con classifica; circa 550 KB.
+- 3D (v2.2.7, «Spazio reale»): coordinate AR/Dec reali, cosmologia ΛCDM, selettore di H₀ (Planck 67,4 contro SH0ES 73,0), WebGL con Three.js r128; circa 1 MB.
 
 La pagina indica un catalogo aggiornato a maggio 2026 e MoM-z14 (z = 14,44, confermato spettroscopicamente con il JWST; Naidu et al. 2025) come record di distanza **alla data del catalogo (maggio 2026)**; non garantiamo che resti un record in seguito. Le cifre sopra riportate sono quelle dichiarate dalla pagina, non verificate qui.
 

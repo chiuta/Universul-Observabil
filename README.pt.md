@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · [Italiano](README.it.md) · [Español](README.es.md) · **Português** · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versão:** 2.1.8 · **Última atualização:** 2026-11-10
+**Versão:** 2.1.9 · **Última atualização:** 2026-11-10
 
 **Estado:** estável · **Offline:** completo (um só ficheiro; as três aplicações abrem-se a partir das ligações)
 
@@ -18,9 +18,9 @@ Página de entrada que apresenta e compara as três versões (1D, 2D, 3D) da vis
 
 Este ficheiro HTML é a página-hub da série «Observable Universe»: não contém as visualizações propriamente ditas (tem apenas uma pequena calculadora cosmológica offline), mas apresenta-as, compara-as e remete para elas. As três versões, segundo a descrição da página:
 
-- 1D (v2.1.6, «Eixo radial»): 112 galáxias num único eixo, com quatro modos de eixo (tempo de retrospeção, distância comóvel, desvio para o vermelho z, fator de escala); cerca de 160 KB.
-- 2D (v6.2.5, «Mapa plano»): 12 horizontes cósmicos, zoom adaptativo, ligação permanente com estado, questionário com classificação; cerca de 550 KB.
-- 3D (v2.2.6, «Espaço real»): coordenadas AR/Dec reais, cosmologia ΛCDM, seletor de H₀ (Planck 67,4 contra SH0ES 73,0), WebGL com Three.js r128; cerca de 1 MB.
+- 1D (v2.1.7, «Eixo radial»): 112 galáxias num único eixo, com quatro modos de eixo (tempo de retrospeção, distância comóvel, desvio para o vermelho z, fator de escala); cerca de 160 KB.
+- 2D (v6.2.6, «Mapa plano»): 12 horizontes cósmicos, zoom adaptativo, ligação permanente com estado, questionário com classificação; cerca de 550 KB.
+- 3D (v2.2.7, «Espaço real»): coordenadas AR/Dec reais, cosmologia ΛCDM, seletor de H₀ (Planck 67,4 contra SH0ES 73,0), WebGL com Three.js r128; cerca de 1 MB.
 
 A página indica um catálogo atualizado em maio de 2026 e o MoM-z14 (z = 14,44, confirmado espetroscopicamente com o JWST; Naidu et al. 2025) como recorde de distância **à data do catálogo (maio de 2026)**; não garantimos que continue a ser recorde depois disso. Os valores acima são os declarados pela página, não verificados aqui.
 
