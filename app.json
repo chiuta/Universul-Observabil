@@ -8,13 +8,14 @@
   "egress": [],
   "permissions": [
     "serviceWorker",
-    "localStorage"
+    "localStorage",
+    "WebGL"
   ],
   "storageKeys": [
     "universul-observabil.lang"
   ],
-  "sizeBytes": 896363,
-  "sha256": "2e0833d61e8059e31fe57320d9180b62d9ad8e98fc442448a7babc7cc3f42aa7",
+  "sizeBytes": 948373,
+  "sha256": "5057f3ccb268fd5b1ebd57ce2cae7b43a1edfc635ad9e5052adc3792f56127fd",
   "csp": {
     "present": true,
     "directives": {
@@ -27,7 +28,7 @@
       "base-uri": "'self'",
       "form-action": "'self'",
       "worker-src": "'self' blob:",
-      "script-src": "'self' blob: sha256×4",
+      "script-src": "'self' blob: sha256×5",
       "connect-src": "'self'",
       "manifest-src": "'self'"
     },
