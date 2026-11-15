@@ -2,7 +2,7 @@
 
 [English](README.md) · [Română](README.ro.md) · [Français](README.fr.md) · **Italiano** · [Español](README.es.md) · [Português](README.pt.md) · [Deutsch](README.de.md) · [Magyar](README.hu.md)
 
-**Versione:** 2.1.11 · **Ultimo aggiornamento:** 2026-11-13
+**Versione:** 2.1.12 · **Ultimo aggiornamento:** 2026-11-15
 
 **Stato:** stabile · **Offline:** completo (un solo file; le tre app si avviano dai link)
 

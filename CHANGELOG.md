@@ -2,6 +2,10 @@
 
 Format: SemVer (MAJOR.MINOR.PATCH). Intrările mai vechi sunt copiate din README (secțiunea „History / Changelog”), neschimbate.
 
+## 2.1.12 — 2026-11-15
+
+- Nou: texturi fractale hiper-detaliate (fff-texturi 1.1.2) — fundalul și suprafețele mari (carduri, panouri, antete, butoane; filele și dialogurile ascunse la încărcare, când se deschid) primesc un material generat local (WebGL2, fără rețea și fără imagini), care se repetă fără cusătură; culorile aplicației rămân ale ei. Se oprește din dialogul „Transparență” sau cu `?notex=1`.
+
 ## 2.1.7 — 2026-11-08
 
 Tabelul comparativ are două rânduri noi (8 limbi): «Ce păstrează / ce deformează» (50a) și «Catalog: origine și dată» (50b); etichetele versiunilor urmează 1D 2.1.5 / 3D 2.2.5 (UO_APPS și README-uri).
