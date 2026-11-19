@@ -2,8 +2,8 @@
   "schema": 1,
   "slug": "universul-observabil",
   "name": "Observable Universe — 1D · 2D · 3D",
-  "version": "2.2.2",
-  "updated": "2026-11-17",
+  "version": "2.2.3",
+  "updated": "2026-11-20",
   "description": "Tripticul interactiv al cosmosului — trei instrumente de explorare a Universului observabil. Catalog mai 2026 (JWST), cosmologie ΛCDM.",
   "egress": [],
   "permissions": [
@@ -14,8 +14,8 @@
   "storageKeys": [
     "universul-observabil.lang"
   ],
-  "sizeBytes": 1075748,
-  "sha256": "31033baa6b4a66092819fa93af0a289f22f943d4aed3d11206e354952ddd6203",
+  "sizeBytes": 1080059,
+  "sha256": "0627969aadef189ed9fa718156b8c6c3180e335e5b1daf38783875d650f8de88",
   "csp": {
     "present": true,
     "directives": {
@@ -70,7 +70,7 @@
     ]
   },
   "kit": {
-    "version": "1.8.0",
+    "version": "1.8.1",
     "modules": [
       "core",
       "store",
